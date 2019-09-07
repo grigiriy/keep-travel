@@ -16,14 +16,31 @@ $map = !empty(carbon_get_post_meta($post->ID, 'map')) ? carbon_get_post_meta($po
 $map = wp_get_attachment_image_url( $map, 'full' );
 while (have_posts()) : the_post();
 $page_name = !empty($sub_name) ? $sub_name : get_the_title();
+
+$gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? carbon_get_post_meta($post->ID, 'gallery', 'complex') : null ;
  ?>
+
+ <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+ <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+ <style type="text/css">
+   .slick-prev::before,
+   .slick-next::before {
+    color: #000;
+   }
+   @media(min-width: 570px){
+    .slick-prev {
+      left: -14px!important;
+    }
+   }
+ </style>
 <!-- End Navbar -->
 <div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
 <div class="filter"></div>
 <div class="content-center">
   <div class="motto">
     <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>">Путешествие по <?= $page_name ?></h1>
-    <h5><?= $mini_texts[0]['days'] ?> дней / от <?= $mini_texts[0]['pricerange'] ?></h5>
+    <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
+    <h3><strong><?= $table[0]['dates'] ?></strong></h3>
   </div>
 </div>
 </div>
@@ -288,6 +305,33 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
 </div>
 </div>
 
+<?php if ($gallery_pics) { ?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-autotext-center">
+      <div class="space-top"></div>
+      <h2 class="title">Как это было</h2>
+    </div>
+  </div>
+  <div class="mb-5 mx-auto">
+      <div class="gallery_wrap">
+      <?php
+      for ($i = 0; $i < count($gallery_pics); $i++ ) {
+          $image = wp_get_attachment_image_url( $gallery_pics[$i]['image'], 'full' );
+          $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
+          $att = ($i < 3) ? 'src' : 'data-lazy';
+      ?>
+      <div>
+        <a href="<?= $image ?>" rel="<?= get_the_title() ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= get_the_title() ?>" class="gallery_item">
+          <img class="img-fluid" <?= $att ?>="<?= $preview ?>" alt="...">
+        </a>
+      </div>
+    <?php } ?>
+    </div>
+  </div>
+</div>
+<?php } ?>
+
 <div class="container">
   <div class="row">
       <div class="mx-auto col-md-8">
@@ -317,7 +361,11 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
 </div>
 
 <!-- start footer screen -->
-<div id="footer" style="background-image: url('/wp-content/uploads/2019/02/17.jpg')">
+<?php
+$_ttl = get_the_title();
+$bt_bg = ( $_ttl == 'Исландия. В поисках северного сияния' ) ? '/wp-content/uploads/2019/09/isla_bt_bg.jpg' : '/wp-content/uploads/2019/02/17.jpg';
+?>
+<div id="footer" style="background-image: url(<?= $bt_bg ?>)">
     <div class="container">
       <div class="row">
           <div class="col-md-8 mx-auto py-3">
@@ -445,6 +493,40 @@ $(function(){
   gtag('js', new Date());
 
   gtag('config', 'UA-135472998-1');
+</script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+$("a.gallery_item").fancybox();
+
+$('.gallery_wrap').slick( {
+  centerMode: false,
+  slidesToShow: 3,
+  infinite: true,
+  lazyLoad: 'ondemand',
+  variableWidth: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        centerMode: false,
+        slidesToShow: 2,
+        lazyLoad: 'ondemand',
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        centerMode: false,
+        slidesToShow: 1,
+        lazyLoad: 'ondemand',
+        infinite: true,
+        variableWidth: false,
+      }
+    }
+  ]
+});
 </script>
 
 </body>

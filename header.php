@@ -7,7 +7,7 @@
   <title>
      <?= the_title(); ?>
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no' name='viewport' />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -59,6 +59,9 @@
 
 
 <body>
+  <script type="text/javascript">
+    window.location.hash = "";
+  </script>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top nav-down navbar-transparent" color-on-scroll="600">
       <div class="container header-container">

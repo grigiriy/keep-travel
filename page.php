@@ -11,214 +11,7 @@ $gallery = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? carbo
 while (have_posts()) : the_post();
 ?>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<style>
-  @charset 'UTF-8';
-/* Slider */
-.slick-loading .slick-list
-{
-    background: #fff url('./ajax-loader.gif') center center no-repeat;
-}
-
-/* Icons */
-@font-face
-{
-    font-family: 'slick';
-    font-weight: normal;
-    font-style: normal;
-
-    src: url('./fonts/slick.eot');
-    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
-}
-/* Arrows */
-.slick-prev,
-.slick-next
-{
-    font-size: 0;
-    line-height: 0;
-
-    position: absolute;
-    top: 50%;
-
-    display: block;
-
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-
-    cursor: pointer;
-
-    color: transparent;
-    border: none;
-    outline: none;
-    background: transparent;
-}
-.slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus
-{
-    color: transparent;
-    outline: none;
-    background: transparent;
-}
-.slick-prev:hover:before,
-.slick-prev:focus:before,
-.slick-next:hover:before,
-.slick-next:focus:before
-{
-    opacity: 1;
-}
-.slick-prev.slick-disabled:before,
-.slick-next.slick-disabled:before
-{
-    opacity: .25;
-}
-
-.slick-prev:before,
-.slick-next:before
-{
-    font-family: 'slick';
-    font-size: 20px;
-    line-height: 1;
-
-    opacity: .75;
-    color: white;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.slick-prev
-{
-    left: -25px;
-}
-[dir='rtl'] .slick-prev
-{
-    right: -25px;
-    left: auto;
-}
-.slick-prev:before
-{
-    content: '←';
-}
-[dir='rtl'] .slick-prev:before
-{
-    content: '→';
-}
-
-.slick-next
-{
-    right: -25px;
-}
-[dir='rtl'] .slick-next
-{
-    right: auto;
-    left: -25px;
-}
-.slick-next:before
-{
-    content: '→';
-}
-[dir='rtl'] .slick-next:before
-{
-    content: '←';
-}
-
-/* Dots */
-.slick-dotted.slick-slider
-{
-    margin-bottom: 30px;
-}
-
-.slick-dots
-{
-    position: absolute;
-    bottom: -25px;
-
-    display: block;
-
-    width: 100%;
-    padding: 0;
-    margin: 0;
-
-    list-style: none;
-
-    text-align: center;
-}
-.slick-dots li
-{
-    position: relative;
-
-    display: inline-block;
-
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    padding: 0;
-
-    cursor: pointer;
-}
-.slick-dots li button
-{
-    font-size: 0;
-    line-height: 0;
-
-    display: block;
-
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-
-    cursor: pointer;
-
-    color: transparent;
-    border: 0;
-    outline: none;
-    background: transparent;
-}
-.slick-dots li button:hover,
-.slick-dots li button:focus
-{
-    outline: none;
-}
-.slick-dots li button:hover:before,
-.slick-dots li button:focus:before
-{
-    opacity: 1;
-}
-.slick-dots li button:before
-{
-    font-family: 'slick';
-    font-size: 6px;
-    line-height: 20px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 20px;
-    height: 20px;
-
-    content: '•';
-    text-align: center;
-
-    opacity: .25;
-    color: black;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.slick-dots li.slick-active button:before
-{
-    opacity: .75;
-    color: black;
-}
-
-</style>
-
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
  <div class="section-space"></div>
  <div class="header-2" id="top">
 <div id="carouselExampleIndicators" class="page-header carousel slide" data-ride="carousel" >
@@ -316,7 +109,7 @@ while (have_posts()) : the_post();
             </div>
           </div>
           <div class="col-md-4 d-flex">
-            <div class="card" data-background="image" style="width:100%;background-image: url('/wp-content/uploads/2019/07/group.jpg')">
+            <div class="card" data-background="image" style="width:100%;background-image: url('/wp-content/uploads/2019/09/group.jpg')">
             <a href="#group" class="btn btn-link btn-neutral">
               <div class="card-body">
                 <h6 class="card-category">Групповое</h6>
@@ -385,10 +178,14 @@ while (have_posts()) : the_post();
                  $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
                  $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
                  $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
-                 // $n = ($key  < 3 ) ? 4 : 3;
-                 $n = 3;
+                 $n = ($key  < 5 ) ? 4 : 3;
+                 // $n = 4;
                  $_i++;
-                 if ($_i == 5){
+                 if ($_i == 4){
+                  $n = '4 offset-lg-2';
+                 }
+
+                 if ($_i == 6){
                   ?>
                   <div class="col-md-12 mt-5 mb-3">
                     <h4 style="text-align:center">Другие путешествия</h4>
@@ -420,8 +217,7 @@ while (have_posts()) : the_post();
                 </div>
                 <div class="card-description strong white">
                     <p class="mb-3"><?= $table[0]['dates'] ?></p>
-                    <p class="mb-3"><?= $mini_texts[0]['days'] ?> дней / от <?= $mini_texts[0]['pricerange'] ?></p>
-                    <p class="mb-3"><?= $mini_texts[0]['from_to'] ?></p>
+                    <p class="mb-3"><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></p>
                     <p><?= $mini_texts[0]['minitext'] ?></p>
                 </div>
                 <div class="card-footer" style="margin-top: auto;">
@@ -450,8 +246,8 @@ while (have_posts()) : the_post();
         $header = !empty($insta[$i]['header']) ? $insta[$i]['header'] : null ;
         $instik = !empty($insta[$i]['instik']) ? $insta[$i]['instik'] : null ;
       ?>
-        <div class="col-lg-4 col-md-12 px-3">
-          <h6><?= $header ?></h6>
+        <div class="col-lg-4 col-md-12 px-3 mb-5">
+          <h5><?= $header ?></h5>
           <?= $instik ?>
         </div>
         <?php } ?>
@@ -476,7 +272,7 @@ for ($i = 0; $i < count($faq); $i++){
     $faq_title = !empty($faq[$i]['faq_title']) ? $faq[$i]['faq_title'] : null ;
     $faq_text = !empty($faq[$i]['faq_text']) ? $faq[$i]['faq_text'] : null ;
 ?>
-  <div class="card card-plain">
+  <div class="card card-plain faq_card">
     <div class="card-header" id="<?= 'heading_' . $i ?>" data-background="color" data-color="brown">
       <h5 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="<?= '#collapce_' . $i ?>" aria-expanded="true" aria-controls="<?= 'collapce_' . $i ?>">
@@ -581,15 +377,15 @@ for ($i = 0; $i < count($faq); $i++){
       </div>
     </div>
     <!-- end ценности screen -->
-
-    <div class="container mb-5" id="guides">
+    <div id="guides" style="margin-top: -50px; margin-bottom: 70px"></div>
+    <div class="container mb-5">
       <div class="row">
         <div class="col-md-4 text-center offset-md-2">
-          <h4 class="mt-0 mb-3">Буравцов Иван, основатель “KeepTravel”</h4>
+          <h4 class="mt-0 mb-2">Буравцов Иван,<br>основатель “KeepTravel”</h4>
           <img src="https://keep-travel.ru/wp-content/uploads/2019/07/iv.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
         </div>
         <div class="col-md-4 text-center">
-          <h4 class="mt-0 mb-2">Цымбалюк Владислав, основатель “KeepTravel”</h4>
+          <h4 class="mt-0 mb-2">Цымбалюк Владислав,<br>основатель “KeepTravel”</h4>
             <img src="https://keep-travel.ru/wp-content/uploads/2019/07/vl.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
         </div>
       </div>
@@ -600,18 +396,18 @@ for ($i = 0; $i < count($faq); $i++){
     <div id="gallery" class="projects-3 section-image" style="background-image: url('/wp-content/uploads/2019/02/17.jpg')">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
+          <div class="col-md-8 mx-auto text-center">
             <div class="space-top"></div>
             <h2 class="title">Как это было</h2>
           </div>
         </div>
-        <div class="mb-5">
+        <div class="mb-5  mx-auto">
         <?php
             for ($i = 0; $i < count($gallery); $i++ ) {
                 $gallery_title = !empty($gallery[$i]['place']) ? $gallery[$i]['place'] : null ;
                 if ( $gallery_title ) { ?>
                   <div class="gallery_wrap">
-                    <h3 style="color:white"><?= $gallery_title ?></h3>
+                    <h3 style="color:white; text-align: center"><?= $gallery_title ?></h3>
                   </div>
                   <div class="gallery_wrap">
                   <?php
@@ -619,10 +415,11 @@ for ($i = 0; $i < count($faq); $i++){
                       $gallery_image =  !empty($gallery[$i]['gallery'][$j]['image']) ? $gallery[$i]['gallery'][$j]['image'] : null ;
                       $image = wp_get_attachment_image_url( $gallery_image, 'full' );
                       $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
+                  $att = ($j < 3) ? 'src' : 'data-lazy';
                   ?>
                   <div>
                     <a href="<?= $image ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">
-                      <img class="img-fluid" data-lazy="<?= $preview ?>" alt="...">
+                      <img class="img-fluid" <?= $att ?>="<?= $preview ?>" alt="...">
                     </a>
                   </div>
                   <?php } ?>
@@ -638,6 +435,7 @@ for ($i = 0; $i < count($faq); $i++){
                 $video_title = !empty($videos[$i]['video_title']) ? $videos[$i]['video_title'] : null ;
                 $video_code = !empty($videos[$i]['video_code']) ? $videos[$i]['video_code'] : null ;
         ?>
+
           <div class="col-md-6 mx-auto">
             <div class="card card-profile card-plain">
               <div class="card-img-top">
@@ -655,66 +453,138 @@ for ($i = 0; $i < count($faq); $i++){
     <!-- end видосы screen -->
 
     <!-- start отзывы screen -->
-      <div class="col-md-6 mx-auto page-carousel">
-          <h2 class="title text-center mb-1">Они уже сделали это</h2>
-          <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators my-3">
-                <?php for ($i = 0; $i < count($reviews); $i++ ) { ?>
-              <li data-target="#carouselExampleIndicators2" data-slide-to="<?= $i  ?>" class="
-                  <?php if ($i == 0){ echo 'active'; }; ?>
-              "></li>
-              <?php } ?>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                  <?php
-                  for ($i = 0; $i < count($reviews); $i++ ) {
-                      $review_title = !empty($reviews[$i]['review_title']) ? $reviews[$i]['review_title'] : null ;
-                      $review_text = !empty($reviews[$i]['review_text']) ? $reviews[$i]['review_text'] : null ;
-                      $review_name = !empty($reviews[$i]['review_name']) ? $reviews[$i]['review_name'] : null ;
-                      $review_photo = !empty($reviews[$i]['review_photo']) ? $reviews[$i]['review_photo'] : null ;
-                      $review_video = !empty($reviews[$i]['review_video']) ? $reviews[$i]['review_video'] : null ;
-                      $image = wp_get_attachment_image_url( $review_photo, 'full' );
-                  ?>
-                  
-              <div class="carousel-item mb-5 <?php if($i == 0){ echo 'active'; }; ?>" style="min-height:550px;">
-                  <div class="card card-plain">
-                      <div class="card-body text-center mx-auto col-md-8">
-                        <div class="clearfix"></div>
-                        <div class="author"  style="display: flex; width:100%;flex-direction: column;">
-                            <?php if($image){ ?>
-                            <div><img src="<?= $image; ?>"  class="avatar-big img-raised border-gray"></div>
-                            <?php } ?>
-                            <h5 class="card-description py-3" style="font-style: italic;">
-                              <?= $review_text; ?>
-                              <?php if($review_video){ ?>
-                                  <!-- <div class="video" data-video="<?= $review_video; ?>" data-toggle="modal" data-target="#video-modal"> -->
-                                    <div class="video" data-video="<?= $review_video; ?>">
-                                      <!-- <img src="https://i.ytimg.com/vi/<?= $review_video; ?>/sddefault.jpg" style="width:100%"> -->
-<!--                                       <button type="button" area-label="Запустить видео" class="video-button">
-                                          <svg width="68" height="48" viewBox="0 0 68 48"><path class="video-button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video-button-icon" d="M 45,24 27,14 27,34"></path></svg>
-                                      </button> -->
-                                      <iframe width="100%" height="340px" src="https://www.youtube.com/embed/<?= $review_video ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                  </div>
-                              <?php } ?>
-                            </h5>
-                            <h3 class="card-title"><?= $review_name; ?></h3>
-                        </div>
-                      </div>
-                   </div>
-              </div>
-              <?php } ?>
+    <div class="container">
+<style type="text/css">
+  .video {
+    min-width: 500px;
+    display: block;
+  }
+  @media(max-width:768px){
+    .video {
+      min-width: 300px;
+    }
+  }
+  .gallery_wrap_rev .slick-prev::before,
+  .gallery_wrap_rev .slick-next::before {
+     color: #000;
+  }
+
+
+
+
+  .video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-color: #000000;
+  }
+
+  .video__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: none;
+    padding: 0;
+    width: 68px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+  .video__button-shape {
+    fill: #212121;
+    fill-opacity: 0.8;
+  }
+
+  .video__button-icon {
+    fill: #ffffff;
+  }
+
+  .video__button:focus {
+    outline: none;
+  }
+
+  .video:hover .video__button-shape,
+  .video__button:focus .video__button-shape {
+    fill: #ff0000;
+    fill-opacity: 1;
+  }
+
+  /* Enabled */
+
+  .video--enabled {
+    cursor: pointer;
+  }
+
+  .video--enabled .video__button {
+    display: block;
+  }
+  .gallery_wrap_rev .card.card-plain img {
+    border-radius: 0!important;
+  }
+  .gallery_wrap_rev .card {
+    margin-bottom: 0!important;
+  }
+  @media(max-width: 568px){
+    .gallery_wrap_rev .slick-prev,
+    .gallery_wrap_rev .slick-next {
+      top: calc(50% + 10px)!important;
+    }
+  }
+</style>
+
+ <h2 class="title text-center mb-1">Они уже сделали это</h2>
+<div class="gallery_wrap_rev" style="max-width: 768px;">
+  <?php for ($i = 0; $i < count($reviews); $i++ ) { 
+  $review_video = !empty($reviews[$i]['review_video']) ? $reviews[$i]['review_video'] : null ;
+?>
+  <div class="card card-plain">
+    <div class="card-body text-center mx-auto col-md-8">
+      <div class="clearfix"></div>
+        <?php if($review_video){ ?>
+              <div class="video">
+
+                <a class="video__link" href="https://youtu.be/<?= $review_video ?>">
+                  <picture>
+                    <source srcset="https://i.ytimg.com/vi_webp/<?= $review_video ?>/maxresdefault.webp" type="image/webp">
+                    <img class="video__media" src="https://i.ytimg.com/vi/<?= $review_video ?>/maxresdefault.jpg">
+                  </picture>
+                </a>
+                <button class="video__button" type="button" aria-label="Запустить видео">
+                  <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                </button>
+
+
             </div>
-            <a class="left carousel-control carousel-control-prev" href="javascript:void(0)"data-target="#carouselExampleIndicators2" role="button" data-slide="prev">
-              <span class="fa fa-angle-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control carousel-control-next" href="javascript:void(0)" data-target="#carouselExampleIndicators2" role="button" data-slide="next">
-              <span class="fa fa-angle-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
+        <?php } ?>
+    </div>
+ </div>
+  <?php } ?>
+</div>
+</div>
     <!-- end отзывы screen -->
+
 
     <!-- start footer screen -->
     <div id="footer" class="testimonials-1" style="background-image: url('/wp-content/uploads/2019/02/17.jpg')">
@@ -790,12 +660,6 @@ for ($i = 0; $i < count($faq); $i++){
     </div>
   </div>
 </div>
-<style type="text/css">
-.slick-slide {
-  padding: 20px;
-  max-height: 400px;
-}
-</style>
 <?php
 endwhile;
 wp_footer();
@@ -852,8 +716,6 @@ var sentOkMessage3 = [
 $( document ).ready(function() {
 var wpcf7Elm_1 = document.querySelector( '.wpcf7' );
 var wpcf7Elm_2 = document.querySelector('#wpcf7-f287-p2-o2');
-// var wpcf7Elm_3 = document.querySelector('#wpcf7-f286-p1-o3');
-// var wpcf7Elm_4 = document.querySelector('#wpcf7-f308-p1-o4');
 
 wpcf7Elm_1.addEventListener( 'wpcf7mailsent', function( event ) {
     var formWrap = this.parentNode;
@@ -864,63 +726,56 @@ wpcf7Elm_2.addEventListener( 'wpcf7mailsent', function( event ) {
     var formWrap = this.parentNode;
     formWrap.innerHTML = sentOkMessage3[0] + sentOkMessage3[1] + sentOkMessage3[2];
 }, false );
-
-// wpcf7Elm_3.addEventListener( 'wpcf7mailsent', function( event ) {
-//     var formWrap = this.parentNode;
-//     formWrap.innerHTML = sentOkMessage[0] + sentOkMessage[1] + sentOkMessage[2];
-//     $(window).scrollTop() - 100
-// }, false );
-
-// wpcf7Elm_4.addEventListener( 'wpcf7mailsent', function( event ) {
-//     var formWrap = this.parentNode;
-//     formWrap.innerHTML = sentOkMessage2[0] + sentOkMessage2[1] + sentOkMessage2[2];
-//     $(window).scrollTop() - 100
-// }, false );
 });
 // start youtube hack
-var videoModal = $('#video-modal');
-
 function findVideos() {
-  var videos = $('.video');
-  for (var i = 0; i < videos.length; i++) {
-      setupVideo(videos[i]);
+  let videos = document.querySelectorAll('.video');
+
+  for (let i = 0; i < videos.length; i++) {
+    setupVideo(videos[i]);
   }
 }
 
 function setupVideo(video) {
-    var video = $(video);
-    var button = video.find('.video-button');
-    var id = video.data('video');
-    video.click(function(){
-        var iframe = createIframe(id);
-        // videoModal.find('.video-area').append(iframe);
-        video.replaceWith(iframe);
-        // $(function($){
-        //   $(document).mouseup(function (e){
-        //     if (!videoModal.is(e.target)
-        //         && videoModal.has(e.target).length === 0) {
-        //       videoModal.modal('hide');
-        //             removeVideo();
-        //     }
-        //   });
-        // });
-    });
-    video.addClass('active');
+  let link = video.querySelector('.video__link');
+  let media = video.querySelector('.video__media');
+  let button = video.querySelector('.video__button');
+  let id = parseMediaURL(media);
+
+  video.addEventListener('click', () => {
+    let iframe = createIframe(id);
+
+    link.remove();
+    button.remove();
+    video.appendChild(iframe);
+  });
+
+  link.removeAttribute('href');
+  video.classList.add('video--enabled');
 }
-function removeVideo(){
-    videoModal.find('.video-area').html('');
+
+function parseMediaURL(media) {
+  let regexp = /https:\/\/i\.ytimg\.com\/vi\/([a-zA-Z0-9_-]+)\/maxresdefault\.jpg/i;
+  let url = media.src;
+  let match = url.match(regexp);
+
+  return match[1];
 }
 
 function createIframe(id) {
-  var iframe = document.createElement('iframe');
+  let iframe = document.createElement('iframe');
+
   iframe.setAttribute('allowfullscreen', '');
   iframe.setAttribute('allow', 'autoplay');
   iframe.setAttribute('src', generateURL(id));
+  iframe.classList.add('video__media');
+
   return iframe;
 }
 
 function generateURL(id) {
-  var query = '?rel=0&showinfo=0&autoplay=1';
+  let query = '?rel=0&showinfo=0&autoplay=1';
+
   return 'https://www.youtube.com/embed/' + id + query;
 }
 
@@ -998,6 +853,7 @@ $('.gallery_wrap').slick( {
   slidesToShow: 3,
   infinite: true,
   lazyLoad: 'ondemand',
+  variableWidth: true,
   responsive: [
     {
       breakpoint: 768,
@@ -1015,9 +871,16 @@ $('.gallery_wrap').slick( {
         slidesToShow: 1,
         lazyLoad: 'ondemand',
         infinite: true,
+        variableWidth: false,
       }
     }
   ]
+});
+
+
+$('.gallery_wrap_rev').slick( {
+  slidesToShow: 1,
+  infinite: true,
 });
 </script>
 <!-- Yandex.Metrika counter -->
