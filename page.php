@@ -178,14 +178,14 @@ while (have_posts()) : the_post();
                  $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
                  $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
                  $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
-                 $n = ($key  < 5 ) ? 4 : 3;
-                 // $n = 4;
+                 // $n = ($key  <  ) ? 4 : 3;
+                 $n = 4;
                  $_i++;
-                 if ($_i == 4){
-                  $n = '4 offset-lg-2';
-                 }
+                 // if ($_i == ){
+                 //  $n = '4 offset-lg-2';
+                 // }
 
-                 if ($_i == 6){
+                 if ($_i == 7){
                   ?>
                   <div class="col-md-12 mt-5 mb-3">
                     <h4 style="text-align:center">Другие путешествия</h4>
@@ -379,14 +379,44 @@ for ($i = 0; $i < count($faq); $i++){
     <!-- end ценности screen -->
     <div id="guides" style="margin-top: -50px; margin-bottom: 70px"></div>
     <div class="container mb-5">
+      <div class="col-md-8 mx-auto text-center">
+        <div class="space-top"></div>
+        <h2 class="title">Наши гиды</h2>
+      </div>
       <div class="row">
-        <div class="col-md-4 text-center offset-md-2">
-          <h4 class="mt-0 mb-2">Буравцов Иван,<br>основатель “KeepTravel”</h4>
+        <div class="col-md-4 text-center guid">
+          <h4 class="mt-0 mb-2" style="height: 55px;">Буравцов Иван,<br>основатель “KeepTravel”</h4>
           <img src="https://keep-travel.ru/wp-content/uploads/2019/07/iv.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
+          <p style="padding-top: 20px; font-size: 18px;">С раннего детства работал в туристической компании своего отца и помогал в проведение масштабных путешествий. В 18 лет провел первое самостоятельное путешествие для 13 человек. </p>
+          <ul style="font-size: 18px;  text-align: left">
+            <li>Посетил 38 стран</li>
+            <li>Сертифицированный выпускник - Redcross "Оказание первой медицинской помощи"</li>
+            <li>Опытный автомобилист (стаж 9 лет)</li>
+            <li>Поднимался на Эльбрус</li>
+            <li>Учился выживанию в Тайге</li>
+            <li>Ночевал на вулкане</li>
+          </ul>
+          <p style="font-size: 18px;"><strong>"Основным приоритетом для меня является безопасность и комфорт каждого участника"</strong></p>
+          <p style="font-size: 18px;">Сопровождающий и ответственный за маршруты:</p>
+          <ul style="font-size: 18px; text-align: left">
+            <li>Евротур</li>
+            <li>Калифорния</li>
+            <li>Route 66</li>
+            <li>Норвегия</li>
+            <li>Марокко</li>
+            <li>Исландия</li>
+            <li>Большое путешествие по Африке</li>
+            <li>Перу</li>
+          </ul>
         </div>
-        <div class="col-md-4 text-center">
-          <h4 class="mt-0 mb-2">Цымбалюк Владислав,<br>основатель “KeepTravel”</h4>
+        <div class="col-md-4 text-center guid">
+          <h4 class="mt-0 mb-2" style="height: 55px;">Цымбалюк Владислав,<br>основатель “KeepTravel”</h4>
             <img src="https://keep-travel.ru/wp-content/uploads/2019/07/vl.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
+        </div>
+        <div class="col-md-4 text-center guid">
+          <h4 class="mt-0 mb-2" style="height: 55px;">Меледина Алиса</h4>
+            <img class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image" src="https://keep-travel.ru/wp-content/uploads/2019/02/alisa.jpg" style="border-radius: 50%;max-width: 250px;">
+            <p style="padding-top: 20px; font-size: 18px;">Более 4 лет назад переехала жить в Японию и с этого момента проводит на регулярной основе групповые путешествия. Знает секреты и особенности об этой страны, а так же с удовольствием расскажет вам много интересной информации с позиции местного житель.</p>
         </div>
       </div>
     </div>
@@ -415,7 +445,7 @@ for ($i = 0; $i < count($faq); $i++){
                       $gallery_image =  !empty($gallery[$i]['gallery'][$j]['image']) ? $gallery[$i]['gallery'][$j]['image'] : null ;
                       $image = wp_get_attachment_image_url( $gallery_image, 'full' );
                       $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
-                  $att = ($j < 3) ? 'src' : 'data-lazy';
+                  $att = ($j < 4) ? 'src' : 'data-lazy';
                   ?>
                   <div>
                     <a href="<?= $image ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">

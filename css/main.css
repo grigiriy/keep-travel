@@ -10757,7 +10757,7 @@ button.btn input {
     font-weight: 500;
 }
 .icon img {
-  min-width: 50px; }
+  width: 50px; }
 
 @media (max-width: 414px) {
   .nav.order_toggle {
@@ -11304,7 +11304,7 @@ img.ticket {
   z-index: 9000;
 }
 .slick-slide {
-  padding: 10px;
+  padding: 15px;
   max-height: 400px;
 }
 @media(max-width:768px) {
@@ -11315,4 +11315,15 @@ img.ticket {
     display: flex;
     
   }
+}
+.sub-info .image_wrapper {
+  padding-top: 20px;
+}
+.guid p{
+  text-align: left;
+}
+.fa.inline,
+.fa.inline:before{
+  width:22px;
+  font-size: 24px;
 }

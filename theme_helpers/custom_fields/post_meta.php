@@ -83,6 +83,10 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
            ->set_width( 30 ),
         ])
     ])
+        ->add_tab('Дополнительная информация',  [
+            Field::make( 'rich_text', 'content_d', '' )
+                ->set_width( 100 ),
+    ])
         ->add_tab( 'Галерея', [
             Field::make( 'text', 'place', 'Место' )
                ->set_width( 100 ),

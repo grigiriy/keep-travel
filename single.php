@@ -6,6 +6,7 @@ $sub_name = !empty(carbon_get_post_meta($post->ID, 'sub_name')) ? carbon_get_pos
 $content_b = !empty(carbon_get_post_meta($post->ID, 'content_b')) ? carbon_get_post_meta($post->ID, 'content_b') : null ;
 $content_c = !empty(carbon_get_post_meta($post->ID, 'content_c')) ? carbon_get_post_meta($post->ID, 'content_c') : null ;
 $content_c_2 = !empty(carbon_get_post_meta($post->ID, 'content_c_2')) ? carbon_get_post_meta($post->ID, 'content_c_2') : null ;
+$content_d = !empty(carbon_get_post_meta($post->ID, 'content_d')) ? carbon_get_post_meta($post->ID, 'content_d') : null ;
 $reports = !empty(carbon_get_post_meta($post->ID, 'reports', 'complex')) ? carbon_get_post_meta($post->ID, 'reports', 'complex') : null ;
 $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
 $tickets_left = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
@@ -73,13 +74,13 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                                     </g>
                                 </g>
                             </svg>
-                            <p style="color:#e42e0dd4;font-weight:bold;">Получи прямо сейчас 10% скидки</p>
+                            <p style="color:#e42e0dd4;font-weight:bold;">Узнать о проходящих акциях</p>
                           </div>
   
 
                         <div class="card-footer">
                             <a href="#footer">
-                              <button class="btn btn-block btn-round btn-primary">Забронировать место</button>
+                              <button class="btn btn-block btn-round btn-primary">Узнать</button>
                             </a>
                         </div>
                       </div>
@@ -169,11 +170,9 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
         </div>
         </div>
         <div class="col-md-6">
-          <div class="article-content red-headlines">
+          <div class="article-content red-headlines" style="font-weight:400">
             <h4>Дополнительные опции</h4>
             <?= $content_c_2; ?>
-            <h4>Важно не забыть</h4>
-            <p><b>Личную аптечку с персональным набором лекарств и документы</b></p>
           </div>
         </div>
       </div>
@@ -186,7 +185,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     $img = wp_get_attachment_image_url( $img, 'thumbnail' );
     if ($name): ?>
     <div class="row mt-5">
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center guid">
             <h4 class="mb-3"><?= $name ?></h4>
             <img src="<?= $img ?>" class="img-circle img-no-padding img-responsive" alt="Rounded Image">
           </div>
@@ -210,15 +209,15 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
               <img src="/wp-content/uploads/2019/02/signup.svg" alt="">
             </div>
             <div class="description">
-              <h4 class="info-title">Забронировать себе место</h4>
+              <h4 class="info-title">Забронировать место в группе (кол-во мест ограничено)</h4>
             </div>
           </div>
           <div class="info info-horizontal d-flex py-1">
             <div class="icon icon-success">
-              <img src="/wp-content/uploads/2019/02/share.svg" alt="">
+              <img src="/wp-content/uploads/2019/09/insta.png" alt="">
             </div>
             <div class="description">
-              <h4 class="info-title">Добавиться в группу Facebook и присоединиться к обсуждению</h4>
+              <h4 class="info-title">Подписаться на наш <a href="https://www.instagram.com/keeptravel_agency/" target="_blank"><i class="fa fa-instagram inline" aria-hidden="true" style=""></i></a></h4>
             </div>
           </div>
           <div class="info info-horizontal d-flex py-1">
@@ -226,7 +225,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
               <img src="/wp-content/uploads/2019/02/tickets.svg" alt="">
             </div>
             <div class="description">
-              <h4 class="info-title">Купить билеты на самолет</h4>
+              <h4 class="info-title">Начать подбирать авиа билеты</h4>
             </div>
           </div>
           <div class="info info-horizontal d-flex py-1">
@@ -242,7 +241,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
               <img src="/wp-content/uploads/2019/02/ideas.svg" alt="">
             </div>
             <div class="description">
-              <h4 class="info-title">Поделиться с нами своими идеями</h4>
+              <h4 class="info-title">Рассказать друзьям о путешествии и позвать их с собой</h4>
             </div>
           </div>
           <div class="info info-horizontal d-flex py-1">
@@ -319,7 +318,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
       for ($i = 0; $i < count($gallery_pics); $i++ ) {
           $image = wp_get_attachment_image_url( $gallery_pics[$i]['image'], 'full' );
           $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
-          $att = ($i < 3) ? 'src' : 'data-lazy';
+          $att = ($i < 4) ? 'src' : 'data-lazy';
       ?>
       <div>
         <a href="<?= $image ?>" rel="<?= get_the_title() ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= get_the_title() ?>" class="gallery_item">
@@ -332,9 +331,15 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 </div>
 <?php } ?>
 
-<div class="container">
+<?php if ($content_d) { ?>
+<div class="container my-5 sub-info">
+  <?= $content_d; ?>
+</div>
+<?php } ?>
+
+<div class="container my-5">
   <div class="row">
-      <div class="mx-auto col-md-8">
+      <div class="mx-auto col-md-8 mt-3">
         <h3 class="text-center">Узнайте об ацкиях и спецпредложениях</h3>
         <div class="col-md-6 mx-auto my-3">
             <a href="#footer">
