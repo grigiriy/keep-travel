@@ -11,6 +11,9 @@ $reports = !empty(carbon_get_post_meta($post->ID, 'reports', 'complex')) ? carbo
 $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
 $tickets_left = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
 $tickets_total = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total'] : '8' ;
+
+$is_action =  !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['sale']);
+
 $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
 $guru = !empty(carbon_get_post_meta($post->ID, 'guru', 'complex')) ? carbon_get_post_meta($post->ID, 'guru', 'complex') : null ;
 $map = !empty(carbon_get_post_meta($post->ID, 'map')) ? carbon_get_post_meta($post->ID, 'map') : null ;
@@ -24,10 +27,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
  <style type="text/css">
-   .slick-prev::before,
-   .slick-next::before {
+  .slick-prev::before,
+  .slick-next::before {
     color: #000;
-   }
+  }
    @media(min-width: 570px){
     .slick-prev {
       left: -14px!important;
@@ -58,6 +61,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                     </div>
                   <hr>
                 </div>
+                <?
+                $form_btn = ($is_action == 'yes') ? 'Узнать подробнее' : 'Узнать';
+                $form_text = ($is_action == 'yes') ? 'На это путешествие сейчас распространяется скидка' : 'Узнать о проходящих акциях';;
+                ?>
                 <div class="col-md-4">
                     <div class="card card-light card-plain sticky">
                       <div class="card-body">
@@ -74,13 +81,13 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                                     </g>
                                 </g>
                             </svg>
-                            <p style="color:#e42e0dd4;font-weight:bold;">Узнать о проходящих акциях</p>
+                            <p style="color:#e42e0dd4;font-weight:bold;"><?= $form_text ?></p>
                           </div>
   
 
                         <div class="card-footer">
                             <a href="#footer">
-                              <button class="btn btn-block btn-round btn-primary">Узнать</button>
+                              <button class="btn btn-block btn-round btn-primary"><?= $form_btn ?></button>
                             </a>
                         </div>
                       </div>
@@ -149,7 +156,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
          <?php if ($map){ ?>
          <div class="col-md-5">
              <div class="side-map sticky">
-                 <img src="<?= $map; ?>" alt="Путешествие по <?= $sub_name ? $sub_name : the_title()?>" style="width:100%">
+                 <img src="<?= $map; ?>" alt="Путешествие по <?= $sub_name ? $sub_name : the_title()?>">
              </div>
          </div>
        <?php } ?>
@@ -206,7 +213,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
           <div class="col-md-6 mx-auto text-center icons-block d-flex">
           <div class="info info-horizontal d-flex py-1">
             <div class="icon icon-info">
-              <img src="/wp-content/uploads/2019/02/signup.svg" alt="">
+              <img src="/wp-content/uploads/2019/10/icons_1.png" alt="">
             </div>
             <div class="description">
               <h4 class="info-title">Забронировать место в группе (кол-во мест ограничено)</h4>
@@ -214,15 +221,15 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
           </div>
           <div class="info info-horizontal d-flex py-1">
             <div class="icon icon-success">
-              <img src="/wp-content/uploads/2019/09/insta.png" alt="">
+              <img src="/wp-content/uploads/2019/10/icons_2.png" alt="">
             </div>
             <div class="description">
-              <h4 class="info-title">Подписаться на наш <a href="https://www.instagram.com/keeptravel_agency/" target="_blank"><i class="fa fa-instagram inline" aria-hidden="true" style=""></i></a></h4>
+              <h4 class="info-title"><a style="font-weight: inherit;" href="https://www.instagram.com/keeptravel_agency/" target="_blank">Подписаться на наш <i class="fa fa-instagram inline" aria-hidden="true" style=""></i></a></h4>
             </div>
           </div>
           <div class="info info-horizontal d-flex py-1">
             <div class="icon icon-danger">
-              <img src="/wp-content/uploads/2019/02/tickets.svg" alt="">
+              <img src="/wp-content/uploads/2019/10/icons_3.png" alt="">
             </div>
             <div class="description">
               <h4 class="info-title">Начать подбирать авиа билеты</h4>
@@ -230,7 +237,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
           </div>
           <div class="info info-horizontal d-flex py-1">
             <div class="icon icon-danger">
-              <img src="/wp-content/uploads/2019/02/bags.svg" alt="">
+              <img src="/wp-content/uploads/2019/10/icons_4.png" alt="">
             </div>
             <div class="description">
               <h4 class="info-title">Начать собирать чемодан!</h4>
@@ -238,18 +245,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
           </div>
           <div class="info info-horizontal d-flex py-1">
             <div class="icon icon-danger">
-              <img src="/wp-content/uploads/2019/02/ideas.svg" alt="">
+              <img src="/wp-content/uploads/2019/10/icons_5.png" alt="">
             </div>
             <div class="description">
               <h4 class="info-title">Рассказать друзьям о путешествии и позвать их с собой</h4>
-            </div>
-          </div>
-          <div class="info info-horizontal d-flex py-1">
-            <div class="icon icon-danger">
-              <img src="/wp-content/uploads/2019/02/friends.svg" alt="">
-            </div>
-            <div class="description">
-              <h4 class="info-title">Рассказать друзьям и позвать их с собой</h4>
             </div>
           </div>
         </div>
@@ -333,7 +332,11 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 
 <?php if ($content_d) { ?>
 <div class="container my-5 sub-info">
-  <?= $content_d; ?>
+  <div class="row">
+    <div class="col-md-8 mx-auto text-center">
+      <?= $content_d; ?>
+    </div>
+  </div>
 </div>
 <?php } ?>
 
@@ -408,7 +411,7 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
             <a href="/#group">Путешествия</a>
         </li>
         <li class="nav-item mx-auto pt-3">
-            <a href="tel:8-800-550-47-39">8-800-550-47-39</a>
+            <a href="tel:84993808699">+7-499-380-86-99</a>
         </li>
             <li class="nav-item ml-md-auto">
                 <p class="copyright">© 2018, Keep Travel</p>
@@ -421,6 +424,22 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
     </div>
   </div>
 </footer>
+<div class="modal modal-lg fade mx-auto" id="question-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="question_wrapper" class="pb-3">
+          <h3>Вы нашли, что искали?</h3>
+          <button class="btn" onclick="form_answer(this)">Да</button>
+          <button class="btn" onclick="form_answer(this)">Не совсем</button>
+        </div>
+        <div style="display:none" id="question_form">
+          <?= do_shortcode('[contact-form-7 id="1142" title="Форма через 60 сек"]'); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 endwhile;
 wp_footer();
@@ -435,14 +454,13 @@ $(function(){
 
 var sentOkMessage = '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>'
 
-var wpcf7Elm = document.querySelector( '.wpcf7' );
-
-wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {
-    var formWrap = this.parentNode;
-    formWrap.innerHTML = sentOkMessage;
-
-}, false );
-
+var wpcf7Elm = document.querySelectorAll( '.wpcf7' );
+  for (var i = 0; i < wpcf7Elm.length; i++){
+  wpcf7Elm[i].addEventListener( 'wpcf7mailsent', function( event ) {
+      var formWrap = this.parentNode;
+      formWrap.innerHTML = sentOkMessage;
+  }, false );
+}
 var input = $('#datetimepicker');
 function setDate(e){
     var date = $(e).data('date');
@@ -450,6 +468,21 @@ function setDate(e){
     $('#dropdownMenuButton').html(date);
 };
 
+function modalQuestionOpen(){
+  var questionModal = $('#question-modal');
+  questionModal.modal('show');
+    $(function($){
+      $(document).mouseup(function (e){
+        if (!questionModal.is(e.target) && questionModal.has(e.target).length === 0) {
+          questionModal.modal('hide');
+          removeVideo();
+        }
+      });
+  });
+};
+function form_answer(e){
+  $(e).parent().fadeOut(300).delay(500).siblings('#question_form').delay(500).fadeIn(300);
+}
 
 $(function(){
     var pagename = $('#pageurl');
@@ -462,9 +495,10 @@ $(function(){
     $('#dropdownMenuButton').html(nextDate);
     // date_input.attr('disabled','disabled');
     // date_input.css('background','#fff');
+    setTimeout(modalQuestionOpen, 180000);
 });
 
-$('.mask-phone').mask('+7 (999) 999-99-99');
+$('.mask-phone').mask('+9 (999) 999-99-99');
 
 $(function(){
     $("a[href^='#']").click(function(){
@@ -481,7 +515,6 @@ $(function(){
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
    ym(52611595, "init", {
-        id:52611595,
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
@@ -490,6 +523,25 @@ $(function(){
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/52611595" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<!-- /Yandex.Metrika goals -->
+<script type="text/javascript">
+document.addEventListener( 'wpcf7submit', function( event ) {
+yaCounter52611595.reachGoal('formsubmit');
+}, false );
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+yaCounter52611595.reachGoal('formsent');
+}, false );
+  $("[href='tel:+74993808699']").click(function() { 
+        yaCounter52611595.reachGoal('phoneclick'); 
+    });
+  $("[href='tel:84993808699']").click(function() { 
+        yaCounter52611595.reachGoal('phoneclick'); 
+    });
+  $("[href='tel:8-800-550-47-39']").click(function() { 
+        yaCounter52611595.reachGoal('phoneclick'); 
+    });
+</script>
+<!-- /Yandex.Metrika goals -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135472998-1"></script>
 <script>

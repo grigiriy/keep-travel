@@ -38,8 +38,8 @@ while (have_posts()) : the_post();
           <div class="container" >
             <div class="row  my-5">
               <div class="col-md-8 ml-auto mr-auto text-center mb-5">
-                <h1 class="title my-0"><?= the_title() ?></h1>
-                <h5>Незабываемые туры по всему миру для тех, кто открыт к приключениям</h5>
+                <h1 class="title my-0">Путешествуйте</h1>
+                <h5>открывая для себя мир в группе единомышленников</h5>
               </div>
 
               <div class="col-md-12 col-lg-10 ml-auto mr-auto">
@@ -257,6 +257,36 @@ while (have_posts()) : the_post();
   <script async src="//www.instagram.com/embed.js"></script>
     <!-- end instagram screen -->
 
+ <!-- start счетчики screen -->
+ <div  id="counters" style="background-position-x: center; background-size: cover; background-image:url(/wp-content/uploads/2019/07/mount.jpg)">
+  <div class="container py-5 my-5">
+    <div class="row">
+      <div class="col-md-4 info">
+        <div class="description">
+          <h1 style="color:#51cbce"><?= $counters[0]['people'] ?></h1>
+          <h4 class="info-title white">Человек зарядили эмоциями</h4>
+          <p class="white">Из них с нами было <?= $counters[0]['male'] ?> мужчин и <?= $counters[0]['female'] ?> женщины</p>
+        </div>
+      </div>
+      <div class="col-md-4 info">
+        <div class="description">
+          <h1 style="color:#51cbce"><?= $counters[0]['years'] ?></h1>
+          <h4 class="info-title white">Средний возраст</h4>
+          <p class="white">С нами путешествовали в возрасте от 18 до 47 лет</p>
+        </div>
+      </div>
+      <div class="col-md-4 info">
+        <div class="description">
+          <h1 style="color:#51cbce"><?= $counters[0]['km'] ?></h1>
+          <h4 class="info-title white">Километров</h4>
+          <p class="white">Мы побывали на 5 континентах и в 16 странах</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- end счетчики screen -->
+
     <!-- start вопрос-ответ  screen -->
     <div id="faq" class="mt-5">
       <div class="container">
@@ -294,42 +324,11 @@ for ($i = 0; $i < count($faq); $i++){
     <!-- end вопрос-ответ screen -->
 
 
- <!-- start счетчики screen -->
- <div  id="counters" style="background-position-x: center; background-size: cover; background-image:url(/wp-content/uploads/2019/07/mount.jpg)">
-  <div class="container py-5 my-5">
-    <div class="row">
-      <div class="col-md-4 info">
-        <div class="description">
-          <h1 style="color:#51cbce"><?= $counters[0]['people'] ?></h1>
-          <h4 class="info-title white">Человек зарядили эмоциями</h4>
-          <p class="white">Из них с нами было <?= $counters[0]['male'] ?> мужчин и <?= $counters[0]['female'] ?> женщины</p>
-        </div>
-      </div>
-      <div class="col-md-4 info">
-        <div class="description">
-          <h1 style="color:#51cbce"><?= $counters[0]['years'] ?></h1>
-          <h4 class="info-title white">Средний возраст</h4>
-          <p class="white">С нами путешествовали в возрасте от 18 до 47 лет</p>
-        </div>
-      </div>
-      <div class="col-md-4 info">
-        <div class="description">
-          <h1 style="color:#51cbce"><?= $counters[0]['km'] ?></h1>
-          <h4 class="info-title white">Километров</h4>
-          <p class="white">Мы побывали на 5 континентах и в 16 странах</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- <!-- end счетчики screen -->
-
-
     <!-- start ценности screen -->
     <div id="about" class="blog-3 pt-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-10 ml-auto mr-auto">
+          <div class="col-md-8 ml-auto mr-auto">
             <h2 class="title">Наши ценности</h2>
             <br />
             <?php
@@ -338,7 +337,8 @@ for ($i = 0; $i < count($faq); $i++){
                 $about_text = !empty($about[$i]['about_text']) ? $about[$i]['about_text'] : null ;
                 $about_photo = !empty($about[$i]['about_photo']) ? $about[$i]['about_photo'] : null ;
                 $image = wp_get_attachment_image_url( $about_photo, 'full' );
-                $text_part = '<div class="col-md-8 order-1 order-md-1">
+                $text_width = ($i == 0) ? 'col-md-12' : 'col-md-8';
+                $text_part = '<div class="' . $text_width . ' order-1 order-md-1">
                  <div class="card-body">
                       <h3 class="card-title">' .
                          $about_title .
@@ -349,7 +349,7 @@ for ($i = 0; $i < count($faq); $i++){
                   </div>
                 </div>';
                 $photo_part =  '<div class="col-md-4 order-2 order-md-1">
-                  <div class="card-image">
+                  <div class="">
                       <img class="img" src="' . $image . '" />
                   </div>
                 </div>';
@@ -655,7 +655,7 @@ for ($i = 0; $i < count($faq); $i++){
                     <a href="#group">Путешествия</a>
                 </li>
                 <li class="nav-item mx-auto pt-3 ">
-                    <a href="tel:8-800-550-47-39">8-800-550-47-39</a>
+                    <a href="tel:84993808699">+7-499-380-86-99</a>
                 </li>
                 <li class="nav-item ml-md-auto">
                     <p class="copyright">© 2018, Keep Travel</p>
@@ -671,7 +671,7 @@ for ($i = 0; $i < count($faq); $i++){
     </footer>
 <!-- end footer screen -->
 
-<div class="modal  modal-lg fade mx-auto" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+<div class="modal modal-lg fade mx-auto" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -681,7 +681,7 @@ for ($i = 0; $i < count($faq); $i++){
     </div>
   </div>
 </div>
-<div class="modal  modal-lg fade mx-auto" id="round-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+<div class="modal modal-lg fade mx-auto" id="round-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -690,26 +690,29 @@ for ($i = 0; $i < count($faq); $i++){
     </div>
   </div>
 </div>
+<div class="modal modal-lg fade mx-auto" id="question-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="question_wrapper" class="pb-3">
+          <h3>Вы нашли, что искали?</h3>
+          <button class="btn" onclick="form_answer(this)">Да</button>
+          <button class="btn" onclick="form_answer(this)">Не совсем</button>
+        </div>
+        <div style="display:none" id="question_form">
+          <?= do_shortcode('[contact-form-7 id="1142" title="Форма через 60 сек"]'); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 endwhile;
 wp_footer();
 ?>
-<style media="screen">
-  #wpcf7-f287-p2-o2,
-  #wpcf7-f287-p2-o2 input{
-    font-size: 1em;
-  }
-  #wpcf7-f287-p2-o2 input.form-control{
-    color: #000;
-  }
-  .screen-reader-response,
-  .wpcf7-response-output{
-      display: none!important
-  }
-</style>
 <script>
 function modalRoundOpen(){
-  var roundModal = $('#round-modal')
+  var roundModal = $('#round-modal');
   roundModal.modal('show');
     $(function($){
       $(document).mouseup(function (e){
@@ -719,8 +722,22 @@ function modalRoundOpen(){
         }
       });
   });
+};
+function modalQuestionOpen(){
+  var questionModal = $('#question-modal');
+  questionModal.modal('show');
+    $(function($){
+      $(document).mouseup(function (e){
+        if (!questionModal.is(e.target) && questionModal.has(e.target).length === 0) {
+          questionModal.modal('hide');
+          removeVideo();
+        }
+      });
+  });
+};
+function form_answer(e){
+  $(e).parent().fadeOut(300).delay(500).siblings('#question_form').delay(500).fadeIn(300);
 }
-
 
 $('#carouselExampleIndicators2').carousel({
     interval: false
@@ -744,18 +761,23 @@ var sentOkMessage3 = [
     '</div>'
 ];
 $( document ).ready(function() {
-var wpcf7Elm_1 = document.querySelector( '.wpcf7' );
+var wpcf7Elm_1 = document.querySelectorAll( '.wpcf7:not(#wpcf7-f287-p2-o2)' );
 var wpcf7Elm_2 = document.querySelector('#wpcf7-f287-p2-o2');
 
-wpcf7Elm_1.addEventListener( 'wpcf7mailsent', function( event ) {
+for (var i = 0; i < wpcf7Elm_1.length; i++){
+  wpcf7Elm_1[i].addEventListener( 'wpcf7mailsent', function( event ) {
     var formWrap = this.parentNode;
     formWrap.innerHTML = sentOkMessage[1];
-}, false );
+  }, false );
+}
+
 
 wpcf7Elm_2.addEventListener( 'wpcf7mailsent', function( event ) {
     var formWrap = this.parentNode;
     formWrap.innerHTML = sentOkMessage3[0] + sentOkMessage3[1] + sentOkMessage3[2];
 }, false );
+
+    setTimeout(modalQuestionOpen, 180000);
 });
 // start youtube hack
 function findVideos() {
@@ -865,7 +887,7 @@ var rangeSlider = document.getElementById('slider-range');
       maxValue.value = 'до $ ' + (parseInt(values[handle]) + 1000);
   });
 
-  $('.mask-phone').mask('+7 (999) 999-99-99');
+  $('.mask-phone').mask('+9 (999) 999-99-99');
 
   function activePhone(){
       $('#mainPhone').addClass('active');

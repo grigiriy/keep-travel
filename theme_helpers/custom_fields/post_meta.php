@@ -12,12 +12,14 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
       Field::make( 'complex', 'backgrounds_post', '' )
           ->add_fields( [
               Field::make( 'image', 'image1', 'фон' )
-                 ->set_width( 40 ),
+                 ->set_width( 30 ),
               Field::make( 'image', 'image2', 'иконка' )
-                 ->set_width( 40 ),
+                 ->set_width( 30 ),
               Field::make( 'text', 'tickets_left', 'осталось' )
                  ->set_width( 10 ),
               Field::make( 'text', 'tickets_total', 'было' )
+                 ->set_width( 10 ),
+              Field::make( 'checkbox', 'sale', 'Акция' )
                  ->set_width( 10 ),
            ])
   ])

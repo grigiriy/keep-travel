@@ -1,3 +1,16 @@
+@font-face{
+    font-family:'PT Rouble Sans';
+    src:url(../fonts/PTRoubleSerif.woff2) format('woff2'),
+    url('../fonts/PTRoubleSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'nucleo-icons';
+  src: url("../fonts/nucleo-icons.eot");
+  src: url("../fonts/nucleo-icons.eot") format("embedded-opentype"), url("../fonts/nucleo-icons.woff2") format("woff2"), url("../fonts/nucleo-icons.woff") format("woff"), url("../fonts/nucleo-icons.ttf") format("truetype"), url("../fonts/nucleo-icons.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 .bootstrap-switch {
   display: inline-block;
   direction: ltr;
@@ -1227,12 +1240,6 @@ nucleo-icons Web Font - built using nucleoapp.com
 License - nucleoapp.com/license/
 
 -------------------------------- */
-@font-face {
-  font-family: 'nucleo-icons';
-  src: url("../fonts/nucleo-icons.eot");
-  src: url("../fonts/nucleo-icons.eot") format("embedded-opentype"), url("../fonts/nucleo-icons.woff2") format("woff2"), url("../fonts/nucleo-icons.woff") format("woff"), url("../fonts/nucleo-icons.ttf") format("truetype"), url("../fonts/nucleo-icons.svg") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 
 /*------------------------
   base class definition
@@ -4209,13 +4216,6 @@ textarea.form-control {
   padding: 0;
   background: #FFFFFF;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15); }
-  .navbar .navbar-brand {
-    font-weight: 600;
-    margin: 5px 0px;
-    padding: 20px 15px;
-    font-size: 14px;
-    color: #66615B;
-    text-transform: uppercase; }
   .navbar .navbar-nav .nav-item .nav-link {
     line-height: 1.6;
     margin: 15px 3px;
@@ -4318,7 +4318,7 @@ textarea.form-control {
   .navbar .navbar-brand {
     font-weight: 600;
     margin: 5px 0px;
-    padding: 30px 15px 20px;
+    padding: 30px 0 20px;
     font-size: 14px;
     color: #66615B;
     text-transform: uppercase; }
@@ -11042,32 +11042,32 @@ img.ticket {
     padding: 5px;
 }
 .collapse .card-body {
-	border: solid 1px #eee;
-	border-top: 0;
-	border-radius: 0 0 5px 5px;
-	padding: 20px 40px 30px;
-	font-size: 1.1em;
+  border: solid 1px #eee;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  padding: 20px 40px 30px;
+  font-size: 1.1em;
 }
 .card-header .btn {
-	white-space: inherit;
-	text-align: left;
+  white-space: inherit;
+  text-align: left;
 }
 .gallery_wrap,
  .gallery_wrap_rev{
-	max-width: 960px;
-	margin: 0 auto;
+  max-width: 960px;
+  margin: 0 auto;
 }
 /* @media (min-width: 960px) {
-	.slick-slide.slick-current+.slick-active {
-		padding: 10px;
-		transition: all 0.5s;
-	}
-	.slick-active {
+  .slick-slide.slick-current+.slick-active {
+    padding: 10px;
+    transition: all 0.5s;
+  }
+  .slick-active {
 
-	}
-	.slick-slide {
+  }
+  .slick-slide {
 
-	}
+  }
 } */
 .faq_card .card-body {
   padding: 20px 40px 20px!important;
@@ -11326,4 +11326,90 @@ img.ticket {
 .fa.inline:before{
   width:22px;
   font-size: 24px;
+}
+
+
+#wpcf7-f287-p2-o2,
+#wpcf7-f287-p2-o2 input{
+  font-size: 1em;
+}
+#wpcf7-f287-p2-o2 input.form-control{
+  color: #000;
+}
+.screen-reader-response,
+.wpcf7-response-output{
+    display: none!important
+}
+#question-modal .modal-body{
+  height: 300px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+#question-modal .btn {
+  margin: 10px;
+}
+
+.navbar-translate .navbar-brand+span {
+  position: absolute;
+  color: #000;
+  margin-top: 29px;
+  margin-left: -100px;
+  font-size: 11px;
+  font-weight: bolder;
+  left: auto;
+  left: 220px;
+  text-align: center;
+}
+.navbar-transparent .navbar-translate .navbar-brand+span {
+  color: #fff;
+}
+.navbar .navbar-brand {
+  padding-right: 270px;
+}
+
+@media (max-width:1199px) {
+  .navbar-translate .navbar-brand+span {
+    margin-left: 77px;
+    font-size: 9px;
+    width: 140px;
+    margin-left: 0;
+    left:110px;
+  }
+  .navbar .navbar-brand {
+    padding-right: inherit;
+  }
+}
+@media (max-width: 1070px) {
+  .navbar-translate #logo_black,
+  .navbar-translate #logo_white {
+    height: 20px;
+  }
+  .navbar-translate .navbar-brand+span {
+    margin-top: 22px;
+    left: 80px;
+  }
+  .navbar .navbar-nav .nav-item .nav-link {
+    font-size: 11px;
+  }
+}
+@media (max-width:991px){
+  .navbar-translate .navbar-brand+span {
+    font-weight: bolder;
+    font-size: 9px;
+    text-align: center;
+    margin: 0 calc(50% - 100px);
+    left: 30px;
+  }
+  .navbar .navbar-brand {
+    padding-top: 20px;
+    padding-left: 10px;
+  }
+}
+@media(min-width:992px){
+  .nav-item {
+    display: flex;
+    align-items: center;
+  }
 }

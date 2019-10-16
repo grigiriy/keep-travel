@@ -48,13 +48,9 @@
        .navbar-transparent #logo_black{
            display: none;
        }
-       @media(min-width:1441px){
-        .header-container{
-            max-width: 90%;
-          }
-       }
   </style>
   <meta name="yandex-verification" content="c40e43f61c771c55" />
+  <meta name="p:domain_verify" content="e41db78ef1e59a63cc2a5510643ddabb" />
 </head>
 
 
@@ -64,12 +60,13 @@
   </script>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top nav-down navbar-transparent" color-on-scroll="600">
-      <div class="container header-container">
+      <div class="container-fluid header-container">
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/" rel="tooltip" data-placement="bottom" style="padding-right: 5vw;">
+          <a class="navbar-brand" href="/" rel="tooltip" data-placement="bottom">
             <img src="/wp-content/themes/advantures/img/KeepTravel_Black.png" alt="" id="logo_black">
             <img src="/wp-content/themes/advantures/img/KeepTravel_White.png" alt="" id="logo_white">
           </a>
+          <span>Организовываем групповые&nbsp;путешествия<br>по всему миру</span>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar bar1"></span>
             <span class="navbar-toggler-bar bar2"></span>
@@ -88,7 +85,7 @@
               <a href="#select" class="nav-link">Путешествия</a>
             </li>
             <li class="nav-item">
-              <a href="#gallery" class="nav-link">Галлерея</a>
+              <a href="#gallery" class="nav-link">Галерея</a>
             </li>
             <li class="nav-item">
               <a href="#guides" class="nav-link">Гиды</a>
@@ -99,11 +96,11 @@
         <?php } else {
             $ancor = '#footer'; ?>
             <li class="nav-item">
-              <a href="/#select" class="nav-link">Путешествия</a>
+              <a href="/#select" class="nav-alink">Путешествия</a>
             </li>
         <?php } ?>
-            <li class="nav-item ml-md-auto">
-                <p class="nav-link"><a style="font-size: 1.5em;line-height: 1em;" href="tel:88005504739">8(800) 550-47-39</a></p>
+            <li class="nav-item ml-xl-auto">
+                <p class="nav-link"><a style="font-size: 1.5em;line-height: 1em;" href="tel:84993808699">+7(499) 380-86-99</a></p>
             </li>
             <li class="nav-item">
               <a class="btn btn-round btn-danger" href="<?= $ancor ?>" onClick="activePhone()">
