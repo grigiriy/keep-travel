@@ -11,6 +11,8 @@ $reports = !empty(carbon_get_post_meta($post->ID, 'reports', 'complex')) ? carbo
 $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
 $tickets_left = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
 $tickets_total = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total'] : '8' ;
+$videos = !empty(carbon_get_post_meta($post->ID, 'videos', 'complex')) ? carbon_get_post_meta($post->ID, 'videos', 'complex') : null ;
+
 
 $is_action =  !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['sale']);
 
@@ -147,7 +149,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 </div>
 <div class="container-fluid" style="max-width: 1900px;">
      <div class="row">
-         <div class="col-md-7 mx-auto" <?php if ($map){echo 'style="max-width: 730px; margin-right: 0 !important;"';} ?>>
+         <div class="col-md-7 mx-auto" <?php if ($map){echo 'style="max-width: 840px; margin-right: 0 !important;"';} ?>>
              <h2 class="mb-5" >Как будет проходить поездка</h2>
              <div class="article-content red-headlines" id="linked">
                  <?= $content_b; ?>
@@ -257,7 +259,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 
     <!--start table screen -->
     <div class="row">
-        <div class="col-md-12 mx-auto">
+        <div class="col-md-12 mx-auto text-center">
             <h2 class="title">Ближайшие отправления</h2>
         </div>
         <div class="table-responsive">
@@ -303,10 +305,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 </div>
 </div>
 
-<?php if ($gallery_pics) { ?>
+<?php if ($gallery_pics || $videos) { ?>
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-autotext-center">
+    <div class="col-md-8 mx-auto text-center">
       <div class="space-top"></div>
       <h2 class="title">Как это было</h2>
     </div>
@@ -324,8 +326,26 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
           <img class="img-fluid" <?= $att ?>="<?= $preview ?>" alt="...">
         </a>
       </div>
-    <?php } ?>
+    <?php }  ?>
     </div>
+    <?php
+            for ($i = 0; $i < count($videos); $i++ ) {
+                $video_title = !empty($videos[$i]['video_title']) ? $videos[$i]['video_title'] : null ;
+                $video_code = !empty($videos[$i]['video_code']) ? $videos[$i]['video_code'] : null ;
+        ?>
+
+          <div class="col-md-6 mx-auto">
+            <div class="card card-profile card-plain">
+              <div class="card-img-top">
+                  <iframe width="100%" height="305px" src="https://www.youtube.com/embed/<?= $video_code ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><?= $video_title; ?></h4>
+              </div>
+            </div>
+          </div>
+          <?php } ?>
+
   </div>
 </div>
 <?php } ?>
@@ -371,9 +391,9 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 <!-- start footer screen -->
 <?php
 $_ttl = get_the_title();
-$bt_bg = ( $_ttl == 'Исландия. В поисках северного сияния' ) ? '/wp-content/uploads/2019/09/isla_bt_bg.jpg' : '/wp-content/uploads/2019/02/17.jpg';
+$bt_bg = ( $_ttl == 'Исландия. В поисках северного сияния' ) ? '/wp-content/uploads/2019/09/isla_bt_bg.jpg' : '/wp-content/uploads/2019/10/bot_back.jpg';
 ?>
-<div id="footer" style="background-image: url(<?= $bt_bg ?>)">
+<div id="footer" style="background: url(/wp-content/uploads/2019/10/bot_back.jpg) no-repeat;background-size:cover; padding: 100px 0 300px;">
     <div class="container">
       <div class="row">
           <div class="col-md-8 mx-auto py-3">
@@ -414,7 +434,7 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
             <a href="tel:84993808699">+7-499-380-86-99</a>
         </li>
             <li class="nav-item ml-md-auto">
-                <p class="copyright">© 2018, Keep Travel</p>
+                <p class="copyright">© 2019, Keep Travel</p>
                 <p class="copyright">ИП Цымбалюк Владислав Дмитриевич<br>
                 ИНН: 7&zwj;71562423948<br>
                 ОГРН: 31977460&zwj;0153431</p>
@@ -439,6 +459,25 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
       </div>
     </div>
   </div>
+</div>
+<div id="phone_btn_wrap">
+<a href="https://api.whatsapp.com/send?phone=79169277027">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 -256 1792 1792" id="svg3013" version="1.1" inkscape:version="0.48.3.1 r9886" width="100%" height="100%" sodipodi:docname="phone_font_awesome.svg">
+  <metadata id="metadata3023">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs3021"/>
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="640" inkscape:window-height="480" id="namedview3019" showgrid="false" inkscape:zoom="0.13169643" inkscape:cx="896" inkscape:cy="896" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg3013"/>
+  <g transform="matrix(1,0,0,-1,159.45763,1293.0169)" id="g3015">
+    <path d="m 1408,296 q 0,-27 -10,-70.5 Q 1388,182 1377,157 1356,107 1255,51 1161,0 1069,0 1042,0 1016.5,3.5 991,7 959,16 927,25 911.5,30.5 896,36 856,51 816,66 807,69 709,104 632,152 504,231 367.5,367.5 231,504 152,632 104,709 69,807 66,816 51,856 36,896 30.5,911.5 25,927 16,959 7,991 3.5,1016.5 0,1042 0,1069 q 0,92 51,186 56,101 106,122 25,11 68.5,21 43.5,10 70.5,10 14,0 21,-3 18,-6 53,-76 11,-19 30,-54 19,-35 35,-63.5 16,-28.5 31,-53.5 3,-4 17.5,-25 14.5,-21 21.5,-35.5 7,-14.5 7,-28.5 0,-20 -28.5,-50 -28.5,-30 -62,-55 -33.5,-25 -62,-53 -28.5,-28 -28.5,-46 0,-9 5,-22.5 5,-13.5 8.5,-20.5 3.5,-7 14,-24 10.5,-17 11.5,-19 76,-137 174,-235 98,-98 235,-174 2,-1 19,-11.5 17,-10.5 24,-14 7,-3.5 20.5,-8.5 13.5,-5 22.5,-5 18,0 46,28.5 28,28.5 53,62 25,33.5 55,62 30,28.5 50,28.5 14,0 28.5,-7 14.5,-7 35.5,-21.5 21,-14.5 25,-17.5 25,-15 53.5,-31 28.5,-16 63.5,-35 35,-19 54,-30 70,-35 76,-53 3,-7 3,-21 z" id="path3017" inkscape:connector-curvature="0" style="fill:currentColor"/>
+  </g>
+</svg>
+</a>
 </div>
 <?php
 endwhile;

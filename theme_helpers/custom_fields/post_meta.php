@@ -98,4 +98,13 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
                       ->set_width( 20 ),
                 ]),
             Field::make( 'checkbox', 'index', 'На главную' ),
-   ]);
+   ])
+       ->add_tab( 'Как это было (видео)', [
+        Field::make( 'complex', 'videos', '' )
+          ->add_fields( [
+            Field::make( 'text', 'video_code', 'код видео' )
+               ->set_width( 50 ),
+            Field::make( 'text', 'video_title', 'подпись' )
+               ->set_width( 50 ),
+           ])
+      ]);

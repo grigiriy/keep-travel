@@ -31,121 +31,225 @@ while (have_posts()) : the_post();
   }
 </style>
 
-    <!-- start first screen container -->
-      <div class="page-header" style="background: transparent; position:absolute;top:0">
-        <div class="filter"></div>
-        <div class="content-center"  id="phone">
-          <div class="container" >
-            <div class="row  my-5">
-              <div class="col-md-8 ml-auto mr-auto text-center mb-5">
-                <h1 class="title my-0">Путешествуйте</h1>
-                <h5>открывая для себя мир в группе единомышленников</h5>
-              </div>
-
-              <div class="col-md-12 col-lg-10 ml-auto mr-auto">
-                  <div class="row">
-                    <div class="col-md-4">
-                        <a href="#group" class="main-links">
-                            <h3 class="description">Групповые</h3>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#order"  class="main-links">
-                            <h3 class="description">Индивидуальные</h3>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                      <a href="#" onclick="modalRoundOpen()" class="main-links">
-                        <span style="opacity:0.4">
-                            <h3 class="description">Кругосветные</h3>
-                            <h6 class="description" style="opacity:0.6">скоро...</h6>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-              </div>
-          </div>
-          <div class="row  mt-5 mb-0">
-              <div class="col-lg-7 col-md-10 mx-auto">
-                    <?= do_shortcode( '[contact-form-7 id="38" title="Оставьте номер"]' ) ?>
-                <h5 class="description">Введите свой номер телефона, и мы с вами свяжемся</h5>
-              </div>
-          </div>
-            </div>
-          </div>
-        </div>
-      <ol class="carousel-indicators" style="z-index:9999999;position:absolute">
-        <?php for ($i = 0; $i < count($back_img); $i++ ) { ?>
-          <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i; ?>" class="<?php if($i == 0){ echo 'active'; }; ?>"></li>
-        <?php } ?>
-      </ol>
-    </div>
-</div>
-    <!-- end first screen container -->
-
-    <!-- start second screen -->
-    <div class="features-2" id="select">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Выберите формат вашего путешествия</h2>
-            <br/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 d-flex">
-            <div class="card" data-background="image" style="width:100%;background-image: url('/wp-content/uploads/2019/07/indi.jpg')">
-              <a href="#order" class="btn btn-link btn-neutral">
-              <div class="card-body">
-                <h6 class="card-category">Индивидуальное</h6>
-                <div class="card-icon">
-                  <i class="fa fa-user"></i>
+  <!-- start first screen container -->
+    <div class="page-header" style="background: transparent; position:absolute;top:0">
+      <div class="filter"></div>
+      <div class="content-center"  id="phone">
+        <div class="container" >
+          <div class="row my-5">
+            <div class="col-md-9 mx-auto text-center mb-5">
+              <h1 class="title">Открой себя</h1>
+              <h2>Новый формат групповых путешествий</h2>
+              <h5>Познай себя и мир активно путешествуя и заряжаясь<br>новыми эмоциями в группе единомышленников!<br>Всю организацию мы берем на себя.</h5>
+              <div class="row d-none">
+                <div class="col-md-6">
+                    <a href="#group" class="main-links">
+                        <h3 class="description text-left">Групповые</h3>
+                    </a>
                 </div>
-                <div class="card-footer">
-                    <i class="fa fa-book" aria-hidden="true"></i> Подробнее
+                <div class="col-md-6">
+                    <a href="#order"  class="main-links">
+                        <h3 class="description text-left">Индивидуальные</h3>
+                    </a>
                 </div>
               </div>
-            </a>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex">
-            <div class="card" data-background="image" style="width:100%;background-image: url('/wp-content/uploads/2019/09/group.jpg')">
-            <a href="#group" class="btn btn-link btn-neutral">
-              <div class="card-body">
-                <h6 class="card-category">Групповое</h6>
-                <div class="card-icon">
-                  <i class="fa fa-group"></i>
-                </div>
-                <div class="card-footer">
-                    <i class="fa fa-book" aria-hidden="true"></i> Подробнее
-                </div>
-              </div>
-            </a>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex">
-            <div class="card card-plain" data-background="image" style="width:100%; border-radius: 12px; background-image: url('/wp-content/uploads/2019/02/4.jpg')">
-              <a href="#phone" class="btn btn-link btn-neutral">
-              <div class="card-body" style="opacity:0.4">
-                <h6 class="card-category">Кругосветное</h6>
-                <h6 class="description">скоро</h6>
-                <div class="card-icon" style="margin-top: -24px;">
-                  <i class="nc-icon nc-world-2"></i>
-                </div>
-                <div class="card-footer">
-                    <i class="fa fa-book" aria-hidden="true"></i> Подробнее
-                </div>
-              </div>
-              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- end second screen -->
+    <ol class="carousel-indicators" style="z-index:9999999;position:absolute">
+      <?php for ($i = 0; $i < count($back_img); $i++ ) { ?>
+        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i; ?>" class="<?php if($i == 0){ echo 'active'; }; ?>"></li>
+      <?php } ?>
+    </ol>
+  </div>
+</div>
+<!-- end first screen container -->
+
+  <div class="section section-testimonials">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+          <h2 class="title">Составляющие наших туров</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="testimonials-people">
+            <div class="left-first-person" style="background-image:url(/wp-content/uploads/2019/11/circs_1.jpg)">
+            </div>
+            <div class="left-third-person" style="background-image:url(/wp-content/uploads/2019/11/circs_2.jpg)">
+            </div>
+            <div class="left-fourth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_3.jpg)">
+            </div>
+            <div class="left-fifth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_4.jpg)">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-6"> -->
+          <div class="col-md-8">
+          <div class="page-carousel d-none">
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators2" data-slide-to="1" class=""></li>
+                <li data-target="#carouselExampleIndicators2" data-slide-to="2" class=""></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                  <div class="card card-testimonial card-plain">
+                    <div class="card-avatar">
+                      <div class="img" style="background-image:url(/wp-content/uploads/2019/11/circle_1.jpg)">
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">
+                        Окружение энергичных людей
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card card-testimonial card-plain">
+                    <div class="card-avatar">
+                      <div class="img" style="background-image:url(/wp-content/uploads/2019/11/circle_2.jpg)">
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">
+                        Безопасность и Комфорт
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card card-testimonial card-plain">
+                    <div class="card-avatar">
+                      <div class="img" style="background-image:url(/wp-content/uploads/2019/11/circle_3.jpg)">
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">
+                        Продуманная программа с вариацией выбора
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="left carousel-control carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <span class="fa fa-angle-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <span class="fa fa-angle-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="carousel-inner our_tours_nav" role="listbox">
+            <div class="carousel-item active">
+              <div class="card card-testimonial card-plain">
+                <div class="card-avatar">
+                <div class="card-body">
+                  <h3 class="card-title title">
+                    Окружение энергичных людей
+                  </h3>
+                </div>
+                  <!-- <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_1.jpg)">
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card card-testimonial card-plain">
+                <div class="card-avatar">
+                <div class="card-body">
+                  <h3 class="card-title title">
+                    Безопасность и Комфорт
+                  </h3>
+                </div>
+                  <!-- <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_2.jpg)">
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card card-testimonial card-plain">
+                <div class="card-avatar">
+                  <div class="card-body">
+                    <h3 class="card-title title">
+                      Продуманная программа с вариацией выбора
+                    </h3>
+                  </div>
+                  <!-- <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_3.jpg)">
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-inner our_tours" role="listbox">
+            <div class="carousel-item active">
+              <div class="card card-testimonial card-plain">
+                <div class="card-avatar">
+                  <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_1.jpg)">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">
+                    Окружение энергичных людей
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card card-testimonial card-plain">
+                <div class="card-avatar">
+                  <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_2.jpg)">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">
+                    Безопасность и Комфорт
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card card-testimonial card-plain">
+                <div class="card-avatar">
+                  <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_3.jpg)">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">
+                    Продуманная программа с вариацией выбора
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="testimonials-people">
+            <div class="right-sixth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_5.jpg)">
+            </div>
+            <div class="right-second-person" style="background-image:url(/wp-content/uploads/2019/11/circs_6.jpg)">
+            </div>
+            <div class="right-third-person" style="background-image:url(/wp-content/uploads/2019/11/circs_7.jpg)">
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- start индивидуальные screen -->
-    <div id="order" class="contactus-1 section-image" style="background-image: url('/wp-content/uploads/2019/02/5.jpg')">
+    <div id="order" class="section d-flex contactus-1 section-image" style="align-items:center;background-image: url('/wp-content/uploads/2019/02/5.jpg')">
       <div class="col-md-8 ml-auto mr-auto  pb-3">
         <div class="card card-contact no-transition mb-3">
             <?= do_shortcode( '[contact-form-7 id="287" title="Форма индивидуального путешествия"]' )  ?>
@@ -154,61 +258,74 @@ while (have_posts()) : the_post();
     </div>
     <!-- end индивидуальные screen -->
 
-    <!-- start групповые screen -->
-    <div id="group" class="features-2 pb-0">
-      <div class="container">
+
+
+
+        <!-- start групповые screen -->
+    <div id="group" class="features-2 py-5" style="background-image: linear-gradient( 135deg, #FFF886 10%, #F072B6 100%);">
+      <div class="container-fluid px-0">
+        <div class="minh-100vh px-3">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Групповые маршруты</h2>
-            <h4 class="mb-3">Ближайшие путешествия</h3>
+            <p class="h1 title my-5">Наши ближайшие направления</p>
           </div>
         </div>
         <div class="row">
             <?php
-            $args = [
+            $_i = 0;
+            $args = [ 
                 'posts_per_page' => -1,
                 'post_status' => 'publish',
                 'post_type' => 'post',
             ];
             $posts = get_posts($args);
-            $_i = 0;
             foreach ($posts as $key => $post ):
-                 $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
-                 $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
-                 $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
-                 $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
-                 $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
-                 // $n = ($key  <  ) ? 4 : 3;
-                 $n = 4;
-                 $_i++;
-                 // if ($_i == ){
-                 //  $n = '4 offset-lg-2';
-                 // }
+             $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
+             $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
+             $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
+             $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
+             $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
+             $_i++;
+              ?>
 
-                 if ($_i == 7){
-                  ?>
-                  <div class="col-md-12 mt-5 mb-3">
-                    <h4 style="text-align:center">Другие путешествия</h4>
-                  </div>
-                  <?php
-                 }
-                 ?>
-          <div class="col-md-6 col-lg-<?= $n; ?> d-flex">
+        <?php
+          if ($_i == 6) {
+        ?>
+          </div> <!-- row -->
+        </div> <!-- minh-100vh -->
+      </div> <!-- container -->
+      <div class="container">
+        <div class="minh-100vh">
+          <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+              <p class="h1 title mb-5">Путешествия в 2020 году</p>
+            </div>
+          </div>
+          <div class="row mb-5">
+        <?php
+          }
+          if ($_i < 6) {
+            $col_class = 'col-flex-20';
+          } else if ($_i >= 6) {
+            $col_class = 'col-md-4';
+          }
+        ?>
+          <div class="<?= $col_class ?> col-sm-12 d-flex">
             <div class="card _dark" data-background="image" style="background-image: url(<?= $image; ?>)">
             <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
               <div class="card-body d-flex" style="flex-direction: column;">
                 <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
                 <div class="card-icon" style="
                 <?php
-                if ($post->post_name == 'australia') {
-                  echo 'width: 100px;padding-bottom: 0;padding-top: 35px;margin-bottom: -15px;';
-                } else if ($post->post_name == 'california') {
-                  echo 'width:145px';
-        } else if ($post->post_name == 'afrika') {
-          echo 'margin-top: 15px; margin-bottom: -15px; width:80px;';
-                } else {
-                  echo 'width:80px';
-                }
+                  if ($post->post_name == 'australia' || $post->post_name == 'australia_road') {
+                    echo 'width: 140px;padding-top: 25px;margin-bottom: -15px;';
+                  } else if ($post->post_name == 'california') {
+                    echo 'width:145px';
+                  } else if ($post->post_name == 'afrika') {
+                    echo 'margin-top: 15px; margin-bottom: -15px; width:80px;';
+                  } else {
+                    echo 'width:80px';
+                  }
                 ?>
                 ">
                 <?php if($icon){ ?>
@@ -221,32 +338,34 @@ while (have_posts()) : the_post();
                     <p><?= $mini_texts[0]['minitext'] ?></p>
                 </div>
                 <div class="card-footer" style="margin-top: auto;">
-                  <!--<a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral">-->
                     <i class="fa fa-book" aria-hidden="true"></i> Подробнее
-                  <!--</a>-->
                 </div>
               </div>
               </a>
             </div>
           </div>
          <?php endforeach; ?>
+         </div>
         </div>
       </div>
     </div>
     <!-- end групповые screen -->
 
+
+
   <!-- start instagram screen -->
-  <div id="insta" class="mt-5">
+  <div id="insta" class="py-5">
     <div class="col-md-6 ml-auto mr-auto text-center">
       <h2 class="title">C нами уже путешествовали</h2>
     </div>
     <div class="container">
-      <div class="row">
+      <div class="instas_wrap">
       <?php for ($i = 0; $i < count($insta); $i++){
         $header = !empty($insta[$i]['header']) ? $insta[$i]['header'] : null ;
         $instik = !empty($insta[$i]['instik']) ? $insta[$i]['instik'] : null ;
       ?>
-        <div class="col-lg-4 col-md-12 px-3 mb-5">
+        <!-- <div class="col-lg-4 col-md-12 px-3 mb-5"> -->
+        <div>
           <h5><?= $header ?></h5>
           <?= $instik ?>
         </div>
@@ -259,7 +378,7 @@ while (have_posts()) : the_post();
 
  <!-- start счетчики screen -->
  <div  id="counters" style="background-position-x: center; background-size: cover; background-image:url(/wp-content/uploads/2019/07/mount.jpg)">
-  <div class="container py-5 my-5">
+  <div class="container py-5">
     <div class="row">
       <div class="col-md-4 info">
         <div class="description">
@@ -287,104 +406,69 @@ while (have_posts()) : the_post();
 </div>
  <!-- end счетчики screen -->
 
-    <!-- start вопрос-ответ  screen -->
-    <div id="faq" class="mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto text-center">
-            <h2 class="title">Частые вопросы</h2>
-          </div>
-        </div>
 
-<div class="accordion" id="FAQ_accardion">
-<?php
-for ($i = 0; $i < count($faq); $i++){
-    $faq_title = !empty($faq[$i]['faq_title']) ? $faq[$i]['faq_title'] : null ;
-    $faq_text = !empty($faq[$i]['faq_text']) ? $faq[$i]['faq_text'] : null ;
-?>
-  <div class="card card-plain faq_card">
-    <div class="card-header" id="<?= 'heading_' . $i ?>" data-background="color" data-color="brown">
-      <h5 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="<?= '#collapce_' . $i ?>" aria-expanded="true" aria-controls="<?= 'collapce_' . $i ?>">
-              <?= $faq_title; ?>
-            </button>
-      </h5>
-    </div>
-    <div id="<?= 'collapce_' . $i ?>" class="collapse" aria-labelledby="<?= 'heading_' . $i ?>" data-parent="#FAQ_accardion">
-      <div class="card-body">
-        <?= $faq_text; ?>
-      </div>
-    </div>
-  </div>
-<?php } ?>
-</div>
-
-        </div>
-      </div>
-    <!-- end вопрос-ответ screen -->
-
-
-    <!-- start ценности screen -->
-    <div id="about" class="blog-3 pt-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
-            <h2 class="title">Наши ценности</h2>
-            <br />
-            <?php
-            for ($i = 0; $i < count($about); $i++ ) {
-                $about_title = !empty($about[$i]['about_title']) ? $about[$i]['about_title'] : null ;
-                $about_text = !empty($about[$i]['about_text']) ? $about[$i]['about_text'] : null ;
-                $about_photo = !empty($about[$i]['about_photo']) ? $about[$i]['about_photo'] : null ;
-                $image = wp_get_attachment_image_url( $about_photo, 'full' );
-                $text_width = ($i == 0) ? 'col-md-12' : 'col-md-8';
-                $text_part = '<div class="' . $text_width . ' order-1 order-md-1">
-                 <div class="card-body">
-                      <h3 class="card-title">' .
-                         $about_title .
-                     ' </h3>
-                    <p class="card-description strong black">' .
-                         $about_text .
-                    '</p>
-                  </div>
-                </div>';
-                $photo_part =  '<div class="col-md-4 order-2 order-md-1">
-                  <div class="">
-                      <img class="img" src="' . $image . '" />
-                  </div>
-                </div>';
-                echo ' <div class="card card-plain card-blog">
-                              <div class="row">';
-                if ($i%2 == 0) {
-                  echo $photo_part . $text_part;
-                } else {
-                  echo $text_part . $photo_part;
-                };
-                echo ' </div>
-                 </div>';
-             } ?>
-            <div class="card card-plain card-blog">
-              <div class="row">
-                <div class="col-md-12">
-                    <div class="card-description strong black mb-5">
-                        <?= the_content(); ?>
-                    </div>
-                </div>
+<!-- start ценности screen -->
+<div id="about" class="blog-3 pt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <h2 class="title">Наши преимущества</h2>
+        <br />
+        <?php
+        for ($i = 0; $i < count($about); $i++ ) {
+            $about_title = !empty($about[$i]['about_title']) ? $about[$i]['about_title'] : null ;
+            $about_text = !empty($about[$i]['about_text']) ? $about[$i]['about_text'] : null ;
+            $about_photo = !empty($about[$i]['about_photo']) ? $about[$i]['about_photo'] : null ;
+            $image = wp_get_attachment_image_url( $about_photo, 'full' );
+            $text_part = '<div class="col-md-8 order-1 order-md-1">
+             <div class="card-body">
+                  <h3 class="card-title">' .
+                     $about_title .
+                 ' </h3>
+                <p class="card-description strong black">' .
+                     $about_text .
+                '</p>
               </div>
+            </div>';
+            $photo_part =  '<div class="col-md-4 order-2 order-md-1">
+              <div class="">
+                  <img class="img" src="' . $image . '" />
+              </div>
+            </div>';
+            echo ' <div class="card card-plain card-blog">
+                          <div class="row">';
+            if ($i%2 == 0) {
+              echo $photo_part . $text_part;
+            } else {
+              echo $text_part . $photo_part;
+            };
+            echo ' </div>
+             </div>';
+         } ?>
+        <div class="card card-plain card-blog">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="card-description strong black mb-5">
+                    <?= the_content(); ?>
+                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- end ценности screen -->
-    <div id="guides" style="margin-top: -50px; margin-bottom: 70px"></div>
+  </div>
+</div>
+<!-- end ценности screen -->
+
+<!-- start гиды screen -->
+  <div id="guides" class="py-5" style="background-image: linear-gradient(to bottom right, #81fbb8 10%, #ceeceb);">
     <div class="container mb-5">
       <div class="col-md-8 mx-auto text-center">
         <div class="space-top"></div>
-        <h2 class="title">Наши гиды</h2>
+        <h2 class="title">Основатели проекта</h2>
       </div>
       <div class="row">
-        <div class="col-md-4 text-center guid">
+        <div class="col-md-6 text-center guid">
           <h4 class="mt-0 mb-2" style="height: 55px;">Буравцов Иван,<br>основатель “KeepTravel”</h4>
           <img src="https://keep-travel.ru/wp-content/uploads/2019/07/iv.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
           <p style="padding-top: 20px; font-size: 18px;">С раннего детства работал в туристической компании своего отца и помогал в проведение масштабных путешествий. В 18 лет провел первое самостоятельное путешествие для 13 человек. </p>
@@ -409,81 +493,90 @@ for ($i = 0; $i < count($faq); $i++){
             <li>Перу</li>
           </ul>
         </div>
-        <div class="col-md-4 text-center guid">
+        <div class="col-md-6 text-center guid">
           <h4 class="mt-0 mb-2" style="height: 55px;">Цымбалюк Владислав,<br>основатель “KeepTravel”</h4>
             <img src="https://keep-travel.ru/wp-content/uploads/2019/07/vl.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
-        </div>
-        <div class="col-md-4 text-center guid">
-          <h4 class="mt-0 mb-2" style="height: 55px;">Меледина Алиса</h4>
-            <img class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image" src="https://keep-travel.ru/wp-content/uploads/2019/02/alisa.jpg" style="border-radius: 50%;max-width: 250px;">
-            <p style="padding-top: 20px; font-size: 18px;">Более 4 лет назад переехала жить в Японию и с этого момента проводит на регулярной основе групповые путешествия. Знает секреты и особенности об этой страны, а так же с удовольствием расскажет вам много интересной информации с позиции местного житель.</p>
+          <p style="padding-top: 20px; font-size: 18px;">Тревел-дизайнер. Более 4ех лет создаёт для вас маршруты Мечты. Знает толк в настоящем Роуд Трипе и экстремальных Путешествиях. Считает Австралию идеальной страной для Путешествия и Жизни. Главная цель в Жизни - объехать весь Мир и показать его людям.
+Посетил 44 страны, 26 из которых объехал на машине.</p>
+          <p style="font-size: 18px;">Сопровождающий и ответственный за маршруты:</p>
+          <ul style="font-size: 18px; text-align: left">
+            <li>Австралия</li>
+            <li>Скандинавия</li>
+            <li>Россия</li>
+            <li>Евротур</li>
+            <li>Африка</li>
+            <li>Бразилия</li>
+            <li>Перу, Боливия</li>
+            <li>Азия</li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
+<!-- end гиды screen -->
 
-
-    <!-- start видосы screen -->
-    <div id="gallery" class="projects-3 section-image" style="background-image: url('/wp-content/uploads/2019/02/17.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <div class="space-top"></div>
-            <h2 class="title">Как это было</h2>
-          </div>
-        </div>
-        <div class="mb-5  mx-auto">
-        <?php
-            for ($i = 0; $i < count($gallery); $i++ ) {
-                $gallery_title = !empty($gallery[$i]['place']) ? $gallery[$i]['place'] : null ;
-                if ( $gallery_title ) { ?>
-                  <div class="gallery_wrap">
-                    <h3 style="color:white; text-align: center"><?= $gallery_title ?></h3>
-                  </div>
-                  <div class="gallery_wrap">
-                  <?php
-                  for ($j = 0; $j < count($gallery[$i]['gallery']); $j++ ) {
-                      $gallery_image =  !empty($gallery[$i]['gallery'][$j]['image']) ? $gallery[$i]['gallery'][$j]['image'] : null ;
-                      $image = wp_get_attachment_image_url( $gallery_image, 'full' );
-                      $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
-                  $att = ($j < 4) ? 'src' : 'data-lazy';
-                  ?>
-                  <div>
-                    <a href="<?= $image ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">
-                      <img class="img-fluid" <?= $att ?>="<?= $preview ?>" alt="...">
-                    </a>
-                  </div>
-                  <?php } ?>
-                </div>
-                <?php
-                }
-              } ?>
-        </div>
-
-        <div class="row">
-        <?php
-            for ($i = 0; $i < count($videos); $i++ ) {
-                $video_title = !empty($videos[$i]['video_title']) ? $videos[$i]['video_title'] : null ;
-                $video_code = !empty($videos[$i]['video_code']) ? $videos[$i]['video_code'] : null ;
-        ?>
-
-          <div class="col-md-6 mx-auto">
-            <div class="card card-profile card-plain">
-              <div class="card-img-top">
-                  <iframe width="100%" height="305px" src="https://www.youtube.com/embed/<?= $video_code ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              <div class="card-body">
-                <h4 class="card-title"><?= $video_title; ?></h4>
-              </div>
-            </div>
-          </div>
-          <?php } ?>
+  <!-- start видосы screen -->
+  <div id="gallery" class="projects-3 section-image" style="background-image: linear-gradient( 135deg, #92FFC0 10%, #002661 100%);">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+          <div class="space-top"></div>
+          <h2 class="title">Воспоминания</h2>
         </div>
       </div>
-     </div> 
-    <!-- end видосы screen -->
+      <div class="mb-5  mx-auto">
+      <?php
+          for ($i = 0; $i < count($gallery); $i++ ) {
+              $gallery_title = !empty($gallery[$i]['place']) ? $gallery[$i]['place'] : null ;
+              if ( $gallery_title ) { ?>
+                <div class="gallery_wrap">
+                  <h3 style="color:white; text-align: center"><?= $gallery_title ?></h3>
+                </div>
+                <div class="gallery_wrap">
+                <?php
+                for ($j = 0; $j < count($gallery[$i]['gallery']); $j++ ) {
+                    $gallery_image =  !empty($gallery[$i]['gallery'][$j]['image']) ? $gallery[$i]['gallery'][$j]['image'] : null ;
+                    $image = wp_get_attachment_image_url( $gallery_image, 'full' );
+                    $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
+                $att = ($j < 4) ? 'src' : 'data-lazy';
+                ?>
+                <div>
+                  <a href="<?= $image ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">
+                    <img class="img-fluid" <?= $att ?>="<?= $preview ?>" alt="...">
+                  </a>
+                </div>
+                <?php } ?>
+              </div>
+              <?php
+              }
+            } ?>
+      </div>
 
-    <!-- start отзывы screen -->
-    <div class="container">
+      <div class="row">
+      <?php
+          for ($i = 0; $i < count($videos); $i++ ) {
+              $video_title = !empty($videos[$i]['video_title']) ? $videos[$i]['video_title'] : null ;
+              $video_code = !empty($videos[$i]['video_code']) ? $videos[$i]['video_code'] : null ;
+      ?>
+
+        <div class="col-md-6 mx-auto">
+          <div class="card card-profile card-plain">
+            <div class="card-img-top">
+                <iframe width="100%" height="305px" src="https://www.youtube.com/embed/<?= $video_code ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title"><?= $video_title; ?></h4>
+            </div>
+          </div>
+        </div>
+        <?php } ?>
+      </div>
+    </div>
+   </div> 
+  <!-- end видосы screen -->
+
+  <!-- start отзывы screen -->
+  <div class="container" style="min-height:350px;">
 <style type="text/css">
   .video {
     min-width: 500px;
@@ -585,7 +678,8 @@ for ($i = 0; $i < count($faq); $i++){
 </style>
 
  <h2 class="title text-center mb-1">Они уже сделали это</h2>
-<div class="gallery_wrap_rev" style="max-width: 768px;">
+<!-- <div class="gallery_wrap_rev" style="max-width: 768px;"> -->
+  <div class="gallery_wrap_rev">
   <?php for ($i = 0; $i < count($reviews); $i++ ) { 
   $review_video = !empty($reviews[$i]['review_video']) ? $reviews[$i]['review_video'] : null ;
 ?>
@@ -615,9 +709,44 @@ for ($i = 0; $i < count($faq); $i++){
 </div>
     <!-- end отзывы screen -->
 
+<!-- start вопрос-ответ  screen -->
+<div id="faq" class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto text-center">
+        <h2 class="title">Частые вопросы</h2>
+      </div>
+    </div>
+
+<div class="accordion" id="FAQ_accardion">
+<?php
+for ($i = 0; $i < count($faq); $i++){
+    $faq_title = !empty($faq[$i]['faq_title']) ? $faq[$i]['faq_title'] : null ;
+    $faq_text = !empty($faq[$i]['faq_text']) ? $faq[$i]['faq_text'] : null ;
+?>
+  <div class="card card-plain faq_card">
+    <div class="card-header" id="<?= 'heading_' . $i ?>" data-background="color" data-color="brown">
+      <h5 class="my-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="<?= '#collapce_' . $i ?>" aria-expanded="true" aria-controls="<?= 'collapce_' . $i ?>">
+              <?= $faq_title; ?>
+            </button>
+      </h5>
+    </div>
+    <div id="<?= 'collapce_' . $i ?>" class="collapse" aria-labelledby="<?= 'heading_' . $i ?>" data-parent="#FAQ_accardion">
+      <div class="card-body">
+        <?= $faq_text; ?>
+      </div>
+    </div>
+  </div>
+<?php } ?>
+</div>
+
+        </div>
+      </div>
+    <!-- end вопрос-ответ screen -->
 
     <!-- start footer screen -->
-    <div id="footer" class="testimonials-1" style="background-image: url('/wp-content/uploads/2019/02/17.jpg')">
+    <div id="footer" style="background: url(/wp-content/uploads/2019/10/bot_back.jpg) no-repeat;background-size:cover; padding: 100px 0 300px;">
         <div class="container">
           <div class="row">
               <div class="col-md-8 mx-auto">
@@ -658,7 +787,7 @@ for ($i = 0; $i < count($faq); $i++){
                     <a href="tel:84993808699">+7-499-380-86-99</a>
                 </li>
                 <li class="nav-item ml-md-auto">
-                    <p class="copyright">© 2018, Keep Travel</p>
+                    <p class="copyright">© 2019, Keep Travel</p>
                     <p class="copyright">ИП Цымбалюк Владислав Дмитриевич<br>
                     ИНН: 7&zwj;71562423948<br>
                     ОГРН: 31977460&zwj;0153431</p>
@@ -705,6 +834,25 @@ for ($i = 0; $i < count($faq); $i++){
       </div>
     </div>
   </div>
+</div>
+<div id="phone_btn_wrap">
+<a href="https://api.whatsapp.com/send?phone=79169277027">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 -256 1792 1792" id="svg3013" version="1.1" inkscape:version="0.48.3.1 r9886" width="100%" height="100%" sodipodi:docname="phone_font_awesome.svg">
+  <metadata id="metadata3023">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs3021"/>
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="640" inkscape:window-height="480" id="namedview3019" showgrid="false" inkscape:zoom="0.13169643" inkscape:cx="896" inkscape:cy="896" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg3013"/>
+  <g transform="matrix(1,0,0,-1,159.45763,1293.0169)" id="g3015">
+    <path d="m 1408,296 q 0,-27 -10,-70.5 Q 1388,182 1377,157 1356,107 1255,51 1161,0 1069,0 1042,0 1016.5,3.5 991,7 959,16 927,25 911.5,30.5 896,36 856,51 816,66 807,69 709,104 632,152 504,231 367.5,367.5 231,504 152,632 104,709 69,807 66,816 51,856 36,896 30.5,911.5 25,927 16,959 7,991 3.5,1016.5 0,1042 0,1069 q 0,92 51,186 56,101 106,122 25,11 68.5,21 43.5,10 70.5,10 14,0 21,-3 18,-6 53,-76 11,-19 30,-54 19,-35 35,-63.5 16,-28.5 31,-53.5 3,-4 17.5,-25 14.5,-21 21.5,-35.5 7,-14.5 7,-28.5 0,-20 -28.5,-50 -28.5,-30 -62,-55 -33.5,-25 -62,-53 -28.5,-28 -28.5,-46 0,-9 5,-22.5 5,-13.5 8.5,-20.5 3.5,-7 14,-24 10.5,-17 11.5,-19 76,-137 174,-235 98,-98 235,-174 2,-1 19,-11.5 17,-10.5 24,-14 7,-3.5 20.5,-8.5 13.5,-5 22.5,-5 18,0 46,28.5 28,28.5 53,62 25,33.5 55,62 30,28.5 50,28.5 14,0 28.5,-7 14.5,-7 35.5,-21.5 21,-14.5 25,-17.5 25,-15 53.5,-31 28.5,-16 63.5,-35 35,-19 54,-30 70,-35 76,-53 3,-7 3,-21 z" id="path3017" inkscape:connector-curvature="0" style="fill:currentColor"/>
+  </g>
+</svg>
+</a>
 </div>
 <?php
 endwhile;
@@ -762,7 +910,7 @@ var sentOkMessage3 = [
 ];
 $( document ).ready(function() {
 var wpcf7Elm_1 = document.querySelectorAll( '.wpcf7:not(#wpcf7-f287-p2-o2)' );
-var wpcf7Elm_2 = document.querySelector('#wpcf7-f287-p2-o2');
+// var wpcf7Elm_2 = document.querySelector('#wpcf7-f287-p2-o2');
 
 for (var i = 0; i < wpcf7Elm_1.length; i++){
   wpcf7Elm_1[i].addEventListener( 'wpcf7mailsent', function( event ) {
@@ -772,10 +920,10 @@ for (var i = 0; i < wpcf7Elm_1.length; i++){
 }
 
 
-wpcf7Elm_2.addEventListener( 'wpcf7mailsent', function( event ) {
-    var formWrap = this.parentNode;
-    formWrap.innerHTML = sentOkMessage3[0] + sentOkMessage3[1] + sentOkMessage3[2];
-}, false );
+// wpcf7Elm_2.addEventListener( 'wpcf7mailsent', function( event ) {
+//     var formWrap = this.parentNode;
+//     formWrap.innerHTML = sentOkMessage3[0] + sentOkMessage3[1] + sentOkMessage3[2];
+// }, false );
 
     setTimeout(modalQuestionOpen, 180000);
 });
@@ -897,6 +1045,20 @@ var rangeSlider = document.getElementById('slider-range');
   };
 </script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<style type="text/css">
+  .gallery_wrap_rev {
+    padding: 0!important;
+    margin: 0 30px!important;
+    max-width: none;
+  }
+  .card.card-plain .card-body {
+    padding: 0!important;
+    margin: 0!important;
+  }
+  .gallery_wrap_rev .slick-slide {
+    max-height: none;
+  }
+</style>
 <script>
 $("a.gallery_item").fancybox();
 
@@ -929,10 +1091,68 @@ $('.gallery_wrap').slick( {
   ]
 });
 
+$('.instas_wrap').slick( {
+  centerMode: false,
+  slidesToShow: 3,
+  infinite: true,
+  lazyLoad: 'ondemand',
+  dots: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        centerMode: false,
+        slidesToShow: 1,
+        lazyLoad: 'ondemand',
+        infinite: true,
+        dots: true,
+      }
+    }
+  ]
+});
+
 
 $('.gallery_wrap_rev').slick( {
+  centerMode: false,
+  slidesToShow: 2,
+  variableWidth: true,
+  infinite: true,
+  lazyLoad: 'ondemand',
+  dots: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        centerMode: false,
+        slidesToShow: 1,
+        lazyLoad: 'ondemand',
+        infinite: true,
+        dots: true,
+      }
+    }
+  ]
+
+});
+
+</script>
+<script type="text/javascript">
+$('.our_tours').slick({
   slidesToShow: 1,
   infinite: true,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  swipe: false,
+  asNavFor: '.our_tours_nav'
+});
+$('.our_tours_nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.our_tours',
+  dots: false,
+  // fade: true,
+  centerMode: true,
+  focusOnSelect: true
 });
 </script>
 <!-- Yandex.Metrika counter -->
