@@ -11542,7 +11542,7 @@ h3.card-title.title{
 }
 h3.card-title.title:hover{
   opacity: 1;
-  margin-top: -10px;
+  /*margin-top: -10px;*/
   cursor: pointer;
 }
 .slick-current h3.card-title.title{

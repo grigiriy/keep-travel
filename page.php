@@ -67,7 +67,7 @@ while (have_posts()) : the_post();
 </div>
 <!-- end first screen container -->
 
-  <div class="section section-testimonials">
+  <div class="section section-testimonials d-none">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
@@ -75,7 +75,7 @@ while (have_posts()) : the_post();
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="testimonials-people">
             <div class="left-first-person" style="background-image:url(/wp-content/uploads/2019/11/circs_1.jpg)">
             </div>
@@ -87,160 +87,50 @@ while (have_posts()) : the_post();
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-6"> -->
-          <div class="col-md-8">
-          <div class="page-carousel d-none">
-            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators2" data-slide-to="1" class=""></li>
-                <li data-target="#carouselExampleIndicators2" data-slide-to="2" class=""></li>
-              </ol>
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                  <div class="card card-testimonial card-plain">
-                    <div class="card-avatar">
-                      <div class="img" style="background-image:url(/wp-content/uploads/2019/11/circle_1.jpg)">
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <h3 class="card-title">
-                        Окружение энергичных людей
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="card card-testimonial card-plain">
-                    <div class="card-avatar">
-                      <div class="img" style="background-image:url(/wp-content/uploads/2019/11/circle_2.jpg)">
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <h3 class="card-title">
-                        Безопасность и Комфорт
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="card card-testimonial card-plain">
-                    <div class="card-avatar">
-                      <div class="img" style="background-image:url(/wp-content/uploads/2019/11/circle_3.jpg)">
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <h3 class="card-title">
-                        Продуманная программа с вариацией выбора
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a class="left carousel-control carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                <span class="fa fa-angle-left"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
-                <span class="fa fa-angle-right"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
+        <div class="col-md-10">
+          <div class="our_tours_nav row" role="listbox">
+
+          <h3 class="card-title title" data-nav="programm">
+            Программа
+          </h3>
+          <h3 class="card-title title" data-nav="people">
+            Люди
+          </h3>
+          <h3 class="card-title title" data-nav="comfort">
+            Комфорт
+          </h3>
+          <h3 class="card-title title" data-nav="memories">
+            Воспоминания
+          </h3>
+
           </div>
-          <div>
-            <div class="carousel-inner our_tours_nav" role="listbox">
-            <div class="carousel-item active">
-              <div class="card card-testimonial card-plain">
-                <div class="card-avatar">
-                <div class="card-body">
-                  <h3 class="card-title title">
-                    Окружение энергичных людей
-                  </h3>
-                </div>
-                  <!-- <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_1.jpg)">
-                  </div> -->
-                </div>
-              </div>
+          <div class="row">
+            <div class="card d-flex" id="t_programm">
+              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
+              <p>Каждый наш маршрут уникален и составлен опытными Тревел Дизайнерами, живущими в данной стране Путешествия. Во всех наших маршрутах мы предлагаем разную вариацию каждого дня на любой вкус, чтобы Ваше время Путешествия стало для Вас незабываемым!</p>
             </div>
-            <div class="carousel-item">
-              <div class="card card-testimonial card-plain">
-                <div class="card-avatar">
-                <div class="card-body">
-                  <h3 class="card-title title">
-                    Безопасность и Комфорт
-                  </h3>
-                </div>
-                  <!-- <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_2.jpg)">
-                  </div> -->
-                </div>
-              </div>
+            <div class="card d-flex" id="t_people">
+              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
+              <p>Наши участники - это энергичные и интересные люди со всех уголков Земли,  которых объединяет следующие цели: Путешествовать, узнавать Мир и развиваться.</p>
             </div>
-            <div class="carousel-item">
-              <div class="card card-testimonial card-plain">
-                <div class="card-avatar">
-                  <div class="card-body">
-                    <h3 class="card-title title">
-                      Продуманная программа с вариацией выбора
-                    </h3>
-                  </div>
-                  <!-- <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_3.jpg)">
-                  </div> -->
-                </div>
-              </div>
+            <div class="card d-flex" id="t_comfort">
+              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
+              <p>Для нас комфорт и безопасность наших участников всегда на первом месте! Экономия на проживании и транспорте - это не про Нас!</p>
+            </div>
+            <div class="card d-flex" id="t_memories">
+              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
+              <p>Мы стараемся сделать каждое наше Путешествие незабываемым, чтобы воспоминания о нем жили вечно!</p>
             </div>
           </div>
 
-          <div class="carousel-inner our_tours" role="listbox">
-            <div class="carousel-item active">
-              <div class="card card-testimonial card-plain">
-                <div class="card-avatar">
-                  <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_1.jpg)">
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title">
-                    Окружение энергичных людей
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="card card-testimonial card-plain">
-                <div class="card-avatar">
-                  <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_2.jpg)">
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title">
-                    Безопасность и Комфорт
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="card card-testimonial card-plain">
-                <div class="card-avatar">
-                  <div class="img" style="background-image:url(https://keep-travel.ru/wp-content/uploads/2019/11/circle_3.jpg)">
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title">
-                    Продуманная программа с вариацией выбора
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
           <div class="testimonials-people">
             <div class="right-sixth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_5.jpg)">
             </div>
             <div class="right-second-person" style="background-image:url(/wp-content/uploads/2019/11/circs_6.jpg)">
             </div>
             <div class="right-third-person" style="background-image:url(/wp-content/uploads/2019/11/circs_7.jpg)">
-            </div>
             </div>
           </div>
         </div>
@@ -249,7 +139,8 @@ while (have_posts()) : the_post();
   </div>
 
     <!-- start индивидуальные screen -->
-    <div id="order" class="section d-flex contactus-1 section-image" style="align-items:center;background-image: url('/wp-content/uploads/2019/02/5.jpg')">
+<!--     <div id="order" class="section d-flex contactus-1 section-image" style="align-items:center;background-image: url('/wp-content/uploads/2019/02/5.jpg')"> -->
+  <div class="d-none">
       <div class="col-md-8 ml-auto mr-auto  pb-3">
         <div class="card card-contact no-transition mb-3">
             <?= do_shortcode( '[contact-form-7 id="287" title="Форма индивидуального путешествия"]' )  ?>
@@ -800,6 +691,71 @@ for ($i = 0; $i < count($faq); $i++){
     </footer>
 <!-- end footer screen -->
 
+<!-- whatsapp form -->
+<div id="wa_form" class="" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
+  <div class="_header">
+    <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
+    <span> Напишите нам сообщение:</span>
+  </div>
+  <div class="_body">
+    <div>Введите сообщение:</div>
+  </div>
+</div>
+
+<style type="text/css">
+  @media(max-width:768px) {
+    #wa_form {
+      display:none;
+    }
+  }
+  #wa_form {
+    height: 50px;
+    width: 300px;
+    background: #a7ce64;
+    position: fixed;
+    bottom: 0px;
+    z-index: 9999;
+    right: 30px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 3px 3px 20px #000;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  #wa_form.opened {
+    height: 400px;
+  }
+  #wa_form img {
+    max-width: 20px;
+    margin-right: 10px;
+  }
+  #wa_form ._header {
+    margin: 15px;
+  }
+  #wa_form ._body {
+    background: #fff;
+    margin-top: 20px;
+    height: 100%;
+    color: #000;
+    display: flex;
+  }
+  #wa_form ._body div {
+    align-self: flex-end;
+    border-top: solid 1px #ccc;
+    width: 100%;
+    padding: 15px;
+    color: #777;
+    font-weight: 100;
+    margin-bottom: 60px;
+    display: none;
+  }
+  #wa_form.opened ._body div {
+    display: block;
+  }
+</style>
+<!-- end whatsapp form -->
+
 <div class="modal modal-lg fade mx-auto" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -871,6 +827,9 @@ function modalRoundOpen(){
       });
   });
 };
+function whatsappOpen(){
+  $('#wa_form').addClass('opened');
+}
 function modalQuestionOpen(){
   var questionModal = $('#question-modal');
   questionModal.modal('show');
@@ -926,6 +885,7 @@ for (var i = 0; i < wpcf7Elm_1.length; i++){
 // }, false );
 
     setTimeout(modalQuestionOpen, 180000);
+    setTimeout(whatsappOpen, 30000);
 });
 // start youtube hack
 function findVideos() {
@@ -1136,24 +1096,24 @@ $('.gallery_wrap_rev').slick( {
 
 </script>
 <script type="text/javascript">
-$('.our_tours').slick({
-  slidesToShow: 1,
-  infinite: true,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  swipe: false,
-  asNavFor: '.our_tours_nav'
-});
-$('.our_tours_nav').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  asNavFor: '.our_tours',
-  dots: false,
-  // fade: true,
-  centerMode: true,
-  focusOnSelect: true
-});
+// $('.our_tours').slick({
+//   slidesToShow: 1,
+//   infinite: true,
+//   slidesToScroll: 1,
+//   arrows: false,
+//   fade: true,
+//   swipe: false,
+//   asNavFor: '.our_tours_nav'
+// });
+// $('.our_tours_nav').slick({
+//   slidesToShow: 4,
+//   slidesToScroll: 1,
+//   asNavFor: '.our_tours',
+//   dots: false,
+//   // fade: true,
+//   centerMode: true,
+//   focusOnSelect: true
+// });
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
