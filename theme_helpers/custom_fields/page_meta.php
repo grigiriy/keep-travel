@@ -69,25 +69,47 @@ Container::make( 'post_meta', 'Настройки главной' )
                Field::make( 'complex', 'reviews', '' )
                    ->add_fields( [
                        Field::make( 'text', 'review_name', 'Имя/вораст/откуда' )
-                            ->set_width( 25 ),
+                            ->set_width( 50 ),
+                        Field::make( 'text', 'review_instik', 'инстаграм' )
+                             ->set_width( 50 ),
                        Field::make( 'text', 'review_title', 'Место' )
-                            ->set_width( 25 ),
+                            ->set_width( 30 ),
                        Field::make( 'image', 'review_photo', 'Аватар' )
-                            ->set_width( 25 ),
+                            ->set_width( 30 ),
                         Field::make( 'text', 'review_video', 'код ютуба' )
-                             ->set_width( 25 ),
+                             ->set_width( 30 ),
                         Field::make( 'textarea', 'review_text', 'Отзыв' )
                             ->set_width( 100 ),
+                    ])
+           ])
+        ->add_tab( 'Основатели', [
+               Field::make( 'complex', 'founders', '' )
+                   ->add_fields( [
+                       Field::make( 'textarea', 'founders_about', 'Текст' )
+                            ->set_width( 40 ),
+                       Field::make( 'text', 'founders_name', 'Имя' )
+                            ->set_width( 20 ),
+                       Field::make( 'textarea', 'founders_sub', 'Подпись' )
+                            ->set_width( 20 ),
+                       Field::make( 'image', 'founders_photo', 'Аватар' )
+                            ->set_width( 20 ),
                     ])
            ])
             ->add_tab( 'Галерея', [
                Field::make( 'complex', 'gallery', '' )
                    ->add_fields( [
                        Field::make( 'text', 'place', 'Место' )
-                           ->set_width( 100 ),
+                           ->set_width( 50 ),
+                       Field::make( 'image', 'image', 'Фон для карточки' )
+                           ->set_width( 50 ),
                        Field::make( 'complex', 'gallery', '' )
                           ->add_fields( [
                              Field::make( 'image', 'image', 'Картинка' )
+                                  ->set_width( 20 ),
+                            ]),
+                       Field::make( 'complex', 'videos', '' )
+                          ->add_fields( [
+                             Field::make( 'text', 'video', 'Код ютуба' )
                                   ->set_width( 20 ),
                             ])
                     ])

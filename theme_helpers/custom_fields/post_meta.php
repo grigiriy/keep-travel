@@ -97,7 +97,6 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
                  Field::make( 'image', 'image', 'Картинка' )
                       ->set_width( 20 ),
                 ]),
-            Field::make( 'checkbox', 'index', 'На главную' ),
    ])
        ->add_tab( 'Как это было (видео)', [
         Field::make( 'complex', 'videos', '' )

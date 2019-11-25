@@ -12,7 +12,7 @@ function deregister_cf7_styles() {
 }
 add_action('wp_print_styles', 'deregister_cf7_styles', 100);
 
-define('STATIC_FILES_BUILD_VERSION', '5.21');
+define('STATIC_FILES_BUILD_VERSION', '6.1');
 
 // deregister unnessosary scripts
 if(!is_admin()){

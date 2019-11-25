@@ -76,7 +76,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="/wp-content/themes/advantures/img/KeepTravel_Black.png" alt="" id="logo_black">
             <img src="/wp-content/themes/advantures/img/KeepTravel_White.png" alt="" id="logo_white">
           </a>
-          <span>Групповые путешествия<br>по всему миру</span>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar bar1"></span>
             <span class="navbar-toggler-bar bar2"></span>
@@ -111,7 +110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </li>
             <li class="nav-item">
               <a class="btn btn-round btn-whatsapp" href="https://api.whatsapp.com/send?phone=79169277027">
-                <img src="/wp-content/uploads/2019/11/whatsapp_icon.png"> Связаться с нами
+                <img src="/wp-content/uploads/2019/11/whatsapp_icon.png"> WhatsApp
               </a>
             </li>
           </ul>

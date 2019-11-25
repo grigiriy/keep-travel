@@ -6,6 +6,7 @@ $insta = !empty(carbon_get_post_meta($post->ID, 'insta', 'complex')) ? carbon_ge
 $counters = !empty(carbon_get_post_meta($post->ID, 'counters', 'complex')) ? carbon_get_post_meta($post->ID, 'counters', 'complex') : null ;
 $videos = !empty(carbon_get_post_meta($post->ID, 'videos', 'complex')) ? carbon_get_post_meta($post->ID, 'videos', 'complex') : null ;
 $reviews = !empty(carbon_get_post_meta($post->ID, 'reviews', 'complex')) ? carbon_get_post_meta($post->ID, 'reviews', 'complex') : null ;
+$founders = !empty(carbon_get_post_meta($post->ID, 'founders', 'complex')) ? carbon_get_post_meta($post->ID, 'founders', 'complex') : null ;
 $gallery = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? carbon_get_post_meta($post->ID, 'gallery', 'complex') : null ;
 
 while (have_posts()) : the_post();
@@ -13,7 +14,8 @@ while (have_posts()) : the_post();
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
  <div class="section-space"></div>
- <div class="header-2" id="top">
+
+<div class="header-2" id="top">
 <div id="carouselExampleIndicators" class="page-header carousel slide" data-ride="carousel" >
   <div class="carousel-inner">
   <?php for ($i = 0; $i < count($back_img); $i++ ) { ?>
@@ -67,7 +69,7 @@ while (have_posts()) : the_post();
 </div>
 <!-- end first screen container -->
 
-  <div class="section section-testimonials d-none">
+  <div class="section section-testimonials minh-100vh" id="parts">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
@@ -75,11 +77,11 @@ while (have_posts()) : the_post();
         </div>
       </div>
       <div class="row">
-        <div class="col-md-1">
+        <div class="abs_left">
           <div class="testimonials-people">
             <div class="left-first-person" style="background-image:url(/wp-content/uploads/2019/11/circs_1.jpg)">
             </div>
-            <div class="left-third-person" style="background-image:url(/wp-content/uploads/2019/11/circs_2.jpg)">
+            <div class="left-third-person" style="background-image:url(/wp-content/uploads/2019/11/second_circle_nov.jpg)">
             </div>
             <div class="left-fourth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_3.jpg)">
             </div>
@@ -87,50 +89,91 @@ while (have_posts()) : the_post();
             </div>
           </div>
         </div>
-        <div class="col-md-10">
-          <div class="our_tours_nav row" role="listbox">
-
-          <h3 class="card-title title" data-nav="programm">
+        <div class="our_tours_nav row" id="nav-parts">
+          <h3 class="card-title title active" data-nav="programm" onclick="swipeTo(this);">
             Программа
           </h3>
-          <h3 class="card-title title" data-nav="people">
+          <h3 class="card-title title" data-nav="people" onclick="swipeTo(this);">
             Люди
           </h3>
-          <h3 class="card-title title" data-nav="comfort">
+          <h3 class="card-title title" data-nav="comfort" onclick="swipeTo(this);">
             Комфорт
           </h3>
-          <h3 class="card-title title" data-nav="memories">
+          <h3 class="card-title title" data-nav="memories" onclick="swipeTo(this);">
             Воспоминания
           </h3>
+          <svg width="245" height="160" xmlns="http://www.w3.org/2000/svg" id="start_svg">
+            <path d="M10 40 Q 95 10 235 80" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :=""></path>
+          </svg>
+          <svg width="120" height="160" xmlns="http://www.w3.org/2000/svg" id="middle_svg">
+            <path d="M10 10 Q 95 50 110 50" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :=""></path>
+          </svg>
 
-          </div>
-          <div class="row">
-            <div class="card d-flex" id="t_programm">
-              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
-              <p>Каждый наш маршрут уникален и составлен опытными Тревел Дизайнерами, живущими в данной стране Путешествия. Во всех наших маршрутах мы предлагаем разную вариацию каждого дня на любой вкус, чтобы Ваше время Путешествия стало для Вас незабываемым!</p>
-            </div>
-            <div class="card d-flex" id="t_people">
-              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
-              <p>Наши участники - это энергичные и интересные люди со всех уголков Земли,  которых объединяет следующие цели: Путешествовать, узнавать Мир и развиваться.</p>
-            </div>
-            <div class="card d-flex" id="t_comfort">
-              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
-              <p>Для нас комфорт и безопасность наших участников всегда на первом месте! Экономия на проживании и транспорте - это не про Нас!</p>
-            </div>
-            <div class="card d-flex" id="t_memories">
-              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
-              <p>Мы стараемся сделать каждое наше Путешествие незабываемым, чтобы воспоминания о нем жили вечно!</p>
-            </div>
-          </div>
+          <svg width="245" height="160" xmlns="http://www.w3.org/2000/svg" id="end_svg">
+            <path d="M10 80 Q 120 30 235 60" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :=""></path>
+          </svg>
+          <script type="text/javascript">
+             function swipeTo(e){
+              $this = $(e);
+              let $term = $('#t_' + $this.data('nav'));
 
+              $term.show(300);
+              $term.siblings('.card').hide(300);
+
+              let navs = $('#nav-parts').find('h3');
+              for (let i = 0; i < navs.length; i++ ){
+                if ($(navs[i]).data('nav') == $this.data('nav')){
+                  $(navs[i]).addClass('active');
+                } else {
+                  $(navs[i]).removeClass('active');
+                }
+              }
+
+
+             }
+          </script>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-12">
+          <div class="nav-prev" data-nav="" onclick="swipeTo(this)"></div>
+            <div class="card card-plain" id="t_programm" style="">
+              <img src="/wp-content/uploads/2019/11/circle_3.jpg">
+              <div>
+                <h3>Программа</h3>
+                <p>Каждый наш маршрут уникален и составлен опытными Тревел Дизайнерами, живущими в данной стране Путешествия. Во всех наших маршрутах мы предлагаем разную вариацию каждого дня на любой вкус, чтобы Ваше время Путешествия стало для Вас незабываемым!</p>
+              </div>
+            </div>
+            <div class="card card-plain" id="t_people" style="display:none">
+              <img src="/wp-content/uploads/2019/11/first_circle.jpg">
+              <div>
+                <h3>Люди</h3>
+                <p>Наши участники - это энергичные и интересные люди со всех уголков Земли, которых объединяет следующие цели: Путешествовать, узнавать Мир и развиваться.</p>
+              </div>
+            </div>
+            <div class="card card-plain" id="t_comfort" style="display:none">
+              <img src="/wp-content/uploads/2019/11/circle_2.jpg">
+              <div>
+                <h3>Комфорт</h3>
+                <p>Для нас комфорт и безопасность наших участников всегда на первом месте! Экономия на проживании и транспорте - это не про Нас!</p>
+              </div>
+            </div>
+            <div class="card card-plain" id="t_memories" style="display:none">
+              <img src="/wp-content/uploads/2019/11/circs_4.jpg">
+              <div>
+                <h3>Воспоминания</h3>
+                <p>Мы стараемся сделать каждое наше Путешествие незабываемым, чтобы воспоминания о нем жили вечно!</p>
+              </div>
+            </div>
+          <div class="nav-next" data-nav="" onclick="swipeTo(this)"></div>
+        </div>
+        <div class="abs_right">
           <div class="testimonials-people">
             <div class="right-sixth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_5.jpg)">
             </div>
             <div class="right-second-person" style="background-image:url(/wp-content/uploads/2019/11/circs_6.jpg)">
             </div>
             <div class="right-third-person" style="background-image:url(/wp-content/uploads/2019/11/circs_7.jpg)">
+            </div>
+            <div class="right-fourth-person" style="background-image:url(/wp-content/uploads/2019/11/eigth_circle_nov.jpg)">
             </div>
           </div>
         </div>
@@ -153,7 +196,7 @@ while (have_posts()) : the_post();
 
 
         <!-- start групповые screen -->
-    <div id="group" class="features-2 py-5" style="background-image: linear-gradient( 135deg, #FFF886 10%, #F072B6 100%);">
+    <div id="group" class="features-2 pt-5 pb-0">
       <div class="container-fluid px-0">
         <div class="minh-100vh px-3">
         <div class="row">
@@ -245,31 +288,33 @@ while (have_posts()) : the_post();
 
 
   <!-- start instagram screen -->
-  <div id="insta" class="py-5">
+  <div id="insta" style="background-color:#202020">
     <div class="col-md-6 ml-auto mr-auto text-center">
-      <h2 class="title">C нами уже путешествовали</h2>
+      <h2 class="title white">C нами уже путешествовали</h2>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="instas_wrap">
-      <?php for ($i = 0; $i < count($insta); $i++){
-        $header = !empty($insta[$i]['header']) ? $insta[$i]['header'] : null ;
-        $instik = !empty($insta[$i]['instik']) ? $insta[$i]['instik'] : null ;
-      ?>
-        <!-- <div class="col-lg-4 col-md-12 px-3 mb-5"> -->
+        <?php for ($i = 0; $i < count($insta); $i++){
+          $instik = !empty($insta[$i]['instik']) ? $insta[$i]['instik'] : null ;
+        ?>
         <div>
-          <h5><?= $header ?></h5>
+          
           <?= $instik ?>
         </div>
         <?php } ?>
+        <svg xmlns="http://www.w3.org/2000/svg" id="start_svg_insta">
+          <path d="M10 80 Q 80 90 120 10" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :="" style=""></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="middle_svg_insta">
+          <path d="M10 80 Q 120 60 150 150" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :="" style=""></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="end_svg_insta">
+          <path d="M10 80 Q 80 90 120 10" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :="" style=""></path>
+        </svg>
       </div>
     </div>
-  </div>
   <script async src="//www.instagram.com/embed.js"></script>
-    <!-- end instagram screen -->
-
- <!-- start счетчики screen -->
- <div  id="counters" style="background-position-x: center; background-size: cover; background-image:url(/wp-content/uploads/2019/07/mount.jpg)">
-  <div class="container py-5">
+  <div class="container counters">
     <div class="row">
       <div class="col-md-4 info">
         <div class="description">
@@ -301,7 +346,25 @@ while (have_posts()) : the_post();
 <!-- start ценности screen -->
 <div id="about" class="blog-3 pt-3">
   <div class="container">
+    <h2 class="title text-center">Наша философия</h2>
     <div class="row">
+      <div class="col-md-6">
+        <img src="/wp-content/uploads/2019/11/feel_small.png">
+      </div>
+      <div class="col-md-6 feel_slider">
+        <?php
+        for ($i = 0; $i < count($about); $i++ ) {
+            $about_title = !empty($about[$i]['about_title']) ? $about[$i]['about_title'] : null ;
+            $about_text = !empty($about[$i]['about_text']) ? $about[$i]['about_text'] : null ;
+          ?>
+        <div class="card-body pl-3 pr-5">
+          <h3 class="card-title"><?= $about_title ?></h3>
+          <p class="card-description strong black"><?= $about_text ?></p>
+        </div>
+        <?php } ?>
+      </div>
+    </div>
+    <div class="row d-none">
       <div class="col-md-8 ml-auto mr-auto">
         <h2 class="title">Наши преимущества</h2>
         <br />
@@ -352,118 +415,135 @@ while (have_posts()) : the_post();
 <!-- end ценности screen -->
 
 <!-- start гиды screen -->
-  <div id="guides" class="py-5" style="background-image: linear-gradient(to bottom right, #81fbb8 10%, #ceeceb);">
+  <div id="guides" class="py-5">
     <div class="container mb-5">
       <div class="col-md-8 mx-auto text-center">
         <div class="space-top"></div>
         <h2 class="title">Основатели проекта</h2>
       </div>
       <div class="row">
+        <?php
+        for ($i = 0; $i < count($founders); $i++ ) {
+            $founders_about = !empty($founders[$i]['founders_about']) ? $founders[$i]['founders_about'] : null ;
+
+            $founders_name = !empty($founders[$i]['founders_name']) ? $founders[$i]['founders_name'] : null ;
+
+            $founders_sub = !empty($founders[$i]['founders_sub']) ? $founders[$i]['founders_sub'] : null ;
+
+            $founders_photo = !empty($founders[$i]['founders_photo']) ? $founders[$i]['founders_photo'] : null ;
+            $image = wp_get_attachment_image_url( $founders_photo, 'full' );
+        ?>
         <div class="col-md-6 text-center guid">
-          <h4 class="mt-0 mb-2" style="height: 55px;">Буравцов Иван,<br>основатель “KeepTravel”</h4>
-          <img src="https://keep-travel.ru/wp-content/uploads/2019/07/iv.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
-          <p style="padding-top: 20px; font-size: 18px;">С раннего детства работал в туристической компании своего отца и помогал в проведение масштабных путешествий. В 18 лет провел первое самостоятельное путешествие для 13 человек. </p>
-          <ul style="font-size: 18px;  text-align: left">
-            <li>Посетил 38 стран</li>
-            <li>Сертифицированный выпускник - Redcross "Оказание первой медицинской помощи"</li>
-            <li>Опытный автомобилист (стаж 9 лет)</li>
-            <li>Поднимался на Эльбрус</li>
-            <li>Учился выживанию в Тайге</li>
-            <li>Ночевал на вулкане</li>
-          </ul>
-          <p style="font-size: 18px;"><strong>"Основным приоритетом для меня является безопасность и комфорт каждого участника"</strong></p>
-          <p style="font-size: 18px;">Сопровождающий и ответственный за маршруты:</p>
-          <ul style="font-size: 18px; text-align: left">
-            <li>Евротур</li>
-            <li>Калифорния</li>
-            <li>Route 66</li>
-            <li>Норвегия</li>
-            <li>Марокко</li>
-            <li>Исландия</li>
-            <li>Большое путешествие по Африке</li>
-            <li>Перу</li>
-          </ul>
+          <img src="<?= $image ?>" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
+          <h4 class="mt-0 mb-2"><?= $founders_name ?></h4>
+          <p class="mt-0 mb-2 text-center" style="min-height:45px"><i><?= $founders_sub ?></i></p>
+          <p><?= $founders_about ?></p>
         </div>
-        <div class="col-md-6 text-center guid">
-          <h4 class="mt-0 mb-2" style="height: 55px;">Цымбалюк Владислав,<br>основатель “KeepTravel”</h4>
-            <img src="https://keep-travel.ru/wp-content/uploads/2019/07/vl.jpg" class="img-circle img-no-padding img-responsive rounded" alt="Rounded Image">
-          <p style="padding-top: 20px; font-size: 18px;">Тревел-дизайнер. Более 4ех лет создаёт для вас маршруты Мечты. Знает толк в настоящем Роуд Трипе и экстремальных Путешествиях. Считает Австралию идеальной страной для Путешествия и Жизни. Главная цель в Жизни - объехать весь Мир и показать его людям.
-Посетил 44 страны, 26 из которых объехал на машине.</p>
-          <p style="font-size: 18px;">Сопровождающий и ответственный за маршруты:</p>
-          <ul style="font-size: 18px; text-align: left">
-            <li>Австралия</li>
-            <li>Скандинавия</li>
-            <li>Россия</li>
-            <li>Евротур</li>
-            <li>Африка</li>
-            <li>Бразилия</li>
-            <li>Перу, Боливия</li>
-            <li>Азия</li>
-          </ul>
-        </div>
+      <?php } ?>
       </div>
     </div>
   </div>
 <!-- end гиды screen -->
 
+ <script type="text/javascript">
+   function changeTab(e){
+    $this = $(e);
+    let $gall = $($this.data('nav'));
+
+    $gall.show(300);
+    $gall.siblings('.row').hide(300);
+
+   }
+ </script>
   <!-- start видосы screen -->
-  <div id="gallery" class="projects-3 section-image" style="background-image: linear-gradient( 135deg, #92FFC0 10%, #002661 100%);">
-    <div class="container">
+  <div id="gallery" class="projects-3 section-image">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 mx-auto text-center">
           <div class="space-top"></div>
           <h2 class="title">Воспоминания</h2>
         </div>
       </div>
-      <div class="mb-5  mx-auto">
+      <div class="mb-5 mx-auto">
+        <div class="gallery_list" >
+        <?php
+        for ($i = 0; $i < count($gallery); $i++ ) {
+          $gallery_title = !empty($gallery[$i]['place']) ? $gallery[$i]['place'] : null ;
+          $gallery_preview =  !empty($gallery[$i]['image']) ? $gallery[$i]['image'] : null ;
+          $preview = wp_get_attachment_image_url( $gallery_preview, 'full' );
+          if ( $gallery_title ) { ?>
+            <div class="tabza_nav" style="background-image:url(<?= $preview ?>)">
+              <h3 style="color:white; text-align: center" data-nav="#tab-<?= $i; ?>" onclick="changeTab(this)"><?= $gallery_title ?></h3>
+            </div>
+        <?php
+          }
+        }
+        ?>
+        </div>
+      </div>
       <?php
           for ($i = 0; $i < count($gallery); $i++ ) {
+            $dsply = ($i == 0) ? 'flex' : 'none';
               $gallery_title = !empty($gallery[$i]['place']) ? $gallery[$i]['place'] : null ;
-              if ( $gallery_title ) { ?>
-                <div class="gallery_wrap">
-                  <h3 style="color:white; text-align: center"><?= $gallery_title ?></h3>
-                </div>
-                <div class="gallery_wrap">
-                <?php
-                for ($j = 0; $j < count($gallery[$i]['gallery']); $j++ ) {
-                    $gallery_image =  !empty($gallery[$i]['gallery'][$j]['image']) ? $gallery[$i]['gallery'][$j]['image'] : null ;
-                    $image = wp_get_attachment_image_url( $gallery_image, 'full' );
-                    $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
-                $att = ($j < 4) ? 'src' : 'data-lazy';
+              if ( $gallery_title ) { 
+                if ( isset($gallery[$i]['videos']) ) {
+                  $video_col = '6';
+                } else {
+                  $video_col = '10 mx-auto';
+                }
                 ?>
-                <div>
-                  <a href="<?= $image ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">
-                    <img class="img-fluid" <?= $att ?>="<?= $preview ?>" alt="...">
-                  </a>
+              <div class="row" style="display:<?= $dsply ?>" id="tab-<?= $i; ?>">
+                <div class="col-md-<?= $video_col ?>" >
+                  <div class="gallery_wrap">
+                    <h3 style="color:white; text-align: center"><?= $gallery_title ?></h3>
+                  </div>
+                  <div class="gallery_wrap">
+                  <?php
+                  for ($j = 0; $j < count($gallery[$i]['gallery']); $j+=2 ) {
+                      $gallery_image_a =  !empty($gallery[$i]['gallery'][$j]['image']) ? $gallery[$i]['gallery'][$j]['image'] : null ;
+                      $next_j = ($j+1) ? $j+1 : 4;
+                      $gallery_image_b =  !empty($gallery[$i]['gallery'][$next_j]['image']) ? $gallery[$i]['gallery'][$next_j]['image'] : null ;
+                      $image_a = wp_get_attachment_image_url( $gallery_image_a, 'full' );
+                      $image_b = wp_get_attachment_image_url( $gallery_image_b, 'full' );
+                      $preview_a = str_replace('.jpg', '_preview.jpg',( $image_a ) );
+                      $preview_b = str_replace('.jpg', '_preview.jpg',( $image_b ) );
+                  $att = ($j < 4) ? 'src' : 'data-lazy';
+                  ?>
+                    <div>
+                      <a href="<?= $image_a ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">
+                        <img class="" <?= $att ?>="<?= $preview_a ?>" alt="...">
+                      </a>
+                      <a href="<?= $image_b ?>" rel="<?= $gallery_title ?>" data-fancybox="<?= 'group_' . $i ?>" data-caption="<?= $gallery_title ?>" class="gallery_item">
+                        <img class="" <?= $att ?>="<?= $preview_b ?>" alt="...">
+                      </a>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                  </div>
                 </div>
-                <?php } ?>
+                <?php
+                  if ( isset($gallery[$i]['videos']) ) {
+                ?>
+                <div class="col-md-6 d-flex video_col">
+                
+                    <div class="card card-profile card-plain">
+                      <div class="card-img-top">
+                          <iframe width="100%" height="305px" src="https://www.youtube.com/embed/<?= $gallery[$i]['videos'][0]['video'] ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    </div>
+
+                </div>
+                <?php
+                  }
+                ?>
               </div>
               <?php
               }
-            } ?>
-      </div>
-
-      <div class="row">
-      <?php
-          for ($i = 0; $i < count($videos); $i++ ) {
-              $video_title = !empty($videos[$i]['video_title']) ? $videos[$i]['video_title'] : null ;
-              $video_code = !empty($videos[$i]['video_code']) ? $videos[$i]['video_code'] : null ;
-      ?>
-
-        <div class="col-md-6 mx-auto">
-          <div class="card card-profile card-plain">
-            <div class="card-img-top">
-                <iframe width="100%" height="305px" src="https://www.youtube.com/embed/<?= $video_code ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title"><?= $video_title; ?></h4>
-            </div>
-          </div>
-        </div>
-        <?php } ?>
+            }
+          ?>
       </div>
     </div>
-   </div> 
   <!-- end видосы screen -->
 
   <!-- start отзывы screen -->
@@ -573,9 +653,11 @@ while (have_posts()) : the_post();
   <div class="gallery_wrap_rev">
   <?php for ($i = 0; $i < count($reviews); $i++ ) { 
   $review_video = !empty($reviews[$i]['review_video']) ? $reviews[$i]['review_video'] : null ;
+  $review_name = !empty($reviews[$i]['review_name']) ? $reviews[$i]['review_name'] : null ;
+  $review_instik = !empty($reviews[$i]['review_instik']) ? $reviews[$i]['review_instik'] : null ;
 ?>
   <div class="card card-plain">
-    <div class="card-body text-center mx-auto col-md-8">
+    <div class="card-body text-center mx-auto">
       <div class="clearfix"></div>
         <?php if($review_video){ ?>
               <div class="video">
@@ -589,8 +671,9 @@ while (have_posts()) : the_post();
                 <button class="video__button" type="button" aria-label="Запустить видео">
                   <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
                 </button>
-
-
+            </div>
+            <div class="review_insta">
+              <a href="<?= $review_instik ?>"><i class="fa fa-instagram" aria-hidden="true"></i> <?= $review_name ?></a>
             </div>
         <?php } ?>
     </div>
@@ -601,39 +684,33 @@ while (have_posts()) : the_post();
     <!-- end отзывы screen -->
 
 <!-- start вопрос-ответ  screen -->
-<div id="faq" class="my-5">
+<div id="faq" class="py-5" style="background-color: lightgoldenrodyellow;">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 ml-auto mr-auto text-center">
+      <div class="col-md-12 ml-auto mr-auto text-center">
         <h2 class="title">Частые вопросы</h2>
       </div>
-    </div>
-
-<div class="accordion" id="FAQ_accardion">
-<?php
-for ($i = 0; $i < count($faq); $i++){
-    $faq_title = !empty($faq[$i]['faq_title']) ? $faq[$i]['faq_title'] : null ;
-    $faq_text = !empty($faq[$i]['faq_text']) ? $faq[$i]['faq_text'] : null ;
-?>
-  <div class="card card-plain faq_card">
-    <div class="card-header" id="<?= 'heading_' . $i ?>" data-background="color" data-color="brown">
-      <h5 class="my-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="<?= '#collapce_' . $i ?>" aria-expanded="true" aria-controls="<?= 'collapce_' . $i ?>">
-              <?= $faq_title; ?>
-            </button>
-      </h5>
-    </div>
-    <div id="<?= 'collapce_' . $i ?>" class="collapse" aria-labelledby="<?= 'heading_' . $i ?>" data-parent="#FAQ_accardion">
-      <div class="card-body">
-        <?= $faq_text; ?>
+      <div class="accordion col-md-8 mx-auto" id="FAQ_accardion">
+      <?php
+      for ($i = 0; $i < count($faq); $i++){
+          $faq_title = !empty($faq[$i]['faq_title']) ? $faq[$i]['faq_title'] : null ;
+          $faq_text = !empty($faq[$i]['faq_text']) ? $faq[$i]['faq_text'] : null ;
+      ?>
+        <div class="card card-plain faq_card">
+          <div class="card-header" id="<?= 'heading_' . $i ?>" data-background="color" data-color="brown">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="<?= '#collapce_' . $i ?>" aria-expanded="true" aria-controls="<?= 'collapce_' . $i ?>">
+              <h5 class="my-0"><?= $faq_title; ?></h5>
+            </button>      
+          </div>
+          <div class="card-header collapse mt-3" id="<?= 'collapce_' . $i ?>" aria-labelledby="<?= 'heading_' . $i ?>" data-parent="#FAQ_accardion">
+            <p><?= $faq_text; ?></p>
+          </div>
+        </div>
+      <?php } ?>
       </div>
     </div>
   </div>
-<?php } ?>
 </div>
-
-        </div>
-      </div>
     <!-- end вопрос-ответ screen -->
 
     <!-- start footer screen -->
@@ -654,11 +731,11 @@ for ($i = 0; $i < count($faq); $i++){
           <div class="row">
               <nav class="footer-nav col-md-12">
               <ul class="navbar-nav w-100 mx-auto">
-        <li class="nav-item">
+                <li class="nav-item">
                     <a class="navbar-brand left" href="/" rel="tooltip" data-placement="bottom">
                         <img src="/wp-content/themes/advantures/img/KeepTravel_White.png" style="height: 30px">
                     </a>
-          <p class="copyright left">Ул. Нижняя<br>Сыромятническая,<br>д. 10, стр. 9</p>
+                <p class="copyright left">Ул. Нижняя<br>Сыромятническая,<br>д. 10, стр. 9</p>
                 </li>
                 <li class="nav-item">
                     <a href="https://www.facebook.com/keeptravelaroundtheworld/" target="_blank" class="btn btn-round btn-just-icon">
@@ -698,14 +775,17 @@ for ($i = 0; $i < count($faq); $i++){
     <span> Напишите нам сообщение:</span>
   </div>
   <div class="_body">
+    <div>Здравствуйте. Меня зовут Владислав. Какой у вас вопрос?</div>
     <div>Введите сообщение:</div>
   </div>
 </div>
+<span class="cross" onclick="hideWaform()">x</span>
 
 <style type="text/css">
   @media(max-width:768px) {
-    #wa_form {
-      display:none;
+    #wa_form,
+    #wa_form+.cross{
+      display:none!important;
     }
   }
   #wa_form {
@@ -738,6 +818,7 @@ for ($i = 0; $i < count($faq); $i++){
     margin-top: 20px;
     height: 100%;
     color: #000;
+    flex-direction: column;
     display: flex;
   }
   #wa_form ._body div {
@@ -750,8 +831,32 @@ for ($i = 0; $i < count($faq); $i++){
     margin-bottom: 60px;
     display: none;
   }
+  #wa_form ._body div:last-child {
+    margin-top: auto;
+  }
+  #wa_form ._body div:first-child {
+    margin-top: 0;
+  }
   #wa_form.opened ._body div {
     display: block;
+  }
+  #wa_form+.cross {
+    display: none;
+  }
+  #wa_form.opened+.cross {
+    display: block;
+    float: right;
+    border-bottom: solid 1px #fff;
+    padding: 0px 8px 2px;
+    border-radius: 0 8px 0 8px;
+    position: fixed;
+    right: 30px;
+    bottom: 376px;
+    cursor: pointer;
+    border-left: solid 1px #fff;
+    background: #fff;
+    color: #a7ce64;
+    z-index: 99999;
   }
 </style>
 <!-- end whatsapp form -->
@@ -793,21 +898,7 @@ for ($i = 0; $i < count($faq); $i++){
 </div>
 <div id="phone_btn_wrap">
 <a href="https://api.whatsapp.com/send?phone=79169277027">
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 -256 1792 1792" id="svg3013" version="1.1" inkscape:version="0.48.3.1 r9886" width="100%" height="100%" sodipodi:docname="phone_font_awesome.svg">
-  <metadata id="metadata3023">
-    <rdf:RDF>
-      <cc:Work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs id="defs3021"/>
-  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="640" inkscape:window-height="480" id="namedview3019" showgrid="false" inkscape:zoom="0.13169643" inkscape:cx="896" inkscape:cy="896" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg3013"/>
-  <g transform="matrix(1,0,0,-1,159.45763,1293.0169)" id="g3015">
-    <path d="m 1408,296 q 0,-27 -10,-70.5 Q 1388,182 1377,157 1356,107 1255,51 1161,0 1069,0 1042,0 1016.5,3.5 991,7 959,16 927,25 911.5,30.5 896,36 856,51 816,66 807,69 709,104 632,152 504,231 367.5,367.5 231,504 152,632 104,709 69,807 66,816 51,856 36,896 30.5,911.5 25,927 16,959 7,991 3.5,1016.5 0,1042 0,1069 q 0,92 51,186 56,101 106,122 25,11 68.5,21 43.5,10 70.5,10 14,0 21,-3 18,-6 53,-76 11,-19 30,-54 19,-35 35,-63.5 16,-28.5 31,-53.5 3,-4 17.5,-25 14.5,-21 21.5,-35.5 7,-14.5 7,-28.5 0,-20 -28.5,-50 -28.5,-30 -62,-55 -33.5,-25 -62,-53 -28.5,-28 -28.5,-46 0,-9 5,-22.5 5,-13.5 8.5,-20.5 3.5,-7 14,-24 10.5,-17 11.5,-19 76,-137 174,-235 98,-98 235,-174 2,-1 19,-11.5 17,-10.5 24,-14 7,-3.5 20.5,-8.5 13.5,-5 22.5,-5 18,0 46,28.5 28,28.5 53,62 25,33.5 55,62 30,28.5 50,28.5 14,0 28.5,-7 14.5,-7 35.5,-21.5 21,-14.5 25,-17.5 25,-15 53.5,-31 28.5,-16 63.5,-35 35,-19 54,-30 70,-35 76,-53 3,-7 3,-21 z" id="path3017" inkscape:connector-curvature="0" style="fill:currentColor"/>
-  </g>
-</svg>
+<img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
 </a>
 </div>
 <?php
@@ -815,6 +906,9 @@ endwhile;
 wp_footer();
 ?>
 <script>
+function hideWaform() {
+  $('#wa_form').removeClass('opened');
+}
 function modalRoundOpen(){
   var roundModal = $('#round-modal');
   roundModal.modal('show');
@@ -1025,8 +1119,8 @@ $("a.gallery_item").fancybox();
 $('.gallery_wrap').slick( {
   centerMode: false,
   slidesToShow: 3,
-  infinite: true,
-  lazyLoad: 'ondemand',
+  infinite: false,
+  lazyLoad: 'progressive',
   variableWidth: true,
   responsive: [
     {
@@ -1034,8 +1128,9 @@ $('.gallery_wrap').slick( {
       settings: {
         centerMode: false,
         slidesToShow: 2,
-        lazyLoad: 'ondemand',
+        lazyLoad: 'progressive',
         infinite: true,
+        variableWidth: true,
       }
     },
     {
@@ -1043,41 +1138,48 @@ $('.gallery_wrap').slick( {
       settings: {
         centerMode: false,
         slidesToShow: 1,
-        lazyLoad: 'ondemand',
+        lazyLoad: 'progressive',
         infinite: true,
-        variableWidth: false,
+        variableWidth: true,
       }
     }
   ]
 });
 
-$('.instas_wrap').slick( {
-  centerMode: false,
-  slidesToShow: 3,
-  infinite: true,
-  lazyLoad: 'ondemand',
-  dots: true,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        centerMode: false,
-        slidesToShow: 1,
-        lazyLoad: 'ondemand',
-        infinite: true,
-        dots: true,
+if ($(window).width() < 980) {
+  $('.instas_wrap').slick( {
+    centerMode: false,
+    slidesToShow: 2,
+    infinite: true,
+    lazyLoad: 'progressive',
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          centerMode: false,
+          slidesToShow: 1,
+          lazyLoad: 'progressive',
+          infinite: true,
+          dots: true,
+        }
       }
-    }
-  ]
-});
+    ]
+  });
+}
 
+$('.feel_slider').slick({
+  infinite: false,
+  slidesToShow: 1,
+  slidesToScroll: 1
+});
 
 $('.gallery_wrap_rev').slick( {
   centerMode: false,
   slidesToShow: 2,
   variableWidth: true,
   infinite: true,
-  lazyLoad: 'ondemand',
+  lazyLoad: 'progressive',
   dots: true,
   responsive: [
     {
@@ -1085,7 +1187,7 @@ $('.gallery_wrap_rev').slick( {
       settings: {
         centerMode: false,
         slidesToShow: 1,
-        lazyLoad: 'ondemand',
+        lazyLoad: 'progressive',
         infinite: true,
         dots: true,
       }
@@ -1094,26 +1196,6 @@ $('.gallery_wrap_rev').slick( {
 
 });
 
-</script>
-<script type="text/javascript">
-// $('.our_tours').slick({
-//   slidesToShow: 1,
-//   infinite: true,
-//   slidesToScroll: 1,
-//   arrows: false,
-//   fade: true,
-//   swipe: false,
-//   asNavFor: '.our_tours_nav'
-// });
-// $('.our_tours_nav').slick({
-//   slidesToShow: 4,
-//   slidesToScroll: 1,
-//   asNavFor: '.our_tours',
-//   dots: false,
-//   // fade: true,
-//   centerMode: true,
-//   focusOnSelect: true
-// });
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >

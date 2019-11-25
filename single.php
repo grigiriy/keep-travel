@@ -444,6 +444,92 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
     </div>
   </div>
 </footer>
+
+<!-- whatsapp form -->
+<div id="wa_form" class="" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
+  <div class="_header">
+    <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
+    <span> Напишите нам сообщение:</span>
+  </div>
+  <div class="_body">
+    <div>Введите сообщение:</div>
+  </div>
+</div>
+<span class="cross" onclick="hideWaform()">x</span>
+
+<style type="text/css">
+  @media(max-width:768px) {
+    #wa_form,
+    #wa_form+.cross{
+      display:none!important;
+    }
+  }
+  #wa_form {
+    height: 50px;
+    width: 300px;
+    background: #a7ce64;
+    position: fixed;
+    bottom: 0px;
+    z-index: 9999;
+    right: 30px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 3px 3px 20px #000;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  #wa_form.opened {
+    height: 400px;
+  }
+  #wa_form img {
+    max-width: 20px;
+    margin-right: 10px;
+  }
+  #wa_form ._header {
+    margin: 15px;
+  }
+  #wa_form ._body {
+    background: #fff;
+    margin-top: 20px;
+    height: 100%;
+    color: #000;
+    display: flex;
+  }
+  #wa_form ._body div {
+    align-self: flex-end;
+    border-top: solid 1px #ccc;
+    width: 100%;
+    padding: 15px;
+    color: #777;
+    font-weight: 100;
+    margin-bottom: 60px;
+    display: none;
+  }
+  #wa_form.opened ._body div {
+    display: block;
+  }
+  #wa_form+.cross {
+    display: none;
+  }
+  #wa_form.opened+.cross {
+    display: block;
+    float: right;
+    border-bottom: solid 1px #fff;
+    padding: 0px 8px 2px;
+    border-radius: 0 8px 0 8px;
+    position: fixed;
+    right: 30px;
+    bottom: 376px;
+    cursor: pointer;
+    border-left: solid 1px #fff;
+    background: #fff;
+    color: #a7ce64;
+    z-index: 99999;
+  }
+</style>
+<!-- end whatsapp form -->
+
 <div class="modal modal-lg fade mx-auto" id="question-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -461,23 +547,9 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
   </div>
 </div>
 <div id="phone_btn_wrap">
-<a href="https://api.whatsapp.com/send?phone=79169277027">
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 -256 1792 1792" id="svg3013" version="1.1" inkscape:version="0.48.3.1 r9886" width="100%" height="100%" sodipodi:docname="phone_font_awesome.svg">
-  <metadata id="metadata3023">
-    <rdf:RDF>
-      <cc:Work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs id="defs3021"/>
-  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="640" inkscape:window-height="480" id="namedview3019" showgrid="false" inkscape:zoom="0.13169643" inkscape:cx="896" inkscape:cy="896" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg3013"/>
-  <g transform="matrix(1,0,0,-1,159.45763,1293.0169)" id="g3015">
-    <path d="m 1408,296 q 0,-27 -10,-70.5 Q 1388,182 1377,157 1356,107 1255,51 1161,0 1069,0 1042,0 1016.5,3.5 991,7 959,16 927,25 911.5,30.5 896,36 856,51 816,66 807,69 709,104 632,152 504,231 367.5,367.5 231,504 152,632 104,709 69,807 66,816 51,856 36,896 30.5,911.5 25,927 16,959 7,991 3.5,1016.5 0,1042 0,1069 q 0,92 51,186 56,101 106,122 25,11 68.5,21 43.5,10 70.5,10 14,0 21,-3 18,-6 53,-76 11,-19 30,-54 19,-35 35,-63.5 16,-28.5 31,-53.5 3,-4 17.5,-25 14.5,-21 21.5,-35.5 7,-14.5 7,-28.5 0,-20 -28.5,-50 -28.5,-30 -62,-55 -33.5,-25 -62,-53 -28.5,-28 -28.5,-46 0,-9 5,-22.5 5,-13.5 8.5,-20.5 3.5,-7 14,-24 10.5,-17 11.5,-19 76,-137 174,-235 98,-98 235,-174 2,-1 19,-11.5 17,-10.5 24,-14 7,-3.5 20.5,-8.5 13.5,-5 22.5,-5 18,0 46,28.5 28,28.5 53,62 25,33.5 55,62 30,28.5 50,28.5 14,0 28.5,-7 14.5,-7 35.5,-21.5 21,-14.5 25,-17.5 25,-15 53.5,-31 28.5,-16 63.5,-35 35,-19 54,-30 70,-35 76,-53 3,-7 3,-21 z" id="path3017" inkscape:connector-curvature="0" style="fill:currentColor"/>
-  </g>
-</svg>
-</a>
+  <a href="https://api.whatsapp.com/send?phone=79169277027">
+  <img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
+  </a>
 </div>
 <?php
 endwhile;
@@ -486,6 +558,12 @@ wp_footer();
 
 <script type="text/javascript">
 var $ = jQuery;
+function whatsappOpen(){
+  $('#wa_form').addClass('opened');
+}
+function hideWaform() {
+  $('#wa_form').removeClass('opened');
+}
 var dropDownFromHere = $('#dropDownFromHere');
 $(function(){
   $('#dropDownHere').replaceWith(dropDownFromHere);
@@ -535,6 +613,7 @@ $(function(){
     // date_input.attr('disabled','disabled');
     // date_input.css('background','#fff');
     setTimeout(modalQuestionOpen, 180000);
+    setTimeout(whatsappOpen, 30000);
 });
 
 $('.mask-phone').mask('+9 (999) 999-99-99');
