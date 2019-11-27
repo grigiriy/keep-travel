@@ -9458,8 +9458,8 @@ body {
   width: 170px;}
 
 .section-testimonials .testimonials-people .left-third-person {
-  left: calc(50% - 540px);
-  top: -45%;
+  left: calc(50% - 490px);
+  top: -65%;
   height: 120px;
   width: 120px; }
 
@@ -9518,7 +9518,7 @@ body {
   width: 220px; }
 
 .section-testimonials .testimonials-people .right-fourth-person {
-  right: calc(50% - 350px);
+  right: calc(50% - 400px);
   top: 280%;
   height: 200px;
   width: 200px; }
@@ -10907,28 +10907,29 @@ margin: 0!important;
   fill-opacity: 1;
 }
 .video-area,
-.video-area iframe{
+.video-area iframe {
     /* width: 50vw; */
     width: 100%;
     height: 450px;
 }
-#video-modal .modal-content{
+#video-modal .modal-content {
   background:transparent;
 }
-#video-modal .modal-body{
+#video-modal .modal-body {
   padding:0;
 }
 #video-modal,
-.modal-dialog{
-    max-width: 60vw!important;
+.modal-dialog {
+    /*max-width: 60vw!important;*/
     margin-top: calc(50vh - 200px);
+    max-width: 570px;
 }
-@media(max-width:767px){
-    #video-modal .modal-body{
+@media(max-width:767px) {
+    #video-modal .modal-body {
         padding: 20px 30px;
     }
     #video-modal,
-    .modal-dialog{
+    .modal-dialog {
         max-width: 100vw!important;
     }
 }
@@ -11422,8 +11423,10 @@ img.ticket {
   }
 }
 .modal-content{
-  background-image: url(/wp-content/uploads/2019/10/back_popup.jpg);
-  background-position: top;
+  background-image: url(/wp-content/uploads/2019/11/back_nov.jpg);
+  /*background-position: top;*/
+  background-size: contain;
+  padding-bottom: 20px;
 }
 .side-map img {
     width:100%;
@@ -11582,10 +11585,13 @@ img.ticket {
   width: 100%;
   height: 100%;
 }
+#group {
+  position: relative;
+}
 #group:before {
   content:" ";
   position: absolute;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, rgb(0, 0, 0) 99%);
+  background-image: linear-gradient(180deg, rgba(32, 32, 32, 0) 80%, rgb(32, 32, 32) 99%);
   width: 100%;
   height: 100%;
 }
@@ -11616,10 +11622,15 @@ img.ticket {
   margin: 0 auto;
 }
 .instas_wrap iframe {
-  transform: scale(0.7);
+  transform: scale(0.8);
 }
 .instas_wrap div:nth-child(2n) {
   margin-top: -5%!important;
+}
+@media(max-width:980px){
+  .instas_wrap div:nth-child(2n) {
+    margin-top: 0!important;
+  }
 }
 .instas_wrap div{
   z-index: 2
@@ -11674,14 +11685,15 @@ img.ticket {
     position: absolute;
   }
   #start_svg_insta {
-    margin-left: -128px;
+    /*margin-left: -128px;*/
+    margin-left: -256px;
   }
   #middle_svg_insta {
     margin-top: 90px;
-    margin-left: 85px;
+    margin-left: 225px;
   }
   #end_svg_insta {
-    margin-left: 368px;
+    margin-left: 788px;
   }
 }
 @media(min-width: 1220px) {
@@ -11692,14 +11704,14 @@ img.ticket {
     position: absolute;
   }
   #start_svg_insta {
-    margin-left: -238px;
+    margin-left: -508px;
   }
   #middle_svg_insta {
     margin-top: 90px;
-    margin-left: 65px;
+    margin-left: 174px;
   }
   #end_svg_insta {
-    margin-left: 412px;
+    margin-left: 872px;
   }
 }
 @media(max-width:980px){
@@ -11723,19 +11735,19 @@ img.ticket {
   #start_svg {
     margin-left: 100px;
     max-width: 120px;
-    transform: rotate(-20deg);
+    /*transform: rotate(-20deg);*/
     margin-top: 48px;
   }
   #middle_svg {
     max-width: 55px;
     margin-left: 314px;
-    transform: rotate(-25deg);
+    /*transform: rotate(-25deg);*/
     margin-top: 45px;
   }
   #end_svg {
     margin-left: 485px;
     max-width: 150px;
-    transform: rotate(31deg);
+    /*transform: rotate(31deg);*/
     margin-top: 25px;
   }
   .our_tours_nav .card-title:nth-child(2) {
@@ -11751,23 +11763,24 @@ img.ticket {
   }
   #start_svg {
     margin-left: 100px;
-    transform: rotate(-20deg);
-    margin-top: 27px;
+    /*transform: rotate(-20deg);*/
+    /*margin-top: 27px;*/
   }
   #middle_svg {
-    margin-left: 490px;
-    transform: rotate(-23deg);
-    margin-top: 40px;
+    margin-left: 450px;
+    /*transform: rotate(-23deg);*/
+    margin-top: 65px;
   }
   #end_svg {
     margin-left: 770px;
-    transform: rotate(16deg);
-    margin-top: 18px;
+    /*transform: rotate(16deg);*/
+    /*margin-top: 18px;*/
+    margin-top: -12px;
   }
 }
 .our_tours_nav .card-title:first-child,
 .our_tours_nav .card-title:nth-child(4) {
-  margin-top: 100px
+  margin-top: 130px
 }
 .our_tours_nav .card-testimonial .card-avatar .img {
   width:150px;
@@ -11994,6 +12007,7 @@ h3.card-title.title:nth-child(2).active:before {
   background-repeat: no-repeat;
   transition: all 0.5s;
   background-position: center;
+  width: 100%;
 }
 .tabza_nav:hover {
   background-size: 120%;
@@ -12084,4 +12098,18 @@ body {
 }
 .modal .description {
   color: #333;
+}
+#parts h2.title {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+#parts .card h3 {
+  margin-top: 0;
+}
+#parts .card p {
+  font-size: 18px;
+}
+.modal-body .wpcf7 h4,
+.modal-body .wpcf7 h3 {
+  color:#fff;
 }

@@ -74,6 +74,19 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
            ->set_width( 30 ),
         ])
     ])
+
+    ->add_tab('на календаре',  [
+        Field::make( 'complex', 'calend', '' )
+        ->add_fields( [
+            Field::make( 'text', 'year', 'Год (2019)' )
+              ->set_width( 40 ),
+            Field::make( 'text', 'month', 'Месяц (12)' )
+              ->set_width( 40 ),
+            Field::make( 'checkbox', 'offset', 'Залезает на следующий' )
+              ->set_width( 20 ),
+           ])
+       ])
+
     ->add_tab('эксперт',  [
      Field::make( 'complex', 'guru', '' )
      ->add_fields( [

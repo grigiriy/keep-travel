@@ -85,7 +85,7 @@ while (have_posts()) : the_post();
             </div>
             <div class="left-fourth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_3.jpg)">
             </div>
-            <div class="left-fifth-person" style="background-image:url(/wp-content/uploads/2019/11/circs_4.jpg)">
+            <div class="left-fifth-person" style="background-image:url(/wp-content/uploads/2019/11/new_third_image.jpg)">
             </div>
           </div>
         </div>
@@ -102,15 +102,15 @@ while (have_posts()) : the_post();
           <h3 class="card-title title" data-nav="memories" onclick="swipeTo(this);">
             Воспоминания
           </h3>
-          <svg width="245" height="160" xmlns="http://www.w3.org/2000/svg" id="start_svg">
-            <path d="M10 40 Q 95 10 235 80" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :=""></path>
+          <svg xmlns="http://www.w3.org/2000/svg" id="start_svg">
+            <path d="M10 140 Q 20 50 240 70" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15"></path>
           </svg>
-          <svg width="120" height="160" xmlns="http://www.w3.org/2000/svg" id="middle_svg">
-            <path d="M10 10 Q 95 50 110 50" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :=""></path>
+          <svg xmlns="http://www.w3.org/2000/svg" id="middle_svg">
+            <path d="M10 10 Q 70 20 150 10" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15"></path>
           </svg>
 
-          <svg width="245" height="160" xmlns="http://www.w3.org/2000/svg" id="end_svg">
-            <path d="M10 80 Q 120 30 235 60" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15" :=""></path>
+          <svg xmlns="http://www.w3.org/2000/svg" id="end_svg">
+            <path d="M10 80 Q 270 60 300 150" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15"></path>
           </svg>
           <script type="text/javascript">
              function swipeTo(e){
@@ -195,90 +195,148 @@ while (have_posts()) : the_post();
 
 
 
-        <!-- start групповые screen -->
-    <div id="group" class="features-2 pt-5 pb-0">
+  <!-- start групповые screen -->
+  <div id="group" class="features-2 pt-5 pb-5">
+    <div class="minh-100vh px-3 pb-5">
       <div class="container-fluid px-0">
-        <div class="minh-100vh px-3">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <p class="h1 title my-5">Наши ближайшие направления</p>
           </div>
         </div>
-        <div class="row">
-            <?php
-            $_i = 0;
-            $args = [ 
-                'posts_per_page' => -1,
-                'post_status' => 'publish',
-                'post_type' => 'post',
-            ];
-            $posts = get_posts($args);
-            foreach ($posts as $key => $post ):
-             $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
-             $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
-             $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
-             $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
-             $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
-             $_i++;
-              ?>
+        <div class="row month_list">
+          <?php
+          $args = [ 
+              'posts_per_page' => -1,
+              'post_status' => 'publish',
+              'post_type' => 'post',
+          ];
+          $posts = get_posts($args);
 
-        <?php
-          if ($_i == 6) {
-        ?>
-          </div> <!-- row -->
-        </div> <!-- minh-100vh -->
-      </div> <!-- container -->
-      <div class="container">
-        <div class="minh-100vh">
-          <div class="row">
-            <div class="col-md-8 mx-auto text-center">
-              <p class="h1 title mb-5">Путешествия в 2020 году</p>
-            </div>
-          </div>
-          <div class="row mb-5">
-        <?php
-          }
-          if ($_i < 6) {
-            $col_class = 'col-flex-20';
-          } else if ($_i >= 6) {
-            $col_class = 'col-md-4';
-          }
-        ?>
-          <div class="<?= $col_class ?> col-sm-12 d-flex">
-            <div class="card _dark" data-background="image" style="background-image: url(<?= $image; ?>)">
-            <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
-              <div class="card-body d-flex" style="flex-direction: column;">
-                <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
-                <div class="card-icon" style="
+          for ($i = 0; $i < 12; $i++) {
+
+
+            switch ($i) {
+              case 0:
+                $month = "Декабрь";
+                break;
+              case 1:
+                $month = "Январь";
+                break;
+              case 2:
+                $month = "Февраль";
+                break;
+              case 3:
+                $month = "Март";
+                break;
+              case 4:
+                $month = "Апрель";
+                break;
+              case 5:
+                $month = "Май";
+                break;
+              case 6:
+                $month = "Июнь";
+                break;
+              case 7:
+                $month = "Июль";
+                break;
+              case 8:
+                $month = "Август";
+                break;
+              case 9:
+                $month = "Сентябрь";
+                break;
+              case 10:
+                $month = "Октябрь";
+                break;
+              case 11:
+                $month = "Ноябрь";
+                break;
+              case 12:
+                $month = "Декабрь";
+                break;
+              default:
+                $month = "...";
+          };
+
+            ?>
+
+              <div class="col-md-3 col-sm-12">
+                <div class="text-center h3"><?= $month; ?></div>
+                <div class="_month">
+
+            <?php
+            foreach ($posts as $key => $post ):
+            if ( carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['month'] == $i ) {
+            // $post = $posts[$i];
+            $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
+            $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
+            $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
+            $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
+            $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex')[0] : null ;
+            $calend = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex')[0] : null ;
+
+            $is_offset =  !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['offset']);
+            $is_offset = ($is_offset == 1) ? '_offset' : '';
+            ?>
+                  <div class="card mt-3 _dark <?= $is_offset ?>" data-background="image" style="background-image: url(<?= $image; ?>)">
+                    <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
+                      <div class="card-body d-flex" style="flex-direction: column;">
+                        <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
+                      </div>
+                    </a>
+                  </div>
                 <?php
-                  if ($post->post_name == 'australia' || $post->post_name == 'australia_road') {
-                    echo 'width: 140px;padding-top: 25px;margin-bottom: -15px;';
-                  } else if ($post->post_name == 'california') {
-                    echo 'width:145px';
-                  } else if ($post->post_name == 'afrika') {
-                    echo 'margin-top: 15px; margin-bottom: -15px; width:80px;';
-                  } else {
-                    echo 'width:80px';
-                  }
+                }
+              endforeach;
                 ?>
-                ">
-                <?php if($icon){ ?>
-                  <img src="<?= $icon ?>" alt="<?= $post->post_name ?>">
-                <?php } ?>
-                </div>
-                <div class="card-description strong white">
-                    <p class="mb-3"><?= $table[0]['dates'] ?></p>
-                    <p class="mb-3"><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></p>
-                    <p><?= $mini_texts[0]['minitext'] ?></p>
-                </div>
-                <div class="card-footer" style="margin-top: auto;">
-                    <i class="fa fa-book" aria-hidden="true"></i> Подробнее
                 </div>
               </div>
-              </a>
-            </div>
-          </div>
-         <?php endforeach; ?>
+          <?php
+        };
+              // endforeach;
+          ?>
+  <style>
+    .month_list {
+      padding: 0 100px;
+    }
+    .month_list>div {
+      min-height:390px;
+      border-right: dashed 3px #c1c1c1;
+      margin-bottom: 8px;
+      border-bottom: dashed 3px #c1c1c1;
+      padding-bottom: 15px;
+    }
+    .month_list>div:nth-child(4n) {
+      border-right: none;
+    }
+    ._month {
+      flex-direction:row;
+      position: relative;
+      display:flex;
+    }
+    ._month .card {
+      width:50%;
+      order: 1;
+      margin: 3px;
+    }
+    ._month .card._offset {
+      left: -25%;
+      order: 2;
+    }
+    @media(max-width:768px) {
+      ._month .card {
+        width:100%;
+      }
+      ._month .card._offset {
+        left: 0;
+      }
+      .month_list>div {
+        border-right: none;
+      }
+    }
+  </style>
          </div>
         </div>
       </div>
@@ -345,13 +403,13 @@ while (have_posts()) : the_post();
 
 <!-- start ценности screen -->
 <div id="about" class="blog-3 pt-3">
-  <div class="container">
+  <div class="container-fluid">
     <h2 class="title text-center">Наша философия</h2>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5 offset-xl-1">
         <img src="/wp-content/uploads/2019/11/feel_small.png">
       </div>
-      <div class="col-md-6 feel_slider">
+      <div class="col-md-5 feel_slider">
         <?php
         for ($i = 0; $i < count($about); $i++ ) {
             $about_title = !empty($about[$i]['about_title']) ? $about[$i]['about_title'] : null ;
@@ -362,52 +420,6 @@ while (have_posts()) : the_post();
           <p class="card-description strong black"><?= $about_text ?></p>
         </div>
         <?php } ?>
-      </div>
-    </div>
-    <div class="row d-none">
-      <div class="col-md-8 ml-auto mr-auto">
-        <h2 class="title">Наши преимущества</h2>
-        <br />
-        <?php
-        for ($i = 0; $i < count($about); $i++ ) {
-            $about_title = !empty($about[$i]['about_title']) ? $about[$i]['about_title'] : null ;
-            $about_text = !empty($about[$i]['about_text']) ? $about[$i]['about_text'] : null ;
-            $about_photo = !empty($about[$i]['about_photo']) ? $about[$i]['about_photo'] : null ;
-            $image = wp_get_attachment_image_url( $about_photo, 'full' );
-            $text_part = '<div class="col-md-8 order-1 order-md-1">
-             <div class="card-body">
-                  <h3 class="card-title">' .
-                     $about_title .
-                 ' </h3>
-                <p class="card-description strong black">' .
-                     $about_text .
-                '</p>
-              </div>
-            </div>';
-            $photo_part =  '<div class="col-md-4 order-2 order-md-1">
-              <div class="">
-                  <img class="img" src="' . $image . '" />
-              </div>
-            </div>';
-            echo ' <div class="card card-plain card-blog">
-                          <div class="row">';
-            if ($i%2 == 0) {
-              echo $photo_part . $text_part;
-            } else {
-              echo $text_part . $photo_part;
-            };
-            echo ' </div>
-             </div>';
-         } ?>
-        <div class="card card-plain card-blog">
-          <div class="row">
-            <div class="col-md-12">
-                <div class="card-description strong black mb-5">
-                    <?= the_content(); ?>
-                </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
