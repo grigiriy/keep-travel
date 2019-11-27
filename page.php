@@ -262,18 +262,20 @@ while (have_posts()) : the_post();
 
             ?>
 
-              <div class="col-md-3 col-sm-12">
+              <div class="col-lg-3 col-md-12" data-month="<?= $month; ?>">
                 <div class="text-center h3"><?= $month; ?></div>
                 <div class="_month">
 
             <?php
+            $vis_arr = [];
             foreach ($posts as $key => $post ):
-            if ( carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['month'] == $i ) {
+            $card_month = carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['month'];
+            if ( $card_month == $i ) {
             // $post = $posts[$i];
             $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
             $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
             $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
-            $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
+            // $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
             $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex')[0] : null ;
             $calend = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex')[0] : null ;
 
@@ -284,9 +286,34 @@ while (have_posts()) : the_post();
                     <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
                       <div class="card-body d-flex" style="flex-direction: column;">
                         <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
+                        <div class="card-icon" style="
+                        <?php
+                          if ($post->post_name == 'australia' || $post->post_name == 'australia_road') {
+                            echo 'width: 140px;padding-top: 25px;margin-bottom: -15px;';
+                          } else if ($post->post_name == 'california') {
+                            echo 'width:145px';
+                          } else if ($post->post_name == 'afrika') {
+                            echo 'margin-top: 15px; margin-bottom: -15px; width:80px;';
+                          } else {
+                            echo 'width:80px';
+                          }
+                        ?>
+                        ">
+                        <?php if($icon){ ?>
+                          <img src="<?= $icon ?>" alt="<?= $post->post_name ?>">
+                        <?php } ?>
+                        </div>
+                        <div class="card-footer" style="margin-top: auto;">
+                          <i class="fa fa-book" aria-hidden="true"></i> Подробнее
+                        </div>
                       </div>
                     </a>
                   </div>
+                  <style>
+                    .month_list>div[data-month="<?= $month; ?>"]{
+                      display: block;
+                    }
+                  </style>
                 <?php
                 }
               endforeach;
@@ -302,37 +329,54 @@ while (have_posts()) : the_post();
       padding: 0 100px;
     }
     .month_list>div {
-      min-height:390px;
-      border-right: dashed 3px #c1c1c1;
+      min-height:330px;
+      border-right: dashed 3px #eee;
       margin-bottom: 8px;
-      border-bottom: dashed 3px #c1c1c1;
+      border-bottom: dashed 3px #eee;
       padding-bottom: 15px;
     }
     .month_list>div:nth-child(4n) {
       border-right: none;
     }
+    .month_list>div:nth-child(9),
+    .month_list>div:nth-child(10),
+    .month_list>div:nth-child(11),
+    .month_list>div:nth-child(12) {
+      border-bottom: none;
+    }
     ._month {
-      flex-direction:row;
+      flex-direction: row;
       position: relative;
-      display:flex;
+      display: flex;
     }
     ._month .card {
-      width:50%;
+      min-height: 220px;
+      width: 50%;
       order: 1;
       margin: 3px;
     }
+    ._month .card .card-body {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      min-height: 0;
+      max-width: 100%;
+    }
     ._month .card._offset {
-      left: -25%;
+      left: -31%;
       order: 2;
     }
-    @media(max-width:768px) {
+    @media(max-width:1023px) {
       ._month .card {
-        width:100%;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
       }
       ._month .card._offset {
         left: 0;
       }
       .month_list>div {
+        display: none;
         border-right: none;
       }
     }
@@ -897,7 +941,7 @@ while (have_posts()) : the_post();
     <div class="modal-content">
       <div class="modal-body">
         <div id="question_wrapper" class="pb-3">
-          <h3>Вы нашли, что искали?</h3>
+          <h3 class='white'>Вы нашли, что искали?</h3>
           <button class="btn" onclick="form_answer(this)">Да</button>
           <button class="btn" onclick="form_answer(this)">Не совсем</button>
         </div>
