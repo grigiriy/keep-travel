@@ -257,6 +257,11 @@ wp_footer();
 
 <script type="text/javascript">
 var $ = jQuery;
+
+function hideNav() {
+  $('.navbar-toggler').click(); 
+}
+
 function whatsappOpen(){
   $('#wa_form').addClass('opened');
 }

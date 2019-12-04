@@ -307,7 +307,7 @@ while (have_posts()) : the_post();
                         <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
                         <div class="card-icon" style="
                         <?php
-                          if ($post->post_name == 'australia' || $post->post_name == 'australia_road') {
+                          if ($post->post_name == 'australia' || $post->post_name == 'roadtrip_australia') {
                             echo 'width: 140px;padding-top: 85px;margin-bottom: -15px;';
                           } else if ($post->post_name == 'california') {
                             echo 'width:145px';
@@ -1137,6 +1137,11 @@ var rangeSlider = document.getElementById('slider-range');
   }
 </style>
 <script>
+
+function hideNav() {
+  $('.navbar-toggler').click(); 
+}
+
 $("a.gallery_item").fancybox();
 
 $('.gallery_wrap').slick( {
@@ -1194,7 +1199,8 @@ if ($(window).width() < 980) {
 $('.feel_slider').slick({
   infinite: false,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  adaptiveHeight: true
 });
 
 $('.gallery_wrap_rev').slick( {

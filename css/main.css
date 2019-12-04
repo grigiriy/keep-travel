@@ -9585,7 +9585,8 @@ body {
     position: relative; }
   .navbar .navbar-nav .dropdown-menu {
     height: 400px;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+  }
   .demo-header .motto {
     padding-top: 30% !important; }
   .navbar-toggle .icon-bar {
@@ -11581,7 +11582,7 @@ img.ticket {
 #faq .card-header p {
   padding: 5px 20px;
 }
-#footer:before{
+/* #footer:before{
   height: 100%;
   left: 0;
   margin-top: -100px;
@@ -11589,7 +11590,7 @@ img.ticket {
   width: 100%;
   content: " ";
   background-image: linear-gradient(to top, transparent 70%, rgb(37, 36, 34) 100%);
-}
+} */
 #order:before,
 .page-header:before{
   position: absolute;
@@ -11768,7 +11769,7 @@ img.ticket {
 }
 @media(max-width:768px){
   .instas_wrap iframe {
-    transform: scale(8);
+    transform: scale(0.8);
     min-height: 610px;
   }
   #about .feel_slider {
@@ -12008,10 +12009,12 @@ h3.card-title.title:nth-child(2).active:before {
   max-width: 100%;
 }
 #about .feel_slider .slick-next {
-  right: 25px!important;
+  right: 15px!important;
+  top: 220px!important;
 }
 #about .feel_slider .slick-prev {
-  left: 25px!important;
+  left: 15px!important;
+  top: 220px!important;
 }
 #about .feel_slider .slick-prev.slick-disabled:before,
 #about .feel_slider .slick-next.slick-disabled:before {

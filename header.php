@@ -91,18 +91,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               $ancor = '#top';
               if(is_front_page()){ ?>
             <li class="nav-item">
-                <a class="nav-link" href="#about">О нас</a>
+                <a class="nav-link" href="#about" onclick="hideNav()">О нас</a>
             </li>
             <li class="nav-item">
-              <a href="#group" class="nav-link">Путешествия</a>
+              <a href="#group" class="nav-link" onclick="hideNav()">Путешествия</a>
             </li>
             <li class="nav-item">
-              <a href="#gallery" class="nav-link">Галерея</a>
+              <a href="#gallery" class="nav-link" onclick="hideNav()">Галерея</a>
             </li>
         <?php } else {
             $ancor = '#footer'; ?>
             <li class="nav-item">
-              <a href="/#select" class="nav-alink">Путешествия</a>
+              <a href="/#select" class="nav-alink" onclick="hideNav()">Путешествия</a>
             </li>
         <?php } ?>
             <li class="nav-item ml-xl-auto">
