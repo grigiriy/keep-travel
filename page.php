@@ -69,14 +69,14 @@ while (have_posts()) : the_post();
 </div>
 <!-- end first screen container -->
 
-  <div class="section section-testimonials minh-100vh" id="parts">
+  <div class="section section-testimonials minh-100vh mb-5" id="parts">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
           <h2 class="title">Составляющие наших туров</h2>
         </div>
       </div>
-      <div class="row">
+      <div class="row mb-5">
         <div class="abs_left">
           <div class="testimonials-people">
             <div class="left-first-person" style="background-image:url(/wp-content/uploads/2019/11/circs_1.jpg)">
@@ -113,12 +113,15 @@ while (have_posts()) : the_post();
             <path d="M10 80 Q 270 60 300 150" stroke="#fff" fill="transparent" stroke-width="3" stroke-dasharray="15"></path>
           </svg>
           <script type="text/javascript">
-             function swipeTo(e){
-              $this = $(e);
+             function swipeTo(e) {
+              let $this = $(e);
               let $term = $('#t_' + $this.data('nav'));
 
               $term.show(300);
               $term.siblings('.card').hide(300);
+
+              let $prev = $('.nav-prev');
+              let $next = $('.nav-next');
 
               let navs = $('#nav-parts').find('h3');
               for (let i = 0; i < navs.length; i++ ){
@@ -128,13 +131,28 @@ while (have_posts()) : the_post();
                   $(navs[i]).removeClass('active');
                 }
               }
-
-
+              if ( $this.data('nav') == 'programm' ) {
+                  console.log($this.data('nav'));
+                  $prev.data('nav','memories');
+                  $next.data('nav','people');
+                } else if ( $this.data('nav') == 'people' ) {
+                  console.log($this.data('nav'));
+                  $prev.data('nav','programm');
+                  $next.data('nav','comfort');
+                } else if ( $this.data('nav') == 'comfort' ) {
+                  console.log($this.data('nav'));
+                  $prev.data('nav','people');
+                  $next.data('nav','memories');
+                } else if ( $this.data('nav') == 'memories' ) {
+                  console.log($this.data('nav'));
+                  $prev.data('nav','comfort');
+                  $next.data('nav','programm');
+                }
              }
           </script>
         </div>
         <div class="col-md-12">
-          <div class="nav-prev" data-nav="" onclick="swipeTo(this)"></div>
+          <div class="nav-prev" data-nav="memories" onclick="swipeTo(this)"></div>
             <div class="card card-plain" id="t_programm" style="">
               <img src="/wp-content/uploads/2019/11/circle_3.jpg">
               <div>
@@ -163,7 +181,7 @@ while (have_posts()) : the_post();
                 <p>Мы стараемся сделать каждое наше Путешествие незабываемым, чтобы воспоминания о нем жили вечно!</p>
               </div>
             </div>
-          <div class="nav-next" data-nav="" onclick="swipeTo(this)"></div>
+          <div class="nav-next" data-nav="programm" onclick="swipeTo(this)"></div>
         </div>
         <div class="abs_right">
           <div class="testimonials-people">
@@ -215,7 +233,6 @@ while (have_posts()) : the_post();
 
           for ($i = 0; $i < 12; $i++) {
 
-
             switch ($i) {
               case 0:
                 $month = "Декабрь";
@@ -262,34 +279,36 @@ while (have_posts()) : the_post();
 
             ?>
 
-              <div class="col-lg-3 col-md-12" data-month="<?= $month; ?>">
+              <div class="col-lg-3 col-md-12 month_block" data-month="<?= $i; ?>">
                 <div class="text-center h3"><?= $month; ?></div>
                 <div class="_month">
+                </div>
+              </div>
+        <?php
+        };
+        ?>
 
-            <?php
+          <?php
             $vis_arr = [];
             foreach ($posts as $key => $post ):
             $card_month = carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['month'];
-            if ( $card_month == $i ) {
-            // $post = $posts[$i];
             $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
             $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
             $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
-            // $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
             $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex')[0] : null ;
             $calend = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex')[0] : null ;
 
             $is_offset =  !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['offset']);
             $is_offset = ($is_offset == 1) ? '_offset' : '';
             ?>
-                  <div class="card mt-3 _dark <?= $is_offset ?>" data-background="image" style="background-image: url(<?= $image; ?>)">
+                  <div data-month="<?=$card_month ?>"class="card mt-3 _dark <?= $is_offset ?>" data-background="image" style="background-image: url(<?= $image; ?>)">
                     <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
                       <div class="card-body d-flex" style="flex-direction: column;">
                         <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
                         <div class="card-icon" style="
                         <?php
                           if ($post->post_name == 'australia' || $post->post_name == 'australia_road') {
-                            echo 'width: 140px;padding-top: 25px;margin-bottom: -15px;';
+                            echo 'width: 140px;padding-top: 85px;margin-bottom: -15px;';
                           } else if ($post->post_name == 'california') {
                             echo 'width:145px';
                           } else if ($post->post_name == 'afrika') {
@@ -304,83 +323,19 @@ while (have_posts()) : the_post();
                         <?php } ?>
                         </div>
                         <div class="card-footer" style="margin-top: auto;">
-                          <i class="fa fa-book" aria-hidden="true"></i> Подробнее
+                          <i class="fa fa-book" aria-hidden="true"></i> Подробнее 
                         </div>
                       </div>
                     </a>
                   </div>
                   <style>
-                    .month_list>div[data-month="<?= $month; ?>"]{
+                    .month_list>div[data-month="<?= $card_month; ?>"]{
                       display: block;
                     }
                   </style>
                 <?php
-                }
               endforeach;
                 ?>
-                </div>
-              </div>
-          <?php
-        };
-              // endforeach;
-          ?>
-  <style>
-    .month_list {
-      padding: 0 100px;
-    }
-    .month_list>div {
-      min-height:330px;
-      border-right: dashed 3px #eee;
-      margin-bottom: 8px;
-      border-bottom: dashed 3px #eee;
-      padding-bottom: 15px;
-    }
-    .month_list>div:nth-child(4n) {
-      border-right: none;
-    }
-    .month_list>div:nth-child(9),
-    .month_list>div:nth-child(10),
-    .month_list>div:nth-child(11),
-    .month_list>div:nth-child(12) {
-      border-bottom: none;
-    }
-    ._month {
-      flex-direction: row;
-      position: relative;
-      display: flex;
-    }
-    ._month .card {
-      min-height: 220px;
-      width: 50%;
-      order: 1;
-      margin: 3px;
-    }
-    ._month .card .card-body {
-      padding-left: 0;
-      padding-right: 0;
-      padding-bottom: 0;
-      min-height: 0;
-      max-width: 100%;
-    }
-    ._month .card._offset {
-      left: -31%;
-      order: 2;
-    }
-    @media(max-width:1023px) {
-      ._month .card {
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-      ._month .card._offset {
-        left: 0;
-      }
-      .month_list>div {
-        display: none;
-        border-right: none;
-      }
-    }
-  </style>
          </div>
         </div>
       </div>
@@ -416,13 +371,13 @@ while (have_posts()) : the_post();
       </div>
     </div>
   <script async src="//www.instagram.com/embed.js"></script>
-  <div class="container counters">
+  <div class="container counters mx-auto">
     <div class="row">
       <div class="col-md-4 info">
         <div class="description">
           <h1 style="color:#51cbce"><?= $counters[0]['people'] ?></h1>
           <h4 class="info-title white">Человек зарядили эмоциями</h4>
-          <p class="white">Из них с нами было <?= $counters[0]['male'] ?> мужчин и <?= $counters[0]['female'] ?> женщины</p>
+          <p class="white">Из них с нами было <?= $counters[0]['male'] ?> мужчин<br>и <?= $counters[0]['female'] ?> женщины</p>
         </div>
       </div>
       <div class="col-md-4 info">
@@ -458,10 +413,11 @@ while (have_posts()) : the_post();
         for ($i = 0; $i < count($about); $i++ ) {
             $about_title = !empty($about[$i]['about_title']) ? $about[$i]['about_title'] : null ;
             $about_text = !empty($about[$i]['about_text']) ? $about[$i]['about_text'] : null ;
+            $custom_class =  ($i == 1) ? '_smaller' : '' ;
           ?>
         <div class="card-body pl-3 pr-5">
           <h3 class="card-title"><?= $about_title ?></h3>
-          <p class="card-description strong black"><?= $about_text ?></p>
+          <p class="card-description strong black <?= $custom_class ?>"><?= $about_text ?></p>
         </div>
         <?php } ?>
       </div>
@@ -512,14 +468,14 @@ while (have_posts()) : the_post();
    }
  </script>
   <!-- start видосы screen -->
-  <div id="gallery" class="projects-3 section-image">
+  <div class="row">
+    <div class="col-md-8 mx-auto text-center">
+      <div class="space-top"></div>
+      <h2 class="title black">Воспоминания</h2>
+    </div>
+  </div>
+  <div id="gallery" class="section-image">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8 mx-auto text-center">
-          <div class="space-top"></div>
-          <h2 class="title">Воспоминания</h2>
-        </div>
-      </div>
       <div class="mb-5 mx-auto">
         <div class="gallery_list" >
         <?php
@@ -740,8 +696,8 @@ while (have_posts()) : the_post();
     <!-- end отзывы screen -->
 
 <!-- start вопрос-ответ  screen -->
-<div id="faq" class="py-5" style="background-color: lightgoldenrodyellow;">
-  <div class="container">
+<div id="faq" class="py-5 mt-3 d-flex minh-100vh" style="background-color: lightgoldenrodyellow;">
+  <div class="container d-flex" style="margin:auto">
     <div class="row">
       <div class="col-md-12 ml-auto mr-auto text-center">
         <h2 class="title">Частые вопросы</h2>
@@ -1004,17 +960,17 @@ $('#carouselExampleIndicators2').carousel({
 //success sent
 var sentOkMessage = [
     '<div class="container black-text">',
-    '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>',
+    '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description white bold">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>',
     '</div>'
 ];
 var sentOkMessage2 = [
     '<div class="container black-text">',
-    '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description">Благодарим за заявку. Мы оповестим вас о ближайшей кругосветке.</h5></div>',
+    '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description white bold">Благодарим за заявку. Мы оповестим вас о ближайшей кругосветке.</h5></div>',
     '</div>'
 ];
 var sentOkMessage3 = [
     '<div class="container black-text" style="padding:150px 0">',
-    '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>',
+    '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description white bold">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>',
     '</div>'
 ];
 $( document ).ready(function() {
@@ -1093,39 +1049,50 @@ findVideos();
 // end youtube hack
 
 var $ = jQuery;
+
+var $a = $('.month_list').find('.month_block');
+var $b = $('.month_list').find('.card');
+
+$a.each ( function ( index ) {
+  var _this = $( this );
+  $b.each ( function ( _index ) {
+    if ( _this.data('month') == $( this ).data('month') ){
+      _this.find('._month').append($(this));
+    }
+  } )
+} )
+
 var d1 = $("#datetimepicker-1 input.datetimepicker");
 var d2 = $("#datetimepicker-2 input.datetimepicker");
 d1.click(function(){
   console.log(d2);
-})
-$(function(){
-    // if (d1.length !== 0) {
-        d1.datetimepicker({
-            format: 'DD-MM-YYYY',
-            icons: {
-                date: "fa fa-calendar",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-            }
-        });
-    // };
-    // if (d2.length !== 0) {
-        d2.datetimepicker({
-            format: 'DD-MM-YYYY',
-            icons: {
-                date: "fa fa-calendar",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-            }
-        });
-    // }
 });
+
 $(function(){
-    $("a[href^='#']").click(function(){
-        var _href = $(this).attr("href");
-        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
-        return false;
-    });
+  d1.datetimepicker({
+    format: 'DD-MM-YYYY',
+    icons: {
+      date: "fa fa-calendar",
+      previous: 'fa fa-chevron-left',
+      next: 'fa fa-chevron-right',
+    }
+  });
+  d2.datetimepicker({
+    format: 'DD-MM-YYYY',
+    icons: {
+      date: "fa fa-calendar",
+      previous: 'fa fa-chevron-left',
+      next: 'fa fa-chevron-right',
+    }
+  });
+});
+
+$(function(){
+  $("a[href^='#']").click(function(){
+    var _href = $(this).attr("href");
+    $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+    return false;
+  });
 });
 
 

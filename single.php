@@ -452,82 +452,11 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
     <span> Напишите нам сообщение:</span>
   </div>
   <div class="_body">
+    <div>Здравствуйте. Меня зовут Владислав. Какой у вас вопрос?</div>
     <div>Введите сообщение:</div>
   </div>
 </div>
 <span class="cross" onclick="hideWaform()">x</span>
-
-<style type="text/css">
-  @media(max-width:768px) {
-    #wa_form,
-    #wa_form+.cross{
-      display:none!important;
-    }
-  }
-  #wa_form {
-    height: 50px;
-    width: 300px;
-    background: #a7ce64;
-    position: fixed;
-    bottom: 0px;
-    z-index: 9999;
-    right: 30px;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 3px 3px 20px #000;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.5s;
-  }
-  #wa_form.opened {
-    height: 400px;
-  }
-  #wa_form img {
-    max-width: 20px;
-    margin-right: 10px;
-  }
-  #wa_form ._header {
-    margin: 15px;
-  }
-  #wa_form ._body {
-    background: #fff;
-    margin-top: 20px;
-    height: 100%;
-    color: #000;
-    display: flex;
-  }
-  #wa_form ._body div {
-    align-self: flex-end;
-    border-top: solid 1px #ccc;
-    width: 100%;
-    padding: 15px;
-    color: #777;
-    font-weight: 100;
-    margin-bottom: 60px;
-    display: none;
-  }
-  #wa_form.opened ._body div {
-    display: block;
-  }
-  #wa_form+.cross {
-    display: none;
-  }
-  #wa_form.opened+.cross {
-    display: block;
-    float: right;
-    border-bottom: solid 1px #fff;
-    padding: 0px 8px 2px;
-    border-radius: 0 8px 0 8px;
-    position: fixed;
-    right: 30px;
-    bottom: 376px;
-    cursor: pointer;
-    border-left: solid 1px #fff;
-    background: #fff;
-    color: #a7ce64;
-    z-index: 99999;
-  }
-</style>
 <!-- end whatsapp form -->
 
 <div class="modal modal-lg fade mx-auto" id="question-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
@@ -535,7 +464,7 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
     <div class="modal-content">
       <div class="modal-body">
         <div id="question_wrapper" class="pb-3">
-          <h3>Вы нашли, что искали?</h3>
+          <h3 class="white">Вы нашли, что искали?</h3>
           <button class="btn" onclick="form_answer(this)">Да</button>
           <button class="btn" onclick="form_answer(this)">Не совсем</button>
         </div>
@@ -569,7 +498,7 @@ $(function(){
   $('#dropDownHere').replaceWith(dropDownFromHere);
 })
 
-var sentOkMessage = '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>'
+var sentOkMessage = '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description white bold">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>'
 
 var wpcf7Elm = document.querySelectorAll( '.wpcf7' );
   for (var i = 0; i < wpcf7Elm.length; i++){

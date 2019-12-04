@@ -6,7 +6,9 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
 ->show_on_post_type( 'post' )
 ->add_tab( 'Фон', [
     Field::make( 'image', 'index_image', '' )
-        ->set_width( 100 ),
+        ->set_width( 80 ),
+    Field::make( 'checkbox', 'video', 'Видео' )
+        ->set_width( 20 ),
 ])
 ->add_tab( 'Главная', [
       Field::make( 'complex', 'backgrounds_post', '' )
@@ -79,10 +81,12 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
         Field::make( 'complex', 'calend', '' )
         ->add_fields( [
             Field::make( 'text', 'year', 'Год (2019)' )
-              ->set_width( 40 ),
+              ->set_width( 30 ),
             Field::make( 'text', 'month', 'Месяц (12)' )
-              ->set_width( 40 ),
+              ->set_width( 30 ),
             Field::make( 'checkbox', 'offset', 'Залезает на следующий' )
+              ->set_width( 20 ),
+            Field::make( 'date', 'date', 'Дата' )
               ->set_width( 20 ),
            ])
        ])

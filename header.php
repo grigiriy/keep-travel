@@ -94,7 +94,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a class="nav-link" href="#about">О нас</a>
             </li>
             <li class="nav-item">
-              <a href="#select" class="nav-link">Путешествия</a>
+              <a href="#group" class="nav-link">Путешествия</a>
             </li>
             <li class="nav-item">
               <a href="#gallery" class="nav-link">Галерея</a>

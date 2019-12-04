@@ -15,10 +15,12 @@ $reports = !empty(carbon_get_post_meta($post->ID, 'reports', 'complex')) ? carbo
 $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
 $tickets_left = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
 $tickets_total = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total'] : '8' ;
-// $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
+$table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
 while (have_posts()) : the_post();
 $page_name = !empty($sub_name) ? $sub_name : get_the_title();
+$date = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex') : null ;
 
+$is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
  ?>
 
  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -36,11 +38,32 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
  </style>
 <!-- End Navbar -->
 <div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
+    <?php if($is_offset == 1) { ?>
+    <script>
+    let cl_width = document.body.clientWidth;
+    if (cl_width>768){
+      document.querySelector('.page-header').innerHTML = `
+      <video id="huy" autoplay muted loop style="width: auto;min-height: 100vh;max-height: 1030px;min-width: 100vw;">
+        <source src="/wp-content/uploads/2019/11/back_sri_video.mp4" type="video/mp4">
+        <source src="/wp-content/uploads/2019/11/back_sri_video.webm" type="video/webm">
+      </video>
+      `;
+    } else {
+      document.querySelector('.page-header').classList.add('sri_video');
+    }
+    </script>
+    <style>
+    .page-header.sri_video {
+      background-image:url("/wp-content/uploads/2019/11/back_sri_video.gif")!important;
+    }
+    </style>
+  <?php } ?>
 <div class="filter"></div>
 <div class="content-center">
   <div class="motto">
     <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>">Путешествие по <?= $page_name ?></h1>
     <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
+    <h3><strong><?= $table[0]['dates'] ?></strong></h3>
   </div>
 </div>
 </div>
@@ -48,7 +71,7 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
 <div class="main">
   <div class="section section-white">
     <div class="container">
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-md-10 mx-auto">
           <h2 class="mb-5 text-center" >Что нас ждет!</h2>
           <div class="row">
@@ -72,7 +95,7 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
         </div>
       </div>
     </div>
-    <div class="row my-5">
+    <div class="row my-5 py-5">
       <div class="col-md-2 offset-md-1 pt-3">
         <p><i>осталось</i></p>
         <?php
@@ -93,13 +116,57 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
         } ?>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-md-6">
         <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="info" onclick="show_modal(this)" style="max-width: 300px;">Смотреть маршрут</button>
       </div>
       <div class="col-md-6">
         <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book" onclick="show_modal(this)" style="max-width: 300px;">Забронировать место</button>
       </div>
+    </div>
+    <div class="row">
+    <?php
+    function downcounter($date){
+	    $check_time = strtotime($date) - time();
+	    if($check_time <= 0){
+	        return false;
+	    }
+
+	    $days = floor($check_time/86400);
+	    // $hours = floor(($check_time%86400)/3600);
+	    // $minutes = floor(($check_time%3600)/60);
+	    // $seconds = $check_time%60; 
+
+	    $str = '';
+	    if($days > 0) $str .= declension($days,array('день','дня','дней')).' ';
+	    // if($hours > 0) $str .= declension($hours,array('час','часа','часов')).' ';
+	    // if($minutes > 0) $str .= declension($minutes,array('минута','минуты','минут')).' ';
+	    // if($seconds > 0) $str .= declension($seconds,array('секунда','секунды','секунд'));
+
+	    return $str;
+  }
+  function declension($digit,$expr,$onlyword=false){
+    if(!is_array($expr)) $expr = array_filter(explode(' ', $expr));
+    if(empty($expr[2])) $expr[2]=$expr[1];
+    $i=preg_replace('/[^0-9]+/s','',$digit)%100;
+    if($onlyword) $digit='';
+    if($i>=5 && $i<=20) $res=$digit.' '.$expr[2];
+    else
+    {
+        $i%=10;
+        if($i==1) $res=$digit.' '.$expr[0];
+        elseif($i>=2 && $i<=4) $res=$digit.' '.$expr[1];
+        else $res=$digit.' '.$expr[2];
+    }
+    return trim($res);
+}
+
+
+  if (array_key_exists("date", $date[0])){
+    $up_to =  downcounter($date[0]['date']);
+    ?>
+    <h3 class="mt-5 mx-auto text-center"><?= $up_to; ?> до начала Путешествия</h3>
+  <?php } ?>
     </div>
   </div>
   </div>
@@ -153,82 +220,12 @@ $page_name = !empty($sub_name) ? $sub_name : get_the_title();
     <span> Напишите нам сообщение:</span>
   </div>
   <div class="_body">
+    <div>Здравствуйте. Меня зовут Владислав. Какой у вас вопрос?</div>
     <div>Введите сообщение:</div>
   </div>
 </div>
 <span class="cross" onclick="hideWaform()">x</span>
 
-<style type="text/css">
-  @media(max-width:768px) {
-    #wa_form,
-    #wa_form+.cross{
-      display:none!important;
-    }
-  }
-  #wa_form {
-    height: 50px;
-    width: 300px;
-    background: #a7ce64;
-    position: fixed;
-    bottom: 0px;
-    z-index: 9999;
-    right: 30px;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 3px 3px 20px #000;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.5s;
-  }
-  #wa_form.opened {
-    height: 400px;
-  }
-  #wa_form img {
-    max-width: 20px;
-    margin-right: 10px;
-  }
-  #wa_form ._header {
-    margin: 15px;
-  }
-  #wa_form ._body {
-    background: #fff;
-    margin-top: 20px;
-    height: 100%;
-    color: #000;
-    display: flex;
-  }
-  #wa_form ._body div {
-    align-self: flex-end;
-    border-top: solid 1px #ccc;
-    width: 100%;
-    padding: 15px;
-    color: #777;
-    font-weight: 100;
-    margin-bottom: 60px;
-    display: none;
-  }
-  #wa_form.opened ._body div {
-    display: block;
-  }
-  #wa_form+.cross {
-    display: none;
-  }
-  #wa_form.opened+.cross {
-    display: block;
-    float: right;
-    border-bottom: solid 1px #fff;
-    padding: 0px 8px 2px;
-    border-radius: 0 8px 0 8px;
-    position: fixed;
-    right: 30px;
-    bottom: 376px;
-    cursor: pointer;
-    border-left: solid 1px #fff;
-    background: #fff;
-    color: #a7ce64;
-    z-index: 99999;
-  }
-</style>
 <!-- end whatsapp form -->
 
 <div id="phone_btn_wrap">
@@ -267,7 +264,7 @@ function hideWaform() {
   $('#wa_form').removeClass('opened');
 }
 
-var sentOkMessage = '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>'
+var sentOkMessage = '<div class="sent-ok-message col-md-10 mx-auto"><h5 class="description white bold">Спасибо, в ближайшее время наш менеджер свяжется с вами!</h5></div>'
 
 var wpcf7Elm = document.querySelectorAll( '.wpcf7' );
   for (var i = 0; i < wpcf7Elm.length; i++){
