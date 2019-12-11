@@ -40,9 +40,9 @@ while (have_posts()) : the_post();
         <div class="container" >
           <div class="row my-5">
             <div class="col-md-9 mx-auto text-center mb-5">
-              <h1 class="title">Открой себя</h1>
-              <h2>Новый формат групповых путешествий</h2>
-              <h5>Познай себя и мир активно путешествуя и заряжаясь<br>новыми эмоциями в группе единомышленников!<br>Всю организацию мы берем на себя.</h5>
+              <h1 class="title">Познай себя, познавая мир</h1>
+              <h2 style="font-size:2.2em">Совершай невероятные открытия на уникальных маршрутах на пяти континентах</h2>
+              <h5 style="font-size:1.2em">Если ты любишь путешествовать в компании позитивных и жизнерадостных людей, если ты готов осуществить мечты о посещении самых желанных уголков планеты, спеши забронировать свое место в наш ближайший road-трип!</h5>
               <div class="row d-none">
                 <div class="col-md-6">
                     <a href="#group" class="main-links">
@@ -781,7 +781,7 @@ while (have_posts()) : the_post();
 <!-- end footer screen -->
 
 <!-- whatsapp form -->
-<div id="wa_form" class="" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
+<div id="wa_form" class="whatsapp_tracker" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
   <div class="_header">
     <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
     <span> Напишите нам сообщение:</span>
@@ -909,7 +909,7 @@ while (have_posts()) : the_post();
   </div>
 </div>
 <div id="phone_btn_wrap">
-<a href="https://api.whatsapp.com/send?phone=79169277027">
+<a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79169277027">
 <img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
 </a>
 </div>

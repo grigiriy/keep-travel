@@ -2308,7 +2308,7 @@ letter-spacing: -0.03em;
 }
 h1.title{
   font-size: 72px;
-  line-height: 65px;
+  line-height: 75px;
 }
 .title.text-center {
   margin-bottom: 50px; }
@@ -11575,7 +11575,7 @@ img.ticket {
 #faq .card-header p {
   font-weight: 300;
   color: #333;
-  font-size: 14px;
+  font-size: 24px;
   text-transform: none;
   font-family: inherit;
 }
@@ -11623,6 +11623,13 @@ img.ticket {
   padding: 10px;
   font-size: 1em;
   border-radius: 3px;
+  max-width: 130px;
+}
+@media(max-width:768px){
+  #group .card h6 {
+    font-size: 1.2em;
+    max-width: none;
+  }
 }
 #group ._month .card .card-body {
   padding-top: 0;
@@ -12233,6 +12240,11 @@ body {
 #parts .card h3 {
   margin-top: 0;
 }
+@media(max-width:768px){
+  #parts .card h3 {
+    padding: 25px 0 15px;
+  }
+}
 #parts .card p {
   font-size: 18px;
 }
@@ -12380,6 +12392,7 @@ z-index: 99999;
   ._month {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
   }
   ._month .card {
     width: 100%;
@@ -12393,4 +12406,31 @@ z-index: 99999;
     display: none;
     border-right: none;
   }
+}
+@media(min-width:768px) {
+  .article-content ul {
+    list-style-position: inside;
+    -moz-column-count: 2; /* Firefox */
+    -webkit-column-count: 2; /* Safari and Chrome */
+    column-count: 2;
+  }
+  .article-content ul>li {
+    display: flex;
+  }
+}
+.article-content ul {
+  font-size: 24px;
+  line-height: 48px;
+}
+.article-content ul>li { 
+  list-style: none;
+  margin-right: 30px;
+}
+.article-content ul>li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #34b5b8; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */ 
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
 }

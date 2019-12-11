@@ -109,7 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="nav-link"><a style="font-size: 1.5em;line-height: 1em;" href="tel:84993808699">+7(499) 380-86-99</a></p>
             </li>
             <li class="nav-item">
-              <a class="btn btn-round btn-whatsapp" href="https://api.whatsapp.com/send?phone=79169277027">
+              <a class="btn btn-round btn-whatsapp whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79169277027">
                 <img src="/wp-content/uploads/2019/11/whatsapp_icon.png"> WhatsApp
               </a>
             </li>

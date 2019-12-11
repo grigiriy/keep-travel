@@ -19,9 +19,10 @@ $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_ge
 while (have_posts()) : the_post();
 $page_name = !empty($sub_name) ? $sub_name : get_the_title();
 $date = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex') : null ;
+$content_c = !empty(carbon_get_post_meta($post->ID, 'content_c')) ? carbon_get_post_meta($post->ID, 'content_c') : null ;
 
-$is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
- ?>
+$is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
+?>
 
  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
@@ -38,7 +39,7 @@ $is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
  </style>
 <!-- End Navbar -->
 <div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
-    <?php if($is_offset == 1) { ?>
+    <?php if($is_video == 1) { ?>
     <script>
     let cl_width = document.body.clientWidth;
     if (cl_width>768){
@@ -61,7 +62,13 @@ $is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
 <div class="filter"></div>
 <div class="content-center">
   <div class="motto">
-    <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>">Путешествие по <?= $page_name ?></h1>
+  <?php
+    $h1_style = '';
+    if ($is_video == 1){
+      $h1_style = 'font-size: 2.5em; text-transform: none; max-width: 720px; margin: 0 auto;padding: 0 20px;';
+    }
+  ?>
+    <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><?= $page_name ?></h1>
     <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
     <h3><strong><?= $table[0]['dates'] ?></strong></h3>
   </div>
@@ -93,6 +100,12 @@ $is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
             </div>
         <?php } ?>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="article-content red-headlines">
+        <h3 class="text-center mb-5">Что включено в поездку</h3>
+        <?= $content_c; ?>
       </div>
     </div>
     <div class="row my-5 py-5">
@@ -214,7 +227,7 @@ $is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
 </footer>
 
 <!-- whatsapp form -->
-<div id="wa_form" class="" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
+<div id="wa_form" class="whatsapp_tracker" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
   <div class="_header">
     <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
     <span> Напишите нам сообщение:</span>
@@ -229,7 +242,7 @@ $is_offset =  !empty(carbon_get_post_meta($post->ID, 'video'));
 <!-- end whatsapp form -->
 
 <div id="phone_btn_wrap">
-<a href="https://api.whatsapp.com/send?phone=79169277027">
+<a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79169277027">
   <img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
 </a>
 </div>
