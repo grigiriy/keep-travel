@@ -12434,3 +12434,24 @@ z-index: 99999;
   width: 1em; /* Also needed for space (tweak if needed) */
   margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
+#date_countdown {
+  display:flex;
+}
+#date_countdown div {
+  display:flex;
+  flex-direction: column;
+  border-right: solid 1px #000;
+  padding: 10px 30px;
+  text-align:center;
+}
+#date_countdown div:last-child {
+  border-right: none;
+}
+#date_countdown div span {
+  font-size: 36px;
+  font-weight: bold;
+}
+#date_countdown div span.sub {
+  font-size: 16px;
+  font-weight: normal;
+}

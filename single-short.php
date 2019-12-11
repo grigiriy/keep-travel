@@ -137,49 +137,12 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
         <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book" onclick="show_modal(this)" style="max-width: 300px;">Забронировать место</button>
       </div>
     </div>
-    <div class="row">
-    <?php
-    function downcounter($date){
-	    $check_time = strtotime($date) - time();
-	    if($check_time <= 0){
-	        return false;
-	    }
-
-	    $days = floor($check_time/86400);
-	    // $hours = floor(($check_time%86400)/3600);
-	    // $minutes = floor(($check_time%3600)/60);
-	    // $seconds = $check_time%60; 
-
-	    $str = '';
-	    if($days > 0) $str .= declension($days,array('день','дня','дней')).' ';
-	    // if($hours > 0) $str .= declension($hours,array('час','часа','часов')).' ';
-	    // if($minutes > 0) $str .= declension($minutes,array('минута','минуты','минут')).' ';
-	    // if($seconds > 0) $str .= declension($seconds,array('секунда','секунды','секунд'));
-
-	    return $str;
-  }
-  function declension($digit,$expr,$onlyword=false){
-    if(!is_array($expr)) $expr = array_filter(explode(' ', $expr));
-    if(empty($expr[2])) $expr[2]=$expr[1];
-    $i=preg_replace('/[^0-9]+/s','',$digit)%100;
-    if($onlyword) $digit='';
-    if($i>=5 && $i<=20) $res=$digit.' '.$expr[2];
-    else
-    {
-        $i%=10;
-        if($i==1) $res=$digit.' '.$expr[0];
-        elseif($i>=2 && $i<=4) $res=$digit.' '.$expr[1];
-        else $res=$digit.' '.$expr[2];
-    }
-    return trim($res);
-}
-
-
-  if (array_key_exists("date", $date[0])){
-    $up_to =  downcounter($date[0]['date']);
-    ?>
-    <h3 class="mt-5 mx-auto text-center"><?= $up_to; ?> до начала Путешествия</h3>
-  <?php } ?>
+    <div class="row mt-5">
+        <h2 class="text-center mx-auto mt-5">До путешествия осталось</h2>
+      </div>
+      <div class="row">
+        <div id="date_countdown" class="mx-auto mt-3" data-until="<?= $date[0]['date'] ?>"></div>
+      </div>
     </div>
   </div>
   </div>
@@ -268,8 +231,19 @@ endwhile;
 wp_footer();
 ?>
 
+
 <script type="text/javascript">
 var $ = jQuery;
+
+var until_date = $('#date_countdown').data('until');
+
+$('#date_countdown') .countdown(until_date, function(event) {
+  var $this = $(this).html(event.strftime(''
+    + '<div><span>%D</span><span class="sub">дней</span></div> '
+    + '<div><span>%H</span><span class="sub">часов</span></div> '
+    + '<div><span>%M</span><span class="sub">минут</span></div> '
+    + '<div><span>%S</span><span class="sub">секунд</span></div>'));
+  });
 
 function hideNav() {
   $('.navbar-toggler').click(); 

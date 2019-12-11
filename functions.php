@@ -12,7 +12,7 @@ function deregister_cf7_styles() {
 }
 add_action('wp_print_styles', 'deregister_cf7_styles', 100);
 
-define('STATIC_FILES_BUILD_VERSION', '6.4');
+define('STATIC_FILES_BUILD_VERSION', '6.6');
 
 // deregister unnessosary scripts
 if(!is_admin()){
@@ -92,6 +92,8 @@ if (!is_admin()){
         wp_enqueue_script('master-script', get_template_directory_uri() . '/js/paper-kit.js',['bootstrap-script'], STATIC_FILES_BUILD_VERSION, true);
 
         wp_enqueue_script('fancy-script', get_template_directory_uri() . '/js/plugins/jquery.fancybox.min.js',['bootstrap-script'], STATIC_FILES_BUILD_VERSION, true);
+
+        wp_enqueue_script('countdown-script', get_template_directory_uri() . '/js/plugins/countdown.min.js',['jquery'], STATIC_FILES_BUILD_VERSION, true);
 
 
 
