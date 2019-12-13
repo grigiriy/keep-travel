@@ -39,6 +39,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     }
    }
  </style>
+
 <!-- End Navbar -->
 <div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
 <div class="filter"></div>
@@ -99,6 +100,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
         </div>
       </div>
     </div>
+
+    <?php
+    // print_r(get_post_meta($post->ID));
+    ?>
 
 <div class="row my-5">
   <div class="col-md-2 pt-3">

@@ -74,6 +74,9 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
   </div>
 </div>
 </div>
+<?php
+// print_r(get_post_meta($post->ID));
+?>
 <div class="wrapper">
 <div class="main">
   <div class="section section-white">
@@ -131,10 +134,10 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
     </div>
     <div class="row mt-5">
       <div class="col-md-6">
-        <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="info" onclick="show_modal(this)" style="max-width: 300px;">Смотреть маршрут</button>
+        <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="info" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;">Смотреть маршрут</button>
       </div>
       <div class="col-md-6">
-        <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book" onclick="show_modal(this)" style="max-width: 300px;">Забронировать место</button>
+        <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;">Забронировать место</button>
       </div>
     </div>
     <div class="row mt-5">

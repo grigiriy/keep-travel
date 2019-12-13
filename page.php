@@ -18,55 +18,128 @@ while (have_posts()) : the_post();
 <div class="header-2" id="top">
 <div id="carouselExampleIndicators" class="page-header carousel slide" data-ride="carousel" >
   <div class="carousel-inner">
-  <?php for ($i = 0; $i < count($back_img); $i++ ) { ?>
-      <div class="carousel-item <?php if($i == 0){ echo 'active'; }; ?>" style="background-image:url(<?= wp_get_attachment_image_url( $back_img[$i]['back_image'], 'full' ) ?>);height:100vh;background-size:cover">
-      </div>
-<?php } ?>
-  </div>
-<style type="text/css">
-  #mainPhone.active input{
-    font-size: 1.5em;
-    height: 70px;
-  }
-  #mainPhone.active input.wpcf7-tel{
-    font-size: 1.7em;
-  }
-</style>
-
-  <!-- start first screen container -->
-    <div class="page-header" style="background: transparent; position:absolute;top:0">
-      <div class="filter"></div>
-      <div class="content-center"  id="phone">
-        <div class="container" >
-          <div class="row my-5">
-            <div class="col-md-9 mx-auto text-center mb-5">
-              <h1 class="title">Познай себя, познавая мир</h1>
-              <h2 style="font-size:2.2em">Совершай невероятные открытия на уникальных маршрутах на пяти континентах</h2>
-              <h5 style="font-size:1.2em">Если ты любишь путешествовать в компании позитивных и жизнерадостных людей, если ты готов осуществить мечты о посещении самых желанных уголков планеты, спеши забронировать свое место в наш ближайший road-трип!</h5>
-              <div class="row d-none">
-                <div class="col-md-6">
+    <div class="carousel-item active" style="background-image:url(<?= wp_get_attachment_image_url( $back_img[0]['back_image'], 'full' ) ?>);height:100vh;background-size:cover">
+      <!-- start first screen container -->
+      <div class="page-header" style="background: transparent; position:absolute;top:0">
+        <div class="filter"></div>
+        <div class="content-center" id="phone">
+          <div class="container" >
+            <div class="row my-5">
+              <div class="col-md-9 mx-auto text-center mb-5">
+                <h1 class="title">Познай себя, познавая мир</h1>
+                <h2 style="font-size:2.2em">Совершай невероятные открытия на уникальных маршрутах на пяти континентах</h2>
+                <h5 style="font-size:1.2em">Если ты любишь путешествовать в компании позитивных и жизнерадостных людей, если ты готов осуществить мечты о посещении самых желанных уголков планеты, спеши забронировать свое место в наш ближайший road-трип!</h5>
+                <div class="row d-none">
+                  <div class="col-md-6">
                     <a href="#group" class="main-links">
-                        <h3 class="description text-left">Групповые</h3>
+                      <h3 class="description text-left">Групповые</h3>
                     </a>
-                </div>
-                <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
                     <a href="#order"  class="main-links">
-                        <h3 class="description text-left">Индивидуальные</h3>
+                      <h3 class="description text-left">Индивидуальные</h3>
                     </a>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- row -->
+          </div>
+        </div>
+      </div>
+    </div> <!-- закрылся айтем -->
+    <?php
+
+    $_args = [ 
+      'posts_per_page' => -1,
+      'post_status' => 'publish',
+      'post_type' => 'post',
+      'meta_query'=>[
+        [
+            'key' => '_is_index',
+            'value' => 'yes',
+          ],
+      ],
+    ];
+    $query = get_posts($_args);
+
+
+    foreach ($query as $key => $post ) :
+
+      $sub_name = !empty(carbon_get_post_meta($post->ID, 'sub_name')) ? carbon_get_post_meta($post->ID, 'sub_name') : null ;
+      $page_name = !empty($sub_name) ? $sub_name : get_the_title();
+      $back_image = !empty(carbon_get_post_meta($post->ID, 'index_image')) ? carbon_get_post_meta($post->ID, 'index_image') : null ;
+      $back_image = wp_get_attachment_image_url( $back_image, 'full' );
+      $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
+      $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
+      $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
+      $is_video_class = $is_video ? 'is_video' : '';
+    ?>
+        <div class="carousel-item" style="background-image:url(<?= $back_image ?>);height:100vh;background-size:cover">
+        <div class="page-header <?= $is_video_class; ?>" style="background: transparent; position:absolute;top:0">
+        <?php if($is_video == 1) { ?>
+        <script>
+        let cl_width = document.body.clientWidth;
+        if (cl_width>768){
+          document.querySelector('.page-header.is_video').innerHTML = `
+          <video id="huy" autoplay muted loop style="width: auto;min-height: 100vh;max-height: 1030px;min-width: 100vw;">
+            <source src="/wp-content/uploads/2019/11/back_sri_video.mp4" type="video/mp4">
+            <source src="/wp-content/uploads/2019/11/back_sri_video.webm" type="video/webm">
+          </video>
+          `;
+        } else {
+          document.querySelector('.page-header.is_video').classList.add('sri_video');
+        }
+        </script>
+        <style>
+        .page-header.is_video.sri_video {
+          background-image:url("/wp-content/uploads/2019/11/back_sri_video.gif")!important;
+        }
+        </style>
+      <?php } ?>
+        <div class="filter"></div>
+        <div class="content-center">
+          <div class="container" >
+          <?php
+            $h1_style = '';
+            if ($is_video == 1){
+              $h1_style = 'font-size: 2.5em; text-transform: none; max-width: 720px; margin: 0 auto;padding: 0 20px;';
+            }
+          ?>
+            <div class="row my-5">
+              <div class="col-md-9 mx-auto text-center mb-5">
+              <h1 class="title-uppercase text-center" id="pageName_<?= $key ?>" data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><a href="<?= the_permalink($post->ID); ?>"><?= $page_name ?></a></h1>
+              <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
+              <h3><strong><?= $table[0]['dates'] ?></strong></h3> <?= count($query) ?>
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+                    <a href="javascript:void(0)" class="main-links">
+                      <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="book" data-name="<?= get_the_title($post->ID); ?>" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;">Забронировать место</button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- закрылся айтем -->
+    <?php
+    // }
+    endforeach;
+    ?>
+
     <ol class="carousel-indicators" style="z-index:9999999;position:absolute">
-      <?php for ($i = 0; $i < count($back_img); $i++ ) { ?>
-        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i; ?>" class="<?php if($i == 0){ echo 'active'; }; ?>"></li>
-      <?php } ?>
+      <?php
+        for ($b = 0; $b < 3; $b++ ) {
+      ?>
+        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $b; ?>" class="<?php if($b == 0){ echo 'active'; }; ?>"></li>
+      <?php
+      }
+      ?>
     </ol>
   </div>
 </div>
+</div> <!-- новый -->
 <!-- end first screen container -->
 
   <div class="section section-testimonials minh-100vh mb-5" id="parts">
@@ -406,7 +479,7 @@ while (have_posts()) : the_post();
     <h2 class="title text-center">Наша философия</h2>
     <div class="row">
       <div class="col-md-5 offset-xl-1">
-        <img src="/wp-content/uploads/2019/11/feel_small.png">
+        <img src="/wp-content/uploads/2019/12/feelo.png">
       </div>
       <div class="col-md-5 feel_slider">
         <?php
@@ -905,6 +978,20 @@ while (have_posts()) : the_post();
           <?= do_shortcode('[contact-form-7 id="1142" title="Форма через 60 сек"]'); ?>
         </div>
       </div>
+      <div id="book_form">
+          <?= do_shortcode('[contact-form-7 id="1480"]'); ?>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal modal-lg fade mx-auto" id="book_modal" tabindex="-1" data-name="" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="book_form">
+          <?= do_shortcode('[contact-form-7 id="1480"]'); ?>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -948,6 +1035,20 @@ function modalQuestionOpen(){
       });
   });
 };
+
+
+function show_modal(e) {
+  var questionModal = $('#book_modal');
+  questionModal.modal('show');
+  target = $(e).data('target') + '_form';
+
+    var pagename = $('#pageurl');
+    var name = $(e).data('name');
+    pagename.attr('value',name);
+
+  questionModal.find('div#' + target).show().siblings('div').hide();
+}
+
 function form_answer(e){
   $(e).parent().fadeOut(300).delay(500).siblings('#question_form').delay(500).fadeIn(300);
 }
