@@ -107,9 +107,9 @@ while (have_posts()) : the_post();
           ?>
             <div class="row my-5">
               <div class="col-md-9 mx-auto text-center mb-5">
-              <h1 class="title-uppercase text-center" id="pageName_<?= $key ?>" data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><a href="<?= the_permalink($post->ID); ?>"><?= $page_name ?></a></h1>
+              <h1 class="title-uppercase text-center" id="pageName_<?= $key ?>" data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><a style="color:inherit" href="<?= the_permalink($post->ID); ?>"><?= $page_name ?></a></h1>
               <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
-              <h3><strong><?= $table[0]['dates'] ?></strong></h3> <?= count($query) ?>
+              <h3><strong><?= $table[0]['dates'] ?></strong></h3>
                 <div class="row">
                   <div class="col-md-6 mx-auto">
                     <a href="javascript:void(0)" class="main-links">
@@ -978,9 +978,6 @@ while (have_posts()) : the_post();
           <?= do_shortcode('[contact-form-7 id="1142" title="Форма через 60 сек"]'); ?>
         </div>
       </div>
-      <div id="book_form">
-          <?= do_shortcode('[contact-form-7 id="1480"]'); ?>
-        </div>
     </div>
   </div>
 </div>
@@ -1026,6 +1023,7 @@ function whatsappOpen(){
 function modalQuestionOpen(){
   var questionModal = $('#question-modal');
   questionModal.modal('show');
+  $('#book_modal').modal('hide');
     $(function($){
       $(document).mouseup(function (e){
         if (!questionModal.is(e.target) && questionModal.has(e.target).length === 0) {

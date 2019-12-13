@@ -11430,7 +11430,8 @@ img.ticket {
 .modal-content{
   background-image: url(/wp-content/uploads/2019/11/form_back_dark.jpg);
   /*background-position: top;*/
-  background-size: contain;
+  /* background-size: contain; */
+  background-size: cover;
   padding-bottom: 20px;
 }
 .side-map img {
