@@ -271,9 +271,6 @@ var wpcf7Elm = document.querySelectorAll( '.wpcf7' );
 
 
 $(function(){
-    var pagename = $('#pageurl');
-    var name = $('title').text();
-    pagename.attr('value',name);
     setTimeout(whatsappOpen, 30000);
 });
 
@@ -282,7 +279,13 @@ function show_modal(e) {
   questionModal.modal('show');
   target = $(e).data('target') + '_form';
 
-  questionModal.find('div#' + target).show().siblings('div').hide();
+  var forma = questionModal.find('div#' + target);
+
+  var pagename = forma.find('#pageurl');
+  var name = $('title').text();
+  pagename.attr('value',name);
+
+  forma.show().siblings('div').hide();
 }
 
 

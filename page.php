@@ -25,10 +25,10 @@ while (have_posts()) : the_post();
         <div class="content-center" id="phone">
           <div class="container" >
             <div class="row my-5">
-              <div class="col-md-9 mx-auto text-center mb-5">
+              <div class="col-md-12 mx-auto text-center mb-5">
                 <h1 class="title">Познай себя, познавая мир</h1>
-                <h2 style="font-size:2.2em">Совершай невероятные открытия на уникальных маршрутах на пяти континентах</h2>
-                <h5 style="font-size:1.2em">Если ты любишь путешествовать в компании позитивных и жизнерадостных людей, если ты готов осуществить мечты о посещении самых желанных уголков планеты, спеши забронировать свое место в наш ближайший road-трип!</h5>
+                <h2 class="subtitle">Совершай невероятные открытия на уникальных маршрутах на пяти континентах</h2>
+                <h5 class="subtitle">Если ты любишь путешествовать в компании позитивных и жизнерадостных людей, если ты готов осуществить мечты о посещении самых желанных уголков планеты, спеши забронировать свое место в наш ближайший road-трип!</h5>
                 <div class="row d-none">
                   <div class="col-md-6">
                     <a href="#group" class="main-links">
@@ -102,11 +102,11 @@ while (have_posts()) : the_post();
           <?php
             $h1_style = '';
             if ($is_video == 1){
-              $h1_style = 'font-size: 2.5em; text-transform: none; max-width: 720px; margin: 0 auto;padding: 0 20px;';
+              $h1_style = 'font-size: 2.5em; text-transform: none; margin: 0 auto;padding: 0 20px;';
             }
           ?>
             <div class="row my-5">
-              <div class="col-md-9 mx-auto text-center mb-5">
+              <div class="col-md-12 mx-auto text-center mb-5">
               <h1 class="title-uppercase text-center" id="pageName_<?= $key ?>" data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><a style="color:inherit" href="<?= the_permalink($post->ID); ?>"><?= $page_name ?></a></h1>
               <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
               <h3><strong><?= $table[0]['dates'] ?></strong></h3>
@@ -614,7 +614,7 @@ while (have_posts()) : the_post();
                 
                     <div class="card card-profile card-plain">
                       <div class="card-img-top">
-                          <iframe width="100%" height="305px" src="https://www.youtube.com/embed/<?= $gallery[$i]['videos'][0]['video'] ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <iframe width="100%" height="400px" src="https://www.youtube.com/embed/<?= $gallery[$i]['videos'][0]['video'] ?>/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
                     </div>
 
