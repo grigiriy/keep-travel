@@ -457,7 +457,7 @@ while (have_posts()) : the_post();
         <div class="description">
           <h1 style="color:#51cbce"><?= $counters[0]['years'] ?></h1>
           <h4 class="info-title white">Средний возраст</h4>
-          <p class="white">С нами путешествовали в возрасте от 18 до 47 лет</p>
+          <p class="white">С нами путешествовали в возрасте от 18 до 48 лет</p>
         </div>
       </div>
       <div class="col-md-4 info">

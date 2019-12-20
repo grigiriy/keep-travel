@@ -45,7 +45,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 <div class="filter"></div>
 <div class="content-center">
   <div class="motto">
-    <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>">Путешествие по <?= $page_name ?></h1>
+    <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>"><?= $page_name ?></h1>
     <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
     <h3><strong><?= $table[0]['dates'] ?></strong></h3>
   </div>

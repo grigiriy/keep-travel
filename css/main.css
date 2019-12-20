@@ -11965,6 +11965,9 @@ h3.card-title.title.active:before{
   background-size: contain;
   opacity: 1;
 }
+h3.card-title.title:nth-child(1).active:before {
+  margin-left: 170px;
+}
 h3.card-title.title:nth-child(3).active:before {
   margin-top: -66px;
   margin-left: 30px;
