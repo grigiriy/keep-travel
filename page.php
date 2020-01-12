@@ -8,12 +8,11 @@ $videos = !empty(carbon_get_post_meta($post->ID, 'videos', 'complex')) ? carbon_
 $reviews = !empty(carbon_get_post_meta($post->ID, 'reviews', 'complex')) ? carbon_get_post_meta($post->ID, 'reviews', 'complex') : null ;
 $founders = !empty(carbon_get_post_meta($post->ID, 'founders', 'complex')) ? carbon_get_post_meta($post->ID, 'founders', 'complex') : null ;
 $gallery = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? carbon_get_post_meta($post->ID, 'gallery', 'complex') : null ;
-
 while (have_posts()) : the_post();
 ?>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
- <div class="section-space"></div>
+<div class="section-space"></div>
 
 <div class="header-2" id="top">
 <div id="carouselExampleIndicators" class="page-header carousel slide" data-ride="carousel" >
@@ -73,6 +72,8 @@ while (have_posts()) : the_post();
       $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
       $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
       $is_video_class = $is_video ? 'is_video' : '';
+
+      $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
     ?>
         <div class="carousel-item" style="background-image:url(<?= $back_image ?>);height:100vh;background-size:cover">
         <div class="page-header <?= $is_video_class; ?>" style="background: transparent; position:absolute;top:0">
@@ -113,7 +114,7 @@ while (have_posts()) : the_post();
                 <div class="row">
                   <div class="col-md-6 mx-auto">
                     <a href="javascript:void(0)" class="main-links">
-                      <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="book" data-name="<?= get_the_title($post->ID); ?>" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;">Забронировать место</button>
+                      <button type="button" class="btn btn-block btn-round mx-auto mt-3" data-target="book" data-name="<?= get_the_title($post->ID); ?>" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;background:yellow;color:#333;border: none;">Забронировать место</button>
                     </a>
                   </div>
                 </div>
@@ -130,7 +131,7 @@ while (have_posts()) : the_post();
 
     <ol class="carousel-indicators" style="z-index:9999999;position:absolute">
       <?php
-        for ($b = 0; $b < 3; $b++ ) {
+        for ($b = 0; $b < 4; $b++ ) {
       ?>
         <li data-target="#carouselExampleIndicators" data-slide-to="<?= $b; ?>" class="<?php if($b == 0){ echo 'active'; }; ?>"></li>
       <?php
@@ -142,7 +143,7 @@ while (have_posts()) : the_post();
 </div> <!-- новый -->
 <!-- end first screen container -->
 
-  <div class="section section-testimonials minh-100vh mb-5" id="parts">
+  <div class="section section-testimonials minh-100vh" id="parts">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
@@ -287,7 +288,7 @@ while (have_posts()) : the_post();
 
 
   <!-- start групповые screen -->
-  <div id="group" class="features-2 pt-5 pb-5">
+  <div id="group" class="features-2 pt-5 pb-5 mb-0" style="background: #0000000d;">
     <div class="minh-100vh px-3 pb-5">
       <div class="container-fluid px-0">
         <div class="row">
@@ -304,7 +305,7 @@ while (have_posts()) : the_post();
           ];
           $posts = get_posts($args);
 
-          for ($i = 0; $i < 12; $i++) {
+          for ($i = 1; $i < 13; $i++) {
 
             switch ($i) {
               case 0:
@@ -371,13 +372,36 @@ while (have_posts()) : the_post();
             $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex')[0] : null ;
             $calend = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex')[0] : null ;
 
+            $tickets_left = (carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] != '') ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : 'X' ;
+            $tickets_left = ($tickets_left == 0) ? 'filled' : '';
+
             $is_offset =  !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['offset']);
-            $is_offset = ($is_offset == 1) ? '_offset' : '';
+            // $is_offset = ($is_offset == 1) ? '_offset' : '';
+            if ($is_offset == 1) {
+              $is_offset = '_offset';
+            } else {
+              $is_offset = '';
+              if (substr($calend['date'], -2) > 15) {
+                if (substr($calend['date'], -2) == 28) {
+                  $is_offset = ''; // костыль для января, можно будет переделать
+                } else {
+                  $is_offset = '_end';
+                }
+              }
+            }
             ?>
-                  <div data-month="<?=$card_month ?>"class="card mt-3 _dark <?= $is_offset ?>" data-background="image" style="background-image: url(<?= $image; ?>)">
+            <style>
+              ._end{
+                margin-left:auto!important;
+              }
+            </style>
+                  <div data-month="<?= $card_month ?>"class="card mt-3 _dark <?= $is_offset.' '.$tickets_left; ?>" data-background="image" style="background-image: url(<?= $image; ?>)">
                     <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
                       <div class="card-body d-flex" style="flex-direction: column;">
-                        <h6 class="card-category "><?= get_the_title($post->ID); ?></h6>
+                      <?php
+                      $f_size = ($post->post_name == 'trailer_islandia') ? 'fs_14' : '';
+                      ?>
+                        <h6 class="card-category <?= $f_size; ?>"><?= get_the_title($post->ID); ?></h6>
                         <div class="card-icon" style="
                         <?php
                           if ($post->post_name == 'australia' || $post->post_name == 'roadtrip_australia') {
@@ -396,7 +420,8 @@ while (have_posts()) : the_post();
                         <?php } ?>
                         </div>
                         <div class="card-footer" style="margin-top: auto;">
-                          <i class="fa fa-book" aria-hidden="true"></i> Подробнее 
+                          <p style="font-size:10px"><?= $table['dates'];?></p>
+                          <p><i class="fa fa-book" aria-hidden="true"></i> Подробнее </p>
                         </div>
                       </div>
                     </a>
@@ -418,7 +443,7 @@ while (have_posts()) : the_post();
 
 
   <!-- start instagram screen -->
-  <div id="insta" style="background-color:#202020">
+  <div id="insta" class="pt-5" style="background-color:#202020">
     <div class="col-md-6 ml-auto mr-auto text-center">
       <h2 class="title white">C нами уже путешествовали</h2>
     </div>
@@ -817,10 +842,11 @@ while (have_posts()) : the_post();
               <nav class="footer-nav col-md-12">
               <ul class="navbar-nav w-100 mx-auto">
                 <li class="nav-item">
-                    <a class="navbar-brand left" href="/" rel="tooltip" data-placement="bottom">
-                        <img src="/wp-content/themes/advantures/img/KeepTravel_White.png" style="height: 30px">
-                    </a>
-                <p class="copyright left">Ул. Нижняя<br>Сыромятническая,<br>д. 10, стр. 9</p>
+                  <a class="navbar-brand left" href="/" rel="tooltip" data-placement="bottom">
+                      <img src="/wp-content/themes/advantures/img/KeepTravel_White.png" style="height: 30px">
+                  </a>
+                  <p class="copyright left">Ул. Нижняя<br>Сыромятническая,<br>д. 10, стр. 9</p>
+                  <p class="copyright left"><a href="tel:84993808699">+7-499-380-86-99</a></p>
                 </li>
                 <li class="nav-item">
                     <a href="https://www.facebook.com/keeptravelaroundtheworld/" target="_blank" class="btn btn-round btn-just-icon">
@@ -829,21 +855,21 @@ while (have_posts()) : the_post();
                     <a href="https://www.instagram.com/keeptravel_agency/" target="_blank" class="btn btn-round btn-just-icon">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                     </a>
+                    <a href="https://vk.com/keep_travel_ru" target="_blank" class="btn btn-round btn-just-icon">
+                        <i class="fa fa-vk" aria-hidden="true"></i>
+                    </a>
                 </li>
                 <li class="nav-item ml-md-auto pt-3">
-                    <a href="/">Главная</a>
+                  <a href="/">Главная</a>
                 </li>
                 <li class="nav-item pt-3">
-                    <a href="#group">Путешествия</a>
-                </li>
-                <li class="nav-item mx-auto pt-3 ">
-                    <a href="tel:84993808699">+7-499-380-86-99</a>
+                  <a href="#group">Путешествия</a>
                 </li>
                 <li class="nav-item ml-md-auto">
-                    <p class="copyright">© 2019, Keep Travel</p>
-                    <p class="copyright">ИП Цымбалюк Владислав Дмитриевич<br>
-                    ИНН: 7&zwj;71562423948<br>
-                    ОГРН: 31977460&zwj;0153431</p>
+                  <p class="copyright">© 2019, Keep Travel</p>
+                  <p class="copyright">ИП Цымбалюк Владислав Дмитриевич<br>
+                  ИНН: 7&zwj;71562423948<br>
+                  ОГРН: 31977460&zwj;0153431</p>
                 </li>
               </ul>
               </nav>
@@ -992,6 +1018,20 @@ while (have_posts()) : the_post();
     </div>
   </div>
 </div>
+
+
+<div class="modal modal-lg fade mx-auto" id="quiz_modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="mb-0 mt-1">Получите скидку 5% ответив на 3 вопроса</h3>
+        <button class="btn" onclick="quiz_first()">ОК</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div id="phone_btn_wrap">
 <a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79169277027">
 <img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
@@ -1034,15 +1074,14 @@ function modalQuestionOpen(){
   });
 };
 
-
 function show_modal(e) {
   var questionModal = $('#book_modal');
   questionModal.modal('show');
   target = $(e).data('target') + '_form';
 
-    var pagename = $('#pageurl');
-    var name = $(e).data('name');
-    pagename.attr('value',name);
+  var pagename = $('#pageurl');
+  var name = $(e).data('name');
+  pagename.attr('value',name);
 
   questionModal.find('div#' + target).show().siblings('div').hide();
 }
@@ -1324,6 +1363,62 @@ $('.gallery_wrap_rev').slick( {
 
 });
 
+let quiz_first_data;
+let quiz_second_data;
+let quiz_third_data;
+let quiz_wrapper = $('#quiz_modal').find('.modal-body');
+
+function quiz_first() {
+  quiz_wrapper.fadeOut(300);
+  setTimeout( function func() {
+    quiz_wrapper.find('h3').text('Страна мечты для путешествия?');
+    quiz_wrapper.find('h3').after('<input id="question_one" type="text"/>');
+    quiz_wrapper.find('button').replaceWith('<button class="btn" onclick="quiz_second()">Дальше</button>');
+  }, 300);
+  quiz_wrapper.fadeIn(300);
+}
+function quiz_second() {
+  quiz_first_data = quiz_wrapper.find('#question_one').val();
+  console.log(quiz_first_data);
+  quiz_wrapper.fadeOut(300);
+  setTimeout( function func() {
+    quiz_wrapper.find('h3').text('В каком месяце?');
+    quiz_wrapper.find('input').replaceWith('<input id="question_two" type="text"/>');
+    quiz_wrapper.find('button').replaceWith('<button class="btn" onclick="quiz_third()">Дальше</button>');
+  }, 300);
+  quiz_wrapper.fadeIn(300);
+}
+function quiz_third() {
+  quiz_second_data = quiz_wrapper.find('#question_two').val();
+  console.log(quiz_second_data);
+  quiz_wrapper.fadeOut(300);
+  setTimeout( function func() {
+    quiz_wrapper.find('h3').text('Уложиться в какой бюджет?');
+    quiz_wrapper.find('input').replaceWith('<input id="question_three" type="text"/>');
+    quiz_wrapper.find('button').replaceWith('<button class="btn" onclick="quiz_last()">Дальше</button>');
+  }, 300);
+  quiz_wrapper.fadeIn(300);
+}
+function quiz_last() {
+  quiz_third_data = quiz_wrapper.find('#question_three').val();
+  console.log(quiz_third_data);
+  quiz_wrapper.fadeOut(300);
+  setTimeout( function func() {
+    quiz_wrapper.find('h3').text('Благодарим за Ваши ответы');
+    quiz_wrapper.find('h3').after('<h4 class="mt-0">Укажите вашу почту и получите купон на скидку 5%.</h4>');
+    quiz_wrapper.find('input').replaceWith('<input id="quiz_email" placeholder="e-mail@ru.ru" type="email"/>');
+    quiz_wrapper.find('button').replaceWith('<button class="btn" onclick="">Получить скидку</button>');
+  }, 300);
+  quiz_wrapper.fadeIn(300);
+}
+
+$(document).ready(function() {
+    if (window.location.href.indexOf("quiz") > -1) {
+      setTimeout( function func() {
+        $('#quiz_modal').modal('show');
+    }, 500);
+    }
+});
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >

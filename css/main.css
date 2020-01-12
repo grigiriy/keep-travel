@@ -11656,15 +11656,21 @@ img.ticket {
   height: 100px;
 } */
 #group .card h6 {
-  background: #fff;
-  color: #000!important;
+  color:
+  #0d0d0d !important;
   max-height: none;
   position: absolute;
-  margin: 10px auto;
-  padding: 10px;
-  font-size: 1em;
-  border-radius: 3px;
-  max-width: 130px;
+  margin: 0 auto 10px;
+  padding: 10px 5px;
+  font-size: 16px;
+  border-radius: 10px 10px 0 0;
+  width: calc(100% + 4px);
+  background: #a7ce64;
+  /* background: rgba(255, 255, 255, 0.62);
+  background: linear-gradient(18deg,
+  rgba(255, 221, 155, 0.6) 0%,
+  rgba(255, 144, 238, 0.83) 100%); */
+  top: -3px;
 }
 @media(max-width:768px){
   #group .card h6 {
@@ -11679,6 +11685,33 @@ img.ticket {
 #group .card .card-icon {
   padding-top: 100px;
 }
+#group .card.filled{
+  opacity: 0.5;
+}
+/* #group .card.filled .card-icon:after { 
+  content: "✅ Группа набрана";
+  position: absolute;
+  border: solid 3px;
+  padding: 2px 5px;
+  color:#42e342;
+  transform: rotate(-13deg);
+  left: -40px;
+  top: 160px;
+  font-size: 14px;
+  background:#000000de;
+} */
+#group .card.filled .card-category:after {
+  position: absolute;
+  width: 100%;
+  display: block;
+  left: 0;
+  background-color:#fff;
+  content: "✅ Группа набрана";
+  padding: 10px;
+  font-size: 14px;
+  height: 45px;
+}
+
 #insta {
   background-color: #fff;
   min-height: 100vh;
@@ -12384,7 +12417,7 @@ z-index: 99999;
 
 
 .month_list {
-  padding: 0 100px;
+  padding: 0 50px;
 }
 @media(max-width:768px){
   .month_list {
@@ -12413,10 +12446,12 @@ z-index: 99999;
   display: flex;
 }
 ._month .card {
-  min-height: 220px;
+  min-height: 260px;
   width: 50%;
   order: 1;
   margin: 3px;
+}._month .card a {
+  padding-top: 0;
 }
 .month_list .col-md-12 {
   padding: 2px;
@@ -12509,4 +12544,51 @@ z-index: 99999;
 }
 .carousel-item {
   z-index:3;
+}
+#quiz_modal h3 {
+  color:#fff;
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+#quiz_modal h4 {
+  color:#fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+#quiz_modal button {
+    margin: 0 auto;
+    min-width: 130px;
+    background-color:#69b100;
+    border: none;
+    display: block;
+    font-size: 1.3em;
+  }
+  #quiz_modal button:hover {
+    background-color: #7cce03;
+  }
+  #quiz_modal input {
+    margin: 0 auto;
+    margin-bottom: 0px;
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 3px;
+    border: none;
+    color:
+    #222;
+    font-weight: 600;
+    font-size: 18px;
+  }
+#quiz_modal .modal-content {
+  min-height: 390px;
+}
+#quiz_modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.fs_14 {
+  font-size:14px!important;
 }
