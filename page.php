@@ -390,11 +390,6 @@ while (have_posts()) : the_post();
               }
             }
             ?>
-            <style>
-              ._end{
-                margin-left:auto!important;
-              }
-            </style>
                   <div data-month="<?= $card_month ?>"class="card mt-3 _dark <?= $is_offset.' '.$tickets_left; ?>" data-background="image" style="background-image: url(<?= $image; ?>)">
                     <a href="<?= the_permalink($post->ID); ?>" class="btn btn-link btn-neutral px-0 card-link-wrap">
                       <div class="card-body d-flex" style="flex-direction: column;">
@@ -420,7 +415,7 @@ while (have_posts()) : the_post();
                         <?php } ?>
                         </div>
                         <div class="card-footer" style="margin-top: auto;">
-                          <p style="font-size:10px"><?= $table['dates'];?></p>
+                          <p class="_dates"><?= $table['dates'];?></p>
                           <p><i class="fa fa-book" aria-hidden="true"></i> Подробнее </p>
                         </div>
                       </div>
