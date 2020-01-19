@@ -269,9 +269,11 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
     <div class="modal-content">
       <div class="modal-body">
         <div id="info_form">
+        <h4 class="text-center pb-3 bold"><?= ($is_eng == 1) ? 'Leave your details<br>and we will send you a travel program' : 'Оставьте свои данные<br>и мы отправим вам программу путешествия'?> </h4>
           <?= do_shortcode('[contact-form-7 id="1479"]'); ?>
         </div>
         <div id="book_form">
+          <h4 class="text-center pb-3 bold"><?= ($is_eng == 1) ? 'Enter your contact details<br>for booking' : 'Оставьте свои данные<br>для бронирования путешествия'?> </h4>
           <?= do_shortcode('[contact-form-7 id="1480"]'); ?>
         </div>
       </div>
