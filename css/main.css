@@ -12592,3 +12592,30 @@ z-index: 99999;
 .fs_14 {
   font-size:14px!important;
 }
+.has_icon {
+  padding-left: 50px;
+  display:block;
+}
+.has_icon:before{
+  content:"";
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: 15px;
+
+}
+}
+.has_icon.route:before{
+  background-image: url(/wp-content/uploads/2020/01/route.jpg);
+}
+.has_icon.tourist:before{
+  background-image: url(/wp-content/uploads/2020/01/tourist.jpg);
+}
+.has_icon.byke:before{
+  background-image: url(/wp-content/uploads/2020/01/byke.jpg);
+}
+.has_icon.transfer:before{
+  background-image: url(/wp-content/uploads/2020/01/transfer.jpg);
+}
