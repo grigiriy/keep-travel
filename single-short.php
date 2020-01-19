@@ -20,8 +20,10 @@ while (have_posts()) : the_post();
 $page_name = !empty($sub_name) ? $sub_name : get_the_title();
 $date = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex') : null ;
 
+$content_b = !empty(carbon_get_post_meta($post->ID, 'content_b')) ? carbon_get_post_meta($post->ID, 'content_b') : null ;
 $content_c = !empty(carbon_get_post_meta($post->ID, 'content_c')) ? carbon_get_post_meta($post->ID, 'content_c') : null ;
-
+$content_c_2 = !empty(carbon_get_post_meta($post->ID, 'content_c_2')) ? carbon_get_post_meta($post->ID, 'content_c_2') : null ;
+$content_d = !empty(carbon_get_post_meta($post->ID, 'content_d')) ? carbon_get_post_meta($post->ID, 'content_d') : null ;
 
 $is_video =  !empty(carbon_get_post_meta($post->ID, 'is_video'));
 $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
@@ -86,9 +88,12 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-10 mx-auto">
+        <?php if ($reports) { ?>
           <h2 class="mb-5 text-center" ><?= ($is_eng == 1) ? 'What awaits us!' : 'Что нас ждет!' ?></h2>
+        <?php } ?>
           <div class="row">
               <?php
+              if ($reports) {
                 for ($i = 0; $i < count($reports); $i++ ) {
                   $report_photo = !empty($reports[$i]['report_photo']) ? $reports[$i]['report_photo'] : null ;
                   $report_title = !empty($reports[$i]['report_title']) ? $reports[$i]['report_title'] : null ;
@@ -107,16 +112,54 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
             </div>
                   <?php
                 }
+              }
+              if( $is_eng == 1 ){ // надо будет переписать ифу
+                ?>
+                  <div class="col-md-12">
+                  <?= the_content(); ?>
+                  <h2 class="mb-5" ><?= ($is_eng == 1) ? 'How will the trip go ': 'Как будет проходить поездка' ?></h2>
+                  <div class="article-content red-headlines" id="linked">
+                    <?= $content_b; ?>
+                  </div>
+                  </div>
+                <?php
+                }
               ?>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="article-content red-headlines">
-        <h3 class="text-center mb-5"><?= ($is_eng == 1) ? 'What is included in the trip' : 'Что включено в поездку' ?></h3>
-        <?= $content_c; ?>
+    <?php
+    if ($content_c) {
+    $is_c_2 = ($content_c_2) ? 1 : 0;
+    ?>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="article-content red-headlines">
+            <h3 class="text-center mb-5"><?= ($is_eng == 1) ? 'What is included in the trip' : 'Что включено в поездку' ?></h3>
+            <?= $content_c; ?>
+          </div>
+        </div>
       </div>
-    </div>
+      <?php if ($is_c_2){ ?>
+        <div class="row">
+          <div class="col-md-12">
+          <div class="article-content red-headlines">
+            <h3 class="text-center mb-5"><?= ($is_eng == 1) ? 'Additional options' : 'Дополнительные опции' ?></h3>
+            <?= $content_c_2; ?>
+          </div>
+        </div>
+      </div>
+      <?php } 
+       } ?>
+      <?php if ($content_d) { ?>
+      <div class="container my-5 sub-info">
+        <div class="row">
+          <div class="col-md-8 mx-auto text-center">
+            <?= $content_d; ?>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
     <div class="row my-5 py-5">
       <div class="col-md-2 offset-md-1 pt-3">
         <p><i><?= ($is_eng == 1) ? 'Tickets left' : 'осталось' ?></i></p>
@@ -140,10 +183,10 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
     </div>
     <div class="row mt-5">
       <div class="col-md-6">
-        <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="info" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;">Смотреть маршрут</button>
+        <button type="button" class="btn btn-primary btn-block btn-round mx-auto mt-3" data-target="info" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;"><?= ($is_eng == 1) ? 'Route info' : 'Смотреть маршрут' ?></button>
       </div>
       <div class="col-md-6">
-        <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;">Забронировать место</button>
+        <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book" onclick="show_modal(this)" style="max-width: 300px;font-size: 18px;padding: 12px;"><?= ($is_eng == 1) ? 'Book now' : 'Забронировать место' ?></button>
       </div>
     </div>
     <div class="row mt-5">
