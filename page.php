@@ -365,6 +365,9 @@ while (have_posts()) : the_post();
           <?php
             $vis_arr = [];
             foreach ($posts as $key => $post ):
+            if (is_sticky()) {
+              continue;
+            }
             $card_month = carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['month'];
             $back_img = !empty(carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex') ) ? carbon_get_post_meta( $post->ID, 'backgrounds_post', 'complex' ) : null ;
             $image = wp_get_attachment_image_url( $back_img[0]['image1'], 'full' );
