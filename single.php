@@ -177,19 +177,26 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 ">
+    <?php
+      $is_c_2 = ($content_c_2) ? 1 : 0;
+      ?>
+      <div class="col-md-<?= ($is_c_2) ? '6' : '12' ?>">
         <div class="article-content red-headlines">
           <h4>Что включено в поездку</h4>
           <?= $content_c; ?>
         </div>
-        </div>
-        <div class="col-md-6">
-          <div class="article-content red-headlines" style="font-weight:400">
-            <h4>Дополнительные опции</h4>
-            <?= $content_c_2; ?>
-          </div>
+      </div>
+      <?php
+      if ($is_c_2) {
+      ?>
+      <div class="col-md-6">
+        <div class="article-content red-headlines" style="font-weight:400">
+          <h4>Дополнительные опции</h4>
+          <?= $content_c_2; ?>
         </div>
       </div>
+      <?php } ?>
+    </div>
 
     <?php
     for ($i = 0; $i < count($guru); $i++ ) {

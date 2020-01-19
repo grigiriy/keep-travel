@@ -133,33 +133,31 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
     $is_c_2 = ($content_c_2) ? 1 : 0;
     ?>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-<?= ($is_c_2) ? '6' : '12' ?>">
           <div class="article-content red-headlines">
             <h3 class="text-center mb-5"><?= ($is_eng == 1) ? 'What is included in the trip' : 'Что включено в поездку' ?></h3>
             <?= $content_c; ?>
           </div>
         </div>
-      </div>
-      <?php if ($is_c_2){ ?>
-        <div class="row">
-          <div class="col-md-12">
+        <?php if ($is_c_2){ ?>
+          <div class="col-md-6">
           <div class="article-content red-headlines">
             <h3 class="text-center mb-5"><?= ($is_eng == 1) ? 'Additional options' : 'Дополнительные опции' ?></h3>
             <?= $content_c_2; ?>
-          </div>
+          </div> 
+        </div>
+        <?php } ?> 
+      </div>
+    <?php } ?> 
+    <?php if ($content_d) { ?>
+    <div class="container my-5 sub-info">
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+          <?= $content_d; ?>
         </div>
       </div>
-      <?php } 
-       } ?>
-      <?php if ($content_d) { ?>
-      <div class="container my-5 sub-info">
-        <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <?= $content_d; ?>
-          </div>
-        </div>
-      </div>
-      <?php } ?>
+    </div>
+    <?php } ?>
     <div class="row my-5 py-5">
       <div class="col-md-2 offset-md-1 pt-3">
         <p><i><?= ($is_eng == 1) ? 'Tickets left' : 'осталось' ?></i></p>

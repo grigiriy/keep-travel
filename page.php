@@ -131,7 +131,7 @@ while (have_posts()) : the_post();
 
     <ol class="carousel-indicators" style="z-index:9999999;position:absolute">
       <?php
-        for ($b = 0; $b < 4; $b++ ) {
+        for ($b = 0; $b < 3; $b++ ) { //костыль, почему-то не корректно считает
       ?>
         <li data-target="#carouselExampleIndicators" data-slide-to="<?= $b; ?>" class="<?php if($b == 0){ echo 'active'; }; ?>"></li>
       <?php
