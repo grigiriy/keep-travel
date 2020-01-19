@@ -6,10 +6,12 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
 ->show_on_post_type( 'post' )
 ->add_tab( 'Фон', [
     Field::make( 'image', 'index_image', '' )
-        ->set_width( 60 ),
-    Field::make( 'checkbox', 'video', 'Видео' )
+        ->set_width( 40 ),
+    Field::make( 'checkbox', 'is_video', 'Видео' )
         ->set_width( 20 ),
     Field::make( 'checkbox', 'is_index', 'Выводить на главной' )
+        ->set_width( 20 ),
+    Field::make( 'checkbox', 'is_eng', 'Англ' )
         ->set_width( 20 ),
 ])
 ->add_tab( 'Главная', [

@@ -19,9 +19,12 @@ $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_ge
 while (have_posts()) : the_post();
 $page_name = !empty($sub_name) ? $sub_name : get_the_title();
 $date = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex') : null ;
+
 $content_c = !empty(carbon_get_post_meta($post->ID, 'content_c')) ? carbon_get_post_meta($post->ID, 'content_c') : null ;
 
-$is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
+
+$is_video =  !empty(carbon_get_post_meta($post->ID, 'is_video'));
+$is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
 ?>
 
  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -38,7 +41,7 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
    }
  </style>
 <!-- End Navbar -->
-<div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
+<div class="page-header" data-parallax="false" data-lang="<?= ($is_eng == 1) ? 'en' : 'ru' ?>" style="background-image: url(<?= $back_image ?>);">
     <?php if($is_video == 1) { ?>
     <script>
     let cl_width = document.body.clientWidth;
@@ -69,7 +72,7 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
     }
   ?>
     <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><?= $page_name ?></h1>
-    <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
+    <h5><?= $mini_texts[0]['days'] ?> <?= ($is_eng == 1) ? 'days' : 'дней' ?> / <?= $mini_texts[0]['pricerange'] ?></h5>
     <h3><strong><?= $table[0]['dates'] ?></strong></h3>
   </div>
 </div>
@@ -83,9 +86,10 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-10 mx-auto">
-          <h2 class="mb-5 text-center" >Что нас ждет!</h2>
+          <h2 class="mb-5 text-center" ><?= ($is_eng == 1) ? 'What awaits us!' : 'Что нас ждет!' ?></h2>
           <div class="row">
-              <?php for ($i = 0; $i < count($reports); $i++ ) {
+              <?php
+                for ($i = 0; $i < count($reports); $i++ ) {
                   $report_photo = !empty($reports[$i]['report_photo']) ? $reports[$i]['report_photo'] : null ;
                   $report_title = !empty($reports[$i]['report_title']) ? $reports[$i]['report_title'] : null ;
                   $image = wp_get_attachment_image_url( $report_photo, 'full' );
@@ -101,26 +105,28 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
                   </div>
                 </div>
             </div>
-        <?php } ?>
+                  <?php
+                }
+              ?>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="article-content red-headlines">
-        <h3 class="text-center mb-5">Что включено в поездку</h3>
+        <h3 class="text-center mb-5"><?= ($is_eng == 1) ? 'What is included in the trip' : 'Что включено в поездку' ?></h3>
         <?= $content_c; ?>
       </div>
     </div>
     <div class="row my-5 py-5">
       <div class="col-md-2 offset-md-1 pt-3">
-        <p><i>осталось</i></p>
+        <p><i><?= ($is_eng == 1) ? 'Tickets left' : 'осталось' ?></i></p>
         <?php
         $tickets_left * 1;
         $tickets_total * 1;
         $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
         $tickets_left = ($tickets_left <= $tickets_total) ? $tickets_left : $tickets_total;
         ?>
-        <p><strong><?= $tickets_left ?> мест из <?= $tickets_total ?></strong></p>
+        <p><strong><?= $tickets_left ?> <?= ($is_eng == 1) ? 'out of' : 'мест из' ?> <?= $tickets_total ?></strong></p>
       </div>
       <div class="col-md-9">
         <?php for ($i = 1; $i <= $tickets_total; $i++){
@@ -141,7 +147,7 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
       </div>
     </div>
     <div class="row mt-5">
-        <h2 class="text-center mx-auto mt-5">До путешествия осталось</h2>
+        <h2 class="text-center mx-auto mt-5"><?= ($is_eng == 1) ? 'Before travel:' : 'До путешествия осталось' ?></h2>
       </div>
       <div class="row">
         <div id="date_countdown" class="mx-auto mt-3" data-until="<?= $date[0]['date'] ?>"></div>
@@ -198,11 +204,11 @@ $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
 <div id="wa_form" class="whatsapp_tracker" onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
   <div class="_header">
     <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
-    <span> Напишите нам сообщение:</span>
+    <span> <?= ($is_eng == 1) ? 'Connect us:' : 'Напишите нам сообщение:' ?></span>
   </div>
   <div class="_body">
-    <div>Здравствуйте. Меня зовут Владислав. Какой у вас вопрос?</div>
-    <div>Введите сообщение:</div>
+    <div><?= ($is_eng == 1) ? 'Hello! My name`s Vladislav. How can I help you?' : 'Здравствуйте. Меня зовут Владислав. Какой у вас вопрос?' ?></div>
+    <div><?= ($is_eng == 1) ? 'Enter your message:' : 'Введите сообщение:' ?></div>
   </div>
 </div>
 <span class="cross" onclick="hideWaform()">x</span>
@@ -240,14 +246,23 @@ wp_footer();
 <script type="text/javascript">
 var $ = jQuery;
 
+var _lang = $('.page-header').data('lang');
+
+if (_lang == 'en') {
+  var date_type = ['Days','Hours','Minutes','Seconds'];
+} else {
+  var date_type = ['Дней','Часов','Минут','Секунд'];
+}
+
+
 var until_date = $('#date_countdown').data('until');
 
 $('#date_countdown') .countdown(until_date, function(event) {
   var $this = $(this).html(event.strftime(''
-    + '<div><span>%D</span><span class="sub">дней</span></div> '
-    + '<div><span>%H</span><span class="sub">часов</span></div> '
-    + '<div><span>%M</span><span class="sub">минут</span></div> '
-    + '<div><span>%S</span><span class="sub">секунд</span></div>'));
+    + '<div><span>%D</span><span class="sub">' + date_type[0] + '</span></div> '
+    + '<div><span>%H</span><span class="sub">' + date_type[1] + '</span></div> '
+    + '<div><span>%M</span><span class="sub">' + date_type[2] + '</span></div> '
+    + '<div><span>%S</span><span class="sub">' + date_type[3] + '</span></div>'));
   });
 
 function hideNav() {
