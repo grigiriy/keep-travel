@@ -12425,9 +12425,9 @@ z-index: 99999;
 }
 .month_list>div {
   min-height:330px;
-  border-right: dashed 3px #eee;
+  border-right: dashed 3px #ccc;
   margin-bottom: 8px;
-  border-bottom: dashed 3px #eee;
+  border-bottom: dashed 3px #ccc;
   padding-bottom: 15px;
 }
 .month_list>div:nth-child(4n) {
