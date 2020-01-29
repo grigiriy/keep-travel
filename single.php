@@ -54,21 +54,27 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
             <div class="col-md-12 pt-3">
                 <p><i>осталось</i></p>
                 <?php
-      $tickets_left * 1;
-      $tickets_total * 1;
-      $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
-      $tickets_left = ($tickets_left <= $tickets_total) ? $tickets_left : $tickets_total;
-      ?>
+                $tickets_left * 1;
+                $tickets_total * 1;
+                $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
+                $tickets_left = ($tickets_left <= $tickets_total) ? $tickets_left : $tickets_total;
+                ?>
                 <p><strong><?= $tickets_left ?> мест из <?= $tickets_total ?></strong></p>
             </div>
             <div class="col-md-8 mt-3 mx-auto">
                 <?php for ($i = 1; $i <= $tickets_total; $i++){
-        if($i > $tickets_left) { ?>
+                    if($i > $tickets_left) { ?>
                 <img src="/wp-content/uploads/2019/07/ticket_bw.png" class="ticket" />
                 <?php } else { ?>
                 <img src="/wp-content/uploads/2019/07/ticket_fill.png" class="ticket" />
                 <?php }
-      } ?>
+                } ?>
+            </div>
+            <div class="col-md-12 mx-auto text-center mt-5">
+                <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book"
+                    onclick="show_modal(this)"
+                    style="max-width: 300px;font-size: 18px;padding: 12px;background:yellow;color:#333;border: none;">Забронировать
+                    место</button>
             </div>
         </div>
     </div>
@@ -506,6 +512,10 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
                 <div style="display:none" id="question_form">
                     <?= do_shortcode('[contact-form-7 id="1142" title="Форма через 60 сек"]'); ?>
                 </div>
+                <div id="book_form">
+                    <h4 class="text-center pb-3 bold">Оставьте свои данные<br>для бронирования путешествия</h4>
+                    <?= do_shortcode('[contact-form-7 id="1480"]'); ?>
+                </div>
             </div>
         </div>
     </div>
@@ -572,6 +582,20 @@ function modalQuestionOpen() {
 
 function form_answer(e) {
     $(e).parent().fadeOut(300).delay(500).siblings('#question_form').delay(500).fadeIn(300);
+}
+
+function show_modal(e) {
+    var questionModal = $('#question-modal');
+    questionModal.modal('show');
+    target = $(e).data('target') + '_form';
+
+    var forma = questionModal.find('div#' + target);
+
+    var pagename = forma.find('#pageurl');
+    var name = $('title').text();
+    pagename.attr('value', name);
+
+    forma.show().siblings('div').hide();
 }
 
 $(function() {

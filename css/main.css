@@ -12632,3 +12632,7 @@ div.article-content {
   line-height: 28px;
   color: #111;
 }
+.feel_slider .slick-disabled {
+  opacity:0;
+  cursor: normal;
+}
