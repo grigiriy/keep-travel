@@ -311,11 +311,11 @@ while (have_posts()) : the_post();
 </div>
 <!-- end индивидуальные screen -->
 
-
+<div class="row __divider __divider_fromblack"></div>
 
 
 <!-- start групповые screen -->
-<div id="group" class="features-2 pt-5 pb-5 mb-0" style="background: #0000000d;">
+<div id="group" class="features-2 pt-1 pb-5 mb-0">
     <div class="minh-100vh px-3 pb-5">
         <div class="container-fluid px-0">
             <div class="row">
@@ -466,10 +466,10 @@ while (have_posts()) : the_post();
 </div>
 <!-- end групповые screen -->
 
-
+<div class="row __divider __divider_togrey"></div>
 
 <!-- start instagram screen -->
-<div id="insta" class="pt-5" style="background-color:#202020">
+<div id="insta" class="pt-1" style="background-color:#202020">
     <div class="col-md-6 ml-auto mr-auto text-center">
         <h2 class="title white">C нами уже путешествовали</h2>
     </div>
@@ -527,6 +527,7 @@ while (have_posts()) : the_post();
 </div>
 <!-- end счетчики screen -->
 
+<div class="row __divider __divider_fromgrey"></div>
 
 <!-- start ценности screen -->
 <div id="about" class="blog-3 pt-3">
@@ -693,6 +694,7 @@ function changeTab(e) {
 </div>
 <!-- end видосы screen -->
 
+
 <!-- start отзывы screen -->
 <div class="container" style="min-height:350px;">
     <style type="text/css">
@@ -711,9 +713,6 @@ function changeTab(e) {
     .gallery_wrap_rev .slick-next::before {
         color: #000;
     }
-
-
-
 
     .video {
         position: relative;
@@ -844,8 +843,10 @@ function changeTab(e) {
 </div>
 <!-- end отзывы screen -->
 
+<div class="row __divider __divider_tobage"></div>
+
 <!-- start вопрос-ответ  screen -->
-<div id="faq" class="py-5 mt-3 d-flex minh-100vh" style="background-color: lightgoldenrodyellow;">
+<div id="faq" class="py-5 d-flex minh-100vh" style="background-color: lightgoldenrodyellow;">
     <div class="container d-flex" style="margin:auto">
         <div class="row">
             <div class="col-md-12 ml-auto mr-auto text-center">
