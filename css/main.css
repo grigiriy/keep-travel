@@ -11342,6 +11342,11 @@ img.ticket {
 .image_wrapper img {
   max-width: 100%;
 }
+@media(min-width:1281px) {
+  .image_wrapper img {
+    width: 100%;
+  }
+}
 .slick-prev, .slick-next {
   z-index: 9000;
 }
