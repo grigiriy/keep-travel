@@ -2307,7 +2307,7 @@ blockquote small {
 letter-spacing: -0.03em;
 }
 h1.title{
-  font-size: 72px;
+  font-size: 72px!important;
   line-height: 75px;
 }
 .title.text-center {
@@ -11509,7 +11509,7 @@ img.ticket {
     display:block;
   }
   h1.title{
-    font-size: 46px;
+    font-size: 46px!important;
     line-height: 48px;
   }
 }
