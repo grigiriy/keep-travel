@@ -217,7 +217,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                         <h4 class="mb-3"><?= $name ?></h4>
                         <img src="<?= $img ?>" class="img-circle img-no-padding img-responsive" alt="Rounded Image">
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 article-content">
                         <h4 class="mb-3">Ответственный за маршрут</h4>
                         <p>Этот человек создал для вас этот маршрут. Знает все секреты и особенности данного
                             путешествия, от начала до конца. </p>
