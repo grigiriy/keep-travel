@@ -311,8 +311,6 @@ while (have_posts()) : the_post();
 </div>
 <!-- end индивидуальные screen -->
 
-<div class="row __divider __divider_fromblack"></div>
-
 
 <!-- start групповые screen -->
 <div id="group" class="features-2 pt-1 pb-5 mb-0">
@@ -466,10 +464,8 @@ while (have_posts()) : the_post();
 </div>
 <!-- end групповые screen -->
 
-<div class="row __divider __divider_togrey"></div>
-
 <!-- start instagram screen -->
-<div id="insta" class="pt-1" style="background-color:#202020">
+<div id="insta" class="pt-3" style="background-color:#202020">
     <div class="col-md-6 ml-auto mr-auto text-center">
         <h2 class="title white">C нами уже путешествовали</h2>
     </div>
@@ -526,8 +522,6 @@ while (have_posts()) : the_post();
     </div>
 </div>
 <!-- end счетчики screen -->
-
-<div class="row __divider __divider_fromgrey"></div>
 
 <!-- start ценности screen -->
 <div id="about" class="blog-3 pt-3">
