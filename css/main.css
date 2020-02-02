@@ -12628,7 +12628,8 @@ z-index: 99999;
 .has_icon.transfer:before{
   background-image: url(/wp-content/uploads/2020/01/transfer.jpg);
 }
-.article-content {
+.article-content,
+.article-content p {
   font-size: 18px;
   line-height: 28px;
   color: #111;

@@ -511,7 +511,7 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
                 <div style="display:none" id="question_form">
                     <?= do_shortcode('[contact-form-7 id="1142" title="Форма через 60 сек"]'); ?>
                 </div>
-                <div id="book_form">
+                <div id="book_form" style="display:none">
                     <h4 class="text-center pb-3 bold">Оставьте свои данные<br>для бронирования путешествия</h4>
                     <?= do_shortcode('[contact-form-7 id="1480"]'); ?>
                 </div>
@@ -586,6 +586,7 @@ function form_answer(e) {
 function show_modal(e) {
     var questionModal = $('#question-modal');
     questionModal.modal('show');
+    $('#book_form').show();
     target = $(e).data('target') + '_form';
 
     var forma = questionModal.find('div#' + target);
