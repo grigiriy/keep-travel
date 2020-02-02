@@ -251,10 +251,9 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                                 <img src="/wp-content/uploads/2019/10/icons_2.png" alt="">
                             </div>
                             <div class="description">
-                                <h4 class="info-title"><a style="font-weight: inherit;"
-                                        href="https://www.instagram.com/keeptravel_agency/" target="_blank">Подписаться
-                                        на наш инстаграм</a>
-                                </h4>
+                                <a href="https://www.instagram.com/keeptravel_agency/" target="_blank">
+                                    <h4 class="info-title">Подписаться на наш инстаграм</h4>
+                                </a>
                             </div>
                         </div>
                         <div class="info info-horizontal d-flex py-1">
