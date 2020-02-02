@@ -4903,7 +4903,8 @@ textarea.form-control {
     font-size: 2em;
   }
   .page-header .text-center h2.subtitle{
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
+    font-size: 2.2em;
     margin-top:0;
   }
   .page-header .text-center h5.subtitle{
@@ -11038,7 +11039,8 @@ a.dropdown-item{
   padding-bottom:15px
 }
 img.ticket {
-    max-width: 11%;
+    /* max-width: 11%; not on fst screen */
+    max-width: 70px; /* on fst screen */
     padding: 0 20px;
 }
 @media(max-width:768px){
@@ -12659,4 +12661,7 @@ div.article-content {
   .__divider {
     height:70px
   }  
+}
+.bigger p {
+  font-size: 18px;
 }

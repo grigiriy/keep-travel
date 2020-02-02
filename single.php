@@ -50,16 +50,15 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
             <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
             <h3><strong><?= $table[0]['dates'] ?></strong></h3>
         </div>
-        <div class="row my-5">
-            <div class="col-md-12 pt-3">
-                <p><i>осталось</i></p>
-                <?php
-                $tickets_left * 1;
-                $tickets_total * 1;
-                $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
-                $tickets_left = ($tickets_left <= $tickets_total) ? $tickets_left : $tickets_total;
-                ?>
-                <p><strong><?= $tickets_left ?> мест из <?= $tickets_total ?></strong></p>
+        <div class="row my-1 my-sm-5">
+            <?php
+            $tickets_left * 1;
+            $tickets_total * 1;
+            $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
+            $tickets_left = ($tickets_left <= $tickets_total) ? $tickets_left : $tickets_total;
+            ?>
+            <div class="col-md-12 pt-sm-3 pt-0 bigger">
+                <p><i>осталось</i> <strong><?= $tickets_left ?> мест из <?= $tickets_total ?></strong></p>
             </div>
             <div class="col-md-8 mt-3 mx-auto">
                 <?php for ($i = 1; $i <= $tickets_total; $i++){

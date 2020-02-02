@@ -82,7 +82,7 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
             <h3><strong><?= $table[0]['dates'] ?></strong></h3>
         </div>
         <div class="row my-5 py-5">
-            <div class="col-md-12 pt-3">
+            <div class="col-md-12 pt-3 bigger">
                 <p><i><?= ($is_eng == 1) ? 'Tickets left' : 'осталось' ?></i></p>
                 <?php
                 $tickets_left * 1;
