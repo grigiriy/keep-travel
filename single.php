@@ -211,12 +211,12 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                 </div>
 
                 <?php
-    for ($i = 0; $i < count($guru); $i++ ) {
-    $about = !empty($guru[$i]['about']) ? $guru[$i]['about'] : null ;
-    $name = !empty($guru[$i]['name']) ? $guru[$i]['name'] : null ;
-    $img = !empty($guru[$i]['img']) ? $guru[$i]['img'] : null ;
-    $img = wp_get_attachment_image_url( $img, 'thumbnail' );
-    if ($name): ?>
+                for ($i = 0; $i < count($guru); $i++ ) {
+                $about = !empty($guru[$i]['about']) ? $guru[$i]['about'] : null ;
+                $name = !empty($guru[$i]['name']) ? $guru[$i]['name'] : null ;
+                $img = !empty($guru[$i]['img']) ? $guru[$i]['img'] : null ;
+                $img = wp_get_attachment_image_url( $img, 'thumbnail' );
+                if ($name): ?>
                 <div class="row mt-5">
                     <div class="col-md-3 text-center guid">
                         <h4 class="mb-3"><?= $name ?></h4>
@@ -305,10 +305,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                             </thead>
                             <tbody data-next="<?= $table[0]['dates'] ?>" id="data_next">
                                 <?php for ($i = 0; $i < count($table); $i++){
-                $dates = $table[$i]['dates'];
-                // $class = $table[$i]['class'];
-                $price = ($table[$i]['price']) ? $table[$i]['price'] : $mini_texts[0]['pricerange'];
-              ?>
+                                $dates = $table[$i]['dates'];
+                                // $class = $table[$i]['class'];
+                                $price = ($table[$i]['price']) ? $table[$i]['price'] : $mini_texts[0]['pricerange'];
+                                ?>
                                 <tr style="color: #000;font-size: 1.3em;">
                                     <td><?= $dates; ?></td>
                                     <!-- <td><?= $class; ?></td> -->
@@ -384,7 +384,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
 <?php if ($content_d) { ?>
 <div class="container my-5 sub-info">
     <div class="row">
-        <div class="col-md-8 mx-auto text-center">
+        <div class="col-md-8 mx-auto article-content">
             <?= $content_d; ?>
         </div>
     </div>
