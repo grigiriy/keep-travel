@@ -12634,6 +12634,10 @@ z-index: 99999;
   line-height: 28px;
   color: #111;
 }
+.article-content img.small_image {
+  max-width: 300px;
+  height: auto;
+}
 .feel_slider .slick-disabled {
   opacity:0;
   cursor: normal;
