@@ -11463,6 +11463,7 @@ img.ticket {
   }
 }
 .modal-content{
+  background-color:#000;
   background-image: url(/wp-content/uploads/2019/11/form_back_dark.jpg);
   /*background-position: top;*/
   /* background-size: contain; */
@@ -12668,4 +12669,14 @@ z-index: 99999;
 }
 .bigger p {
   font-size: 18px;
+}
+.card-title {
+  transition: add 0.5s;
+}
+@media(min-width:991px) and (max-width:1300px){
+  #group .card h6,
+  #group .card ._dates,
+  #group .card ._dates+p {
+    font-size:12px;
+  }
 }

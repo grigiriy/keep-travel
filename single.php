@@ -146,12 +146,12 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                             $image = wp_get_attachment_image_url( $report_photo, 'full' );
                             ?>
                             <div class="col-md-6">
-                                <div class="card card-blog">
+                                <div class="card card-blog" onclick="show_descript(this)">
                                     <div class="card-image"
                                         style="background:url(<?= $image ?>);background-size: cover;background-position:center;border-radius: 12px 12px 0 0;">
                                     </div>
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">
+                                        <h5 class="card-title" style="opacity:0">
                                             <?= $report_title ?>
                                         </h5>
                                     </div>
@@ -622,6 +622,11 @@ $(function() {
         return false;
     });
 });
+
+
+function show_descript(e) {
+    $(e).find('h5.card-title').css('opacity', '1');
+}
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
