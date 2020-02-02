@@ -342,11 +342,12 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     <div class="mb-5 mx-auto">
         <div class="gallery_wrap">
             <?php
-      for ($i = 0; $i < count($gallery_pics); $i++ ) {
-          $image = wp_get_attachment_image_url( $gallery_pics[$i]['image'], 'full' );
-          $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
-          $att = ($i < 4) ? 'src' : 'data-lazy';
-      ?>
+                for ($i = 0; $i < count($gallery_pics); $i++ ) {
+                    $image = wp_get_attachment_image_url( $gallery_pics[$i]['image'], 'full' );
+                    $preview = str_replace('.jpg', '_preview.jpg',( $image ) );
+                    // $att = ($i < 6) ? 'src' : 'data-lazy';
+                    $att = 'src';
+                ?>
             <div>
                 <a href="<?= $image ?>" rel="<?= get_the_title() ?>" data-fancybox="<?= 'group_' . $i ?>"
                     data-caption="<?= get_the_title() ?>" class="gallery_item">
