@@ -253,7 +253,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                             <div class="description">
                                 <h4 class="info-title"><a style="font-weight: inherit;"
                                         href="https://www.instagram.com/keeptravel_agency/" target="_blank">Подписаться
-                                        на наш <i class="fa fa-instagram inline" aria-hidden="true" style=""></i></a>
+                                        на наш инстаграм</a>
                                 </h4>
                             </div>
                         </div>
