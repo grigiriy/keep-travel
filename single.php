@@ -92,9 +92,9 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                                 <hr>
                             </div>
                             <?
-                $form_btn = ($is_action == 'yes') ? 'Узнать подробнее' : 'Узнать';
-                $form_text = ($is_action == 'yes') ? 'На это путешествие сейчас распространяется скидка' : 'Узнать о проходящих акциях';;
-                ?>
+                            $form_btn = ($is_action == 'yes') ? 'Узнать подробнее' : 'Узнать';
+                            $form_text = ($is_action == 'yes') ? 'На это путешествие сейчас распространяется скидка' : 'Узнать о проходящих акциях';;
+                            ?>
                             <div class="col-md-4">
                                 <div class="card card-light card-plain sticky">
                                     <div class="card-body">
@@ -141,10 +141,10 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                         <h2 class="mb-5 text-center">Я должен это сделать!</h2>
                         <div class="row">
                             <?php for ($i = 0; $i < count($reports); $i++ ) {
-                  $report_photo = !empty($reports[$i]['report_photo']) ? $reports[$i]['report_photo'] : null ;
-                  $report_title = !empty($reports[$i]['report_title']) ? $reports[$i]['report_title'] : null ;
-                  $image = wp_get_attachment_image_url( $report_photo, 'full' );
-            ?>
+                            $report_photo = !empty($reports[$i]['report_photo']) ? $reports[$i]['report_photo'] : null ;
+                            $report_title = !empty($reports[$i]['report_title']) ? $reports[$i]['report_title'] : null ;
+                            $image = wp_get_attachment_image_url( $report_photo, 'full' );
+                            ?>
                             <div class="col-md-6">
                                 <div class="card card-blog">
                                     <div class="card-image"
@@ -182,7 +182,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
             </div>
             <div class="container">
                 <div class="row mt-5">
-                    <div class="col-md-10 align-self-end">
+                    <div class="col-md-10 align-self-end article-content">
                         <h2>Что важно знать<br><span class="strong-mob">об этом путешествии</span></h2>
                         <p class="mt-3">Полный список всех необходимых предметов, особых условий путешествия, информации
                             о необходимых документах и оформлении визы после оплаты путешествия.</p>
@@ -190,8 +190,8 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                 </div>
                 <div class="row">
                     <?php
-      $is_c_2 = ($content_c_2) ? 1 : 0;
-      ?>
+                    $is_c_2 = ($content_c_2) ? 1 : 0;
+                    ?>
                     <div class="col-md-<?= ($is_c_2) ? '6' : '12' ?>">
                         <div class="article-content red-headlines">
                             <h4>Что включено в поездку</h4>
@@ -199,8 +199,8 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                         </div>
                     </div>
                     <?php
-      if ($is_c_2) {
-      ?>
+                    if ($is_c_2) {
+                    ?>
                     <div class="col-md-6">
                         <div class="article-content red-headlines" style="font-weight:400">
                             <h4>Дополнительные опции</h4>

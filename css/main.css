@@ -12505,7 +12505,7 @@ z-index: 99999;
   } */
 }
 .article-content ul {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 48px;
 }
 .article-content ul>li { 
@@ -12628,9 +12628,8 @@ z-index: 99999;
 .has_icon.transfer:before{
   background-image: url(/wp-content/uploads/2020/01/transfer.jpg);
 }
-div.article-content,
-div.article-content {
-  font-size: 16px;
+.article-content {
+  font-size: 18px;
   line-height: 28px;
   color: #111;
 }
