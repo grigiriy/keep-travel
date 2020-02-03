@@ -9,7 +9,7 @@ $content_c_2 = !empty(carbon_get_post_meta($post->ID, 'content_c_2')) ? carbon_g
 $content_d = !empty(carbon_get_post_meta($post->ID, 'content_d')) ? carbon_get_post_meta($post->ID, 'content_d') : null ;
 $reports = !empty(carbon_get_post_meta($post->ID, 'reports', 'complex')) ? carbon_get_post_meta($post->ID, 'reports', 'complex') : null ;
 $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
-$tickets_left = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
+$tickets_left = (carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] !== '') ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
 $tickets_total = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total'] : '8' ;
 $videos = !empty(carbon_get_post_meta($post->ID, 'videos', 'complex')) ? carbon_get_post_meta($post->ID, 'videos', 'complex') : null ;
 
@@ -40,7 +40,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     }
 }
 </style>
-
+<?php print_r(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']); ?>
 <!-- End Navbar -->
 <div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
     <div class="filter"></div>
@@ -52,8 +52,9 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
         </div>
         <div class="row my-1 my-sm-5">
             <?php
-            $tickets_left * 1;
-            $tickets_total * 1;
+
+            // $tickets_left * 1;
+            // $tickets_total * 1;
             $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
             $tickets_left = ($tickets_left <= $tickets_total) ? $tickets_left : $tickets_total;
             ?>
