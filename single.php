@@ -40,7 +40,6 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     }
 }
 </style>
-<?php print_r(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left']); ?>
 <!-- End Navbar -->
 <div class="page-header" data-parallax="false" style="background-image: url(<?= $back_image ?>);">
     <div class="filter"></div>
@@ -50,7 +49,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
             <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
             <h3><strong><?= $table[0]['dates'] ?></strong></h3>
         </div>
-        <div class="row my-1 my-sm-5">
+        <div class="row my-1 my-sm-3">
             <?php
 
             // $tickets_left * 1;
@@ -61,7 +60,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
             <div class="col-md-12 pt-sm-3 pt-0 bigger">
                 <p><i>осталось</i> <strong><?= $tickets_left ?> мест из <?= $tickets_total ?></strong></p>
             </div>
-            <div class="col-md-8 mt-3 mx-auto">
+            <div class="col-md-12 mt-3 mx-auto">
                 <?php for ($i = 1; $i <= $tickets_total; $i++){
                     if($i > $tickets_left) { ?>
                 <img src="/wp-content/uploads/2019/07/ticket_bw.png" class="ticket" />
@@ -70,7 +69,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                 <?php }
                 } ?>
             </div>
-            <div class="col-md-12 mx-auto text-center mt-5">
+            <div class="col-md-12 mx-auto text-center mt-3">
                 <button type="button" class="btn btn-danger btn-block btn-round mx-auto mt-3" data-target="book"
                     onclick="show_modal(this)"
                     style="max-width: 300px;font-size: 18px;padding: 12px;background:yellow;color:#333;border: none;">Забронировать

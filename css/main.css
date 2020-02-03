@@ -11040,7 +11040,7 @@ a.dropdown-item{
 }
 img.ticket {
     /* max-width: 11%; not on fst screen */
-    max-width: 70px; /* on fst screen */
+    max-width: 100px; /* on fst screen */
     padding: 0 20px;
 }
 @media(max-width:768px){
