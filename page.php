@@ -330,7 +330,7 @@ while (have_posts()) : the_post();
           ];
           $posts = get_posts($args);
 
-          for ($i = 1; $i < 13; $i++) {
+          for ($i = 2; $i < 14; $i++) {
 
             switch ($i) {
               case 0:
@@ -371,6 +371,39 @@ while (have_posts()) : the_post();
                 break;
               case 12:
                 $month = "Декабрь";
+                break;
+              case 13:
+                $month = "Январь";
+                break;
+              case 14:
+                $month = "Февраль";
+                break;
+              case 15:
+                $month = "Март";
+                break;
+              case 16:
+                $month = "Апрель";
+                break;
+              case 17:
+                $month = "Май";
+                break;
+              case 18:
+                $month = "Июнь";
+                break;
+              case 18:
+                $month = "Июль";
+                break;
+              case 19:
+                $month = "Август";
+                break;
+              case 20:
+                $month = "Сентябрь";
+                break;
+              case 21:
+                $month = "Октябрь";
+                break;
+              case 22:
+                $month = "Ноябрь";
                 break;
               default:
                 $month = "...";
