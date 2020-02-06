@@ -6237,6 +6237,9 @@ video {
       border-radius: 50% !important;
       position: relative;
       margin-bottom: 15px; }
+      .card.card-blog {
+        cursor:pointer;
+      }
       .card .author .avatar-big.border-white {
         border: 4px solid #FFFFFF; }
       .card .author .avatar-big.border-gray {
