@@ -14,14 +14,35 @@ while (have_posts()) : the_post();
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
 <div class="section-space"></div>
 
+
 <div class="header-2" id="top">
     <div id="carouselExampleIndicators" class="page-header carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active"
-                style="background-image:url(<?= wp_get_attachment_image_url( $back_img[0]['back_image'], 'full' ) ?>);height:100vh;background-size:cover">
+            <div class="carousel-item active" style="height:100vh;background-size:cover">
                 <!-- start first screen container -->
-                <div class="page-header" style="background: transparent; position:absolute;top:0">
+                <div class="page-header" id="first_video" style="background: transparent; position:absolute;top:0">
                     <div class="filter"></div>
+                    <script>
+                    let cl_width = document.body.clientWidth;
+                    if (cl_width > 768) {
+                        document.querySelector('#first_video>.filter').insertAdjacentHTML('beforeBegin', `
+                        <video id="huy" autoplay muted="muted" loop style="width: auto;min-height: 100vh;max-height: 1030px;min-width: 100vw;">
+                            <source src="/wp-content/uploads/2020/02/keepPro.mp4" type="video/mp4">
+                            <source src="/wp-content/uploads/2020/02/keepPro.webm" type="video/webm">
+                        </video>
+                        `);
+                    }
+                    </script>
+                    <style>
+                    @media(max-width:768px) {
+                        .page-header#first_video {
+                            background-image: url("/wp-content/uploads/2020/02/keepPro_crOptFfset.gif") !important;
+                            background-repeat: no-repeat;
+                            background-size: cover !important;
+                            background-position-x: 50% !important;
+                        }
+                    }
+                    </style>
                     <div class="content-center" id="phone">
                         <div class="container">
                             <div class="row my-5">
@@ -30,18 +51,6 @@ while (have_posts()) : the_post();
                                     <h2 class="subtitle">Совершай невероятные открытия на уникальных маршрутах на пяти
                                         континентах</h2>
                                     <!-- <h5 class="subtitle">Если ты любишь путешествовать в компании позитивных и жизнерадостных людей, если ты готов осуществить мечты о посещении самых желанных уголков планеты, спеши забронировать свое место в наш ближайший road-трип!</h5> -->
-                                    <div class="row d-none">
-                                        <div class="col-md-6">
-                                            <a href="#group" class="main-links">
-                                                <h3 class="description text-left">Групповые</h3>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="#order" class="main-links">
-                                                <h3 class="description text-left">Индивидуальные</h3>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div> <!-- row -->
                         </div>
@@ -73,6 +82,9 @@ while (have_posts()) : the_post();
       $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ? carbon_get_post_meta($post->ID, 'mini_texts', 'complex') : null ;
       $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
       $is_video =  !empty(carbon_get_post_meta($post->ID, 'video'));
+
+    //   $is_video = ( $key == 0 ) ? true : false ;
+
       $is_video_class = $is_video ? 'is_video' : '';
 
       $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex') : null ;
@@ -86,11 +98,11 @@ while (have_posts()) : the_post();
                     let cl_width = document.body.clientWidth;
                     if (cl_width > 768) {
                         document.querySelector('.page-header.is_video').innerHTML = `
-          <video id="huy" autoplay muted loop style="width: auto;min-height: 100vh;max-height: 1030px;min-width: 100vw;">
-            <source src="/wp-content/uploads/2019/11/back_sri_video.mp4" type="video/mp4">
-            <source src="/wp-content/uploads/2019/11/back_sri_video.webm" type="video/webm">
-          </video>
-          `;
+                          <video id="huy" autoplay muted loop style="width: auto;min-height: 100vh;max-height: 1030px;min-width: 100vw;">
+                            <source src="/wp-content/uploads/2019/11/back_sri_video.mp4" type="video/mp4">
+                            <source src="/wp-content/uploads/2019/11/back_sri_video.webm" type="video/webm">
+                          </video>
+                          `;
                     } else {
                         document.querySelector('.page-header.is_video').classList.add('sri_video');
                     }
@@ -98,6 +110,7 @@ while (have_posts()) : the_post();
                     <style>
                     .page-header.is_video.sri_video {
                         background-image: url("/wp-content/uploads/2019/11/back_sri_video.gif") !important;
+                        /* background-image: url("/wp-content/uploads/2020/02/keepPro_opt.gif") !important; */
                     }
                     </style>
                     <?php } ?>
