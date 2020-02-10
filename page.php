@@ -27,8 +27,8 @@ while (have_posts()) : the_post();
                     if (cl_width > 768) {
                         document.querySelector('#first_video>.filter').insertAdjacentHTML('beforeBegin', `
                         <video id="huy" autoplay muted="muted" loop style="width: auto;min-height: 100vh;max-height: 1030px;min-width: 100vw;">
-                            <source src="/wp-content/uploads/2020/02/keepPro.mp4" type="video/mp4">
-                            <source src="/wp-content/uploads/2020/02/keepPro.webm" type="video/webm">
+                            <source src="/wp-content/uploads/2020/02/videoBG.mp4" type="video/mp4">
+                            <source src="/wp-content/uploads/2020/02/videoBG.webm" type="video/webm">
                         </video>
                         `);
                     }
@@ -36,7 +36,7 @@ while (have_posts()) : the_post();
                     <style>
                     @media(max-width:768px) {
                         .page-header#first_video {
-                            background-image: url("/wp-content/uploads/2020/02/keepPro_crOptFfset.gif") !important;
+                            background-image: url("/wp-content/uploads/2020/02/videoBG.gif") !important;
                             background-repeat: no-repeat;
                             background-size: cover !important;
                             background-position-x: 50% !important;
@@ -118,17 +118,34 @@ while (have_posts()) : the_post();
                     <div class="content-center">
                         <div class="container">
                             <?php
-            $h1_style = '';
-            if ($is_video == 1){
-              $h1_style = 'font-size: 2.5em; text-transform: none; margin: 0 auto;padding: 0 20px;';
-            }
-          ?>
+                                $h1_style = '';
+                                if ($is_video == 1){
+                                $h1_style = 'font-size: 2.5em; text-transform: none; margin: 0 auto;padding: 0 20px;';
+                                }
+                            ?>
                             <div class="row my-5">
                                 <div class="col-md-12 mx-auto text-center mb-5">
                                     <h1 class="title-uppercase text-center" id="pageName_<?= $key ?>"
                                         data-name="<?= $page_name ?>" style="<?= $h1_style ?>"><a style="color:inherit"
                                             href="<?= the_permalink($post->ID); ?>"><?= $page_name ?></a></h1>
+                                    <?php
+                                        if(!empty($mini_texts[0]['saleprice'])){
+                                    ?>
+                                    <h5><?= $mini_texts[0]['days'] ?> дней /
+                                        <div style="display: inline-block;width: 130px;position:relative;top:10px">
+                                            <span style="
+                                            opacity: 0.7;
+                                            font-size: 20px;
+                                            display: block;
+                                            text-decoration: line-through;
+                                            line-height: 1em;
+                                            "><?= $mini_texts[0]['pricerange'] ?></span>
+                                            <span style="color: yellow;"><?= $mini_texts[0]['saleprice'] ?></span>
+                                        </div>
+                                    </h5>
+                                    <?php } else { ?>
                                     <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
+                                    <?php } ?>
                                     <h3><strong><?= $table[0]['dates'] ?></strong></h3>
                                     <div class="row">
                                         <div class="col-md-6 mx-auto">

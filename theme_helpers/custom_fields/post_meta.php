@@ -34,10 +34,12 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
             ->add_fields( [
                 Field::make( 'text', 'from_to', 'откуда куда' )
                    ->set_width( 25 ),
-                  Field::make( 'text', 'pricerange', 'стоимость от' )
+                Field::make( 'text', 'pricerange', 'стоимость от' )
                      ->set_width( 25 ),
-                 Field::make( 'text', 'minitext', 'мини подпись' )
-                    ->set_width( 40 ),
+                Field::make( 'text', 'saleprice', 'скидочная цена' )
+                     ->set_width( 20 ),
+                Field::make( 'text', 'minitext', 'мини подпись' )
+                    ->set_width( 20 ),
                 Field::make( 'text', 'days', 'дней' )
                    ->set_width( 10 ),
              ])

@@ -46,7 +46,24 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     <div class="content-center">
         <div class="motto">
             <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>"><?= $page_name ?></h1>
+            <?php
+                if(!empty($mini_texts[0]['saleprice'])){
+            ?>
+            <h5><?= $mini_texts[0]['days'] ?> дней /
+                <div style="display: inline-block;width: 130px;position:relative;top:10px">
+                    <span style="
+                        opacity: 0.7;
+                        font-size: 20px;
+                        display: block;
+                        text-decoration: line-through;
+                        line-height: 1em;
+                        "><?= $mini_texts[0]['pricerange'] ?></span>
+                    <span style="color: yellow;"><?= $mini_texts[0]['saleprice'] ?></span>
+                </div>
+            </h5>
+            <?php } else { ?>
             <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
+            <?php } ?>
             <h3><strong><?= $table[0]['dates'] ?></strong></h3>
         </div>
         <div class="row my-1 my-sm-3">
