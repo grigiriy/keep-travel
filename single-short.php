@@ -261,7 +261,7 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
 
 <!-- whatsapp form -->
 <div id="wa_form" class="whatsapp_tracker"
-    onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
+    onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79854287400';">
     <div class="_header">
         <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
         <span> <?= ($is_eng == 1) ? 'Connect us:' : 'Напишите нам сообщение:' ?></span>
@@ -278,7 +278,7 @@ $is_eng =  !empty(carbon_get_post_meta($post->ID, 'is_eng'));
 <!-- end whatsapp form -->
 
 <div id="phone_btn_wrap">
-    <a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79169277027">
+    <a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79854287400">
         <img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
     </a>
 </div>

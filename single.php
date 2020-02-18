@@ -500,7 +500,7 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
 
 <!-- whatsapp form -->
 <div id="wa_form" class="whatsapp_tracker"
-    onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79169277027';">
+    onclick="window.location.href = 'https://api.whatsapp.com/send?phone=79854287400';">
     <div class="_header">
         <img src="/wp-content/uploads/2019/11/whatsapp_icon.png">
         <span> Напишите нам сообщение:</span>
@@ -535,7 +535,7 @@ $bt_bg = ( $_ttl == 'Исландия. В поисках северного си
     </div>
 </div>
 <div id="phone_btn_wrap">
-    <a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79169277027">
+    <a class="whatsapp_tracker" href="https://api.whatsapp.com/send?phone=79854287400">
         <img src="/wp-content/uploads/2019/11/whatsapp_icon.png" style="width: 50px;">
     </a>
 </div>
