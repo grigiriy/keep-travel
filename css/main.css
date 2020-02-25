@@ -12478,6 +12478,10 @@ z-index: 99999;
   /* order: 2; */
   order: 0;
 }
+._month .card._end {
+  margin-left:auto;
+  
+}
 @media(max-width:1023px) {
   ._month {
     flex-direction: column;
@@ -12669,6 +12673,9 @@ z-index: 99999;
   .__divider {
     height:70px
   }  
+  ._month .card._end {
+    margin-left:inherit;
+  }
 }
 .bigger p {
   font-size: 18px;
