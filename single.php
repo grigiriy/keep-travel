@@ -168,7 +168,8 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                                         style="background:url(<?= $image ?>);background-size: cover;background-position:center;border-radius: 12px 12px 0 0;">
                                     </div>
                                     <div class="card-body text-center">
-                                        <h5 class="card-title" style="opacity:0">
+                                        <!-- <h5 class="card-title" style="opacity:0"> -->
+                                        <h5 class="card-title">
                                             <?= $report_title ?>
                                         </h5>
                                     </div>
@@ -179,7 +180,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                     </div>
                 </div>
             </div>
-            <div class="container-fluid" style="max-width: 1900px;">
+            <div class="container-fluid pt-5" id="route" style="max-width: 1900px;">
                 <div class="row">
                     <div class="col-md-7 mx-auto"
                         <?php if ($map){echo 'style="max-width: 840px; margin-right: 0 !important;"';} ?>>
@@ -197,10 +198,13 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                     <?php } ?>
                 </div>
             </div>
-            <div class="container">
-                <div class="row mt-5">
+            <div class="container" id="important">
+                <div class="row pt-5">
                     <div class="col-md-10 align-self-end article-content">
                         <h2>Что важно знать<br><span class="strong-mob">об этом путешествии</span></h2>
+                        <h4 class="mt-3 h6" style="text-transform:none; font-weight:bold;font-size: 1.6em;"><span
+                                style="color:#51cbce">Стоимость</span> данного путешествия составляет <span
+                                style="color:#51cbce"><?= $mini_texts[0]['pricerange'] ?></span></h4>
                         <p class="mt-3">Полный список всех необходимых предметов, особых условий путешествия, информации
                             о необходимых документах и оформлении визы после оплаты путешествия.</p>
                     </div>
@@ -232,7 +236,7 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                 $about = !empty($guru[$i]['about']) ? $guru[$i]['about'] : null ;
                 $name = !empty($guru[$i]['name']) ? $guru[$i]['name'] : null ;
                 $img = !empty($guru[$i]['img']) ? $guru[$i]['img'] : null ;
-                $img = wp_get_attachment_image_url( $img, 'thumbnail' );
+                $img = wp_get_attachment_image_url( $img, 'full' );
                 if ($name): ?>
                 <div class="row mt-5">
                     <div class="col-md-3 text-center guid">
@@ -241,9 +245,9 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                     </div>
                     <div class="col-md-9 article-content">
                         <h4 class="mb-3">Ответственный за маршрут</h4>
+                        <?= $about ?>
                         <p>Этот человек создал для вас этот маршрут. Знает все секреты и особенности данного
                             путешествия, от начала до конца. </p>
-                        <?= $about ?>
                     </div>
                 </div>
                 <?php endif; ?>
@@ -641,9 +645,9 @@ $(function() {
 });
 
 
-function show_descript(e) {
-    $(e).find('h5.card-title').css('opacity', '1');
-}
+// function show_descript(e) {
+//     $(e).find('h5.card-title').css('opacity', '1');
+// }
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

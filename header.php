@@ -110,7 +110,7 @@
               $ancor = '#top';
               if(is_front_page()){ ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about" onclick="hideNav()">О нас</a>
+                        <a href="#about" class="nav-link" onclick="hideNav()">О нас</a>
                     </li>
                     <li class="nav-item">
                         <a href="#group" class="nav-link" onclick="hideNav()">Путешествия</a>
@@ -121,7 +121,13 @@
                     <?php } else {
             $ancor = '#footer'; ?>
                     <li class="nav-item">
-                        <a href="/#select" class="nav-alink" onclick="hideNav()">Путешествия</a>
+                        <a href="#detail" class="nav-link" onclick="hideNav()">Детали поездки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#route" class="nav-link" onclick="hideNav()">Как будет проходить</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#important" class="nav-link" onclick="hideNav()">Что включено</a>
                     </li>
                     <?php } ?>
                     <li class="nav-item ml-xl-auto">
@@ -146,6 +152,12 @@
                             href="https://api.whatsapp.com/send?phone=79854287400">
                             <img src="/wp-content/uploads/2019/11/whatsapp_icon.png"> WhatsApp
                         </a>
+                    </li>
+                    <li class="nav-item mob_only">
+                        <a type="button" data-target="book" onclick="show_modal(this)"
+                            class="btn btn-block btn-round mx-auto mt-3"
+                            style="background-color:coral;border:none;-webkit-appearance:none">Забронировать
+                            место</a>
                     </li>
                 </ul>
             </div>
