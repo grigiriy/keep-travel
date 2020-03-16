@@ -12,7 +12,7 @@ $mini_texts = !empty(carbon_get_post_meta($post->ID, 'mini_texts', 'complex')) ?
 $tickets_left = (carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] !== '') ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : '7' ;
 $tickets_total = !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total']) ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_total'] : '8' ;
 $videos = !empty(carbon_get_post_meta($post->ID, 'videos', 'complex')) ? carbon_get_post_meta($post->ID, 'videos', 'complex') : null ;
-
+$corona = !empty(carbon_get_post_meta($post->ID, 'corona')) ? carbon_get_post_meta($post->ID, 'corona') : null ;
 
 $is_action =  !empty(carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['sale']);
 
@@ -46,18 +46,21 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
     <div class="content-center">
         <div class="motto">
             <h1 class="title-uppercase text-center" id="pageName" data-name="<?= $page_name ?>"><?= $page_name ?></h1>
-            <?php
-                if(!empty($mini_texts[0]['saleprice'])){
-            ?>
+
+
+
+            <?php if(!$corona) { ?>
+
+            <?php if(!empty($mini_texts[0]['saleprice'])) { ?>
             <h5><?= $mini_texts[0]['days'] ?> дней /
                 <div style="display: inline-block;width: 130px;position:relative;top:10px">
                     <span style="
-                        opacity: 0.7;
-                        font-size: 20px;
-                        display: block;
-                        text-decoration: line-through;
-                        line-height: 1em;
-                        "><?= $mini_texts[0]['pricerange'] ?></span>
+                            opacity: 0.7;
+                            font-size: 20px;
+                            display: block;
+                            text-decoration: line-through;
+                            line-height: 1em;
+                            "><?= $mini_texts[0]['pricerange'] ?></span>
                     <span style="color: yellow;"><?= $mini_texts[0]['saleprice'] ?></span>
                 </div>
             </h5>
@@ -65,10 +68,16 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
             <h5><?= $mini_texts[0]['days'] ?> дней / <?= $mini_texts[0]['pricerange'] ?></h5>
             <?php } ?>
             <h3><strong><?= $table[0]['dates'] ?></strong></h3>
-        </div>
-        <div class="row my-1 my-sm-3">
-            <?php
 
+            <?php } ?>
+
+        </div>
+
+        <div class="row my-1 my-sm-3">
+
+            <?php if(!$corona) { ?>
+
+            <?php
             // $tickets_left * 1;
             // $tickets_total * 1;
             $tickets_total = ($tickets_total <= 8) ? $tickets_total : 8;
@@ -92,6 +101,12 @@ $gallery_pics = !empty(carbon_get_post_meta($post->ID, 'gallery', 'complex')) ? 
                     style="max-width: 300px;font-size: 18px;padding: 12px;background:yellow;color:#333;border: none;">Забронировать
                     место</button>
             </div>
+            <?php } else { ?>
+            <div class="col-md-12 pt-sm-3 pt-0 bigger">
+                <h2 class="title-uppercase text-center" style="color: orange; max-width: 700px; margin: 0 auto; font-size:
+                    2em;" 6>Набор в группу приостановлен в связи с распространением короновируса</h2>
+            </div>
+            <?php } ?>
         </div>
     </div>
 </div>

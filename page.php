@@ -462,9 +462,16 @@ while (have_posts()) : the_post();
             $icon = wp_get_attachment_image_url( $back_img[0]['image2'], 'full' );
             $table = !empty(carbon_get_post_meta($post->ID, 'table', 'complex')) ? carbon_get_post_meta($post->ID, 'table', 'complex')[0] : null ;
             $calend = !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')) ? carbon_get_post_meta($post->ID, 'calend', 'complex')[0] : null ;
+            
+            $corona = !empty(carbon_get_post_meta($post->ID, 'corona')) ? carbon_get_post_meta($post->ID, 'corona') : null ;
 
             $tickets_left = (carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] != '') ? carbon_get_post_meta($post->ID, 'backgrounds_post', 'complex')[0]['tickets_left'] : 'X' ;
-            $tickets_left = ($tickets_left == 0) ? 'filled' : '';
+
+            if(!$corona){
+                $tickets_left = ($tickets_left == 0) ? 'filled' : '';
+            } else {
+                $tickets_left = 'corona';
+            }
 
             $is_offset =  !empty(carbon_get_post_meta($post->ID, 'calend', 'complex')[0]['offset']);
             // $is_offset = ($is_offset == 1) ? '_offset' : '';

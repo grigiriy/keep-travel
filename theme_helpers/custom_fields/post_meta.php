@@ -8,11 +8,13 @@ Container::make( 'post_meta', 'Настройки страниц блога' )
     Field::make( 'image', 'index_image', '' )
         ->set_width( 40 ),
     Field::make( 'checkbox', 'is_video', 'Видео' )
-        ->set_width( 20 ),
+        ->set_width( 15 ),
     Field::make( 'checkbox', 'is_index', 'Выводить на главной' )
-        ->set_width( 20 ),
+        ->set_width( 15 ),
     Field::make( 'checkbox', 'is_eng', 'Англ' )
-        ->set_width( 20 ),
+        ->set_width( 15 ),
+    Field::make( 'checkbox', 'corona', '🦠' )
+        ->set_width( 15 ),
 ])
 ->add_tab( 'Главная', [
       Field::make( 'complex', 'backgrounds_post', '' )
