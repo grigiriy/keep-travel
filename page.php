@@ -360,7 +360,7 @@ while (have_posts()) : the_post();
           ];
           $posts = get_posts($args);
 
-          for ($i = 3; $i < 14; $i++) {
+          for ($i = 4; $i < 16; $i++) {
 
             switch ($i) {
               case 0:
